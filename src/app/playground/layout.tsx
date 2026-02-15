@@ -5,6 +5,7 @@ import ConceptHeader from '@/components/layout/ConceptHeader';
 import SystemStatusStrip from '@/components/layout/SystemStatusStrip';
 import { SettingsProvider } from '@/components/features/SettingsProvider';
 import { ProTour } from '@/components/features/ProTour';
+import { MarketTicker } from '@/components/features/MarketTicker';
 
 /**
  * PlaygroundLayout
@@ -22,7 +23,8 @@ export default function PlaygroundLayout({
             <ProTour />
             <div className="flex flex-col min-h-screen">
                 <ConceptHeader />
-                <main className="flex-1 flex flex-col pt-24 sm:pt-28">
+                <MarketTicker />
+                <main className="flex-1 flex flex-col pt-24 sm:pt-28 relative">
                     {children}
                 </main>
 

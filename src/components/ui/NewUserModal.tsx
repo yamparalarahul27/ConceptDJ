@@ -57,9 +57,9 @@ export default function NewUserModal({ isVisible, onChoice, walletAddress }: New
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                             >
-                                <img 
-                                    src="/assets/deriverse_j_hero_logo.png" 
-                                    alt="Deriverse Journal" 
+                                <img
+                                    src="/assets/CDJ.png"
+                                    alt="CDJ"
                                     className="h-auto"
                                     style={{ width: '180px', height: 'auto' }}
                                 />
@@ -75,12 +75,12 @@ export default function NewUserModal({ isVisible, onChoice, walletAddress }: New
                                 <h1 className="text-xl font-mono uppercase tracking-wider text-white/80 mb-6">
                                     {NewUserContent.title}
                                 </h1>
-                                
+
                                 <div className="space-y-4">
                                     <p className="text-sm leading-relaxed text-white/60 max-w-md mx-auto">
                                         {NewUserContent.description}
                                     </p>
-                                    
+
                                     {/* Wallet Address Display */}
                                     <div className="mt-4 p-3 bg-white/5 border border-white/10 rounded-none">
                                         <p className="text-xs text-zinc-400 uppercase tracking-wider mb-1">Your Wallet</p>
@@ -96,8 +96,8 @@ export default function NewUserModal({ isVisible, onChoice, walletAddress }: New
                                 <WelcomeButton onClick={handleSignup}>
                                     {NewUserContent.primaryButton}
                                 </WelcomeButton>
-                                
-                                <button 
+
+                                <button
                                     className="text-white text-sm font-mono hover:text-white/80 transition-colors cursor-pointer"
                                     onClick={handleGoBack}
                                 >

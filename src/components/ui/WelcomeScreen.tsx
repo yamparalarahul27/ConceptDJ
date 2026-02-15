@@ -70,8 +70,8 @@ export const WelcomeScreen = ({ onComplete, isVisible }: WelcomeScreenProps) => 
                                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                             >
                                 <img
-                                    src="/assets/deriverse_j_hero_logo.png"
-                                    alt="Deriverse Journal"
+                                    src="/assets/CDJ.png"
+                                    alt="CDJ"
                                     className="h-auto"
                                     style={{ width: '180px', height: 'auto' }}
                                 />

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { DeriverseLogo } from '../layout/DeriverseLogo';
+import { CDJLogo } from '../layout/CDJLogo';
 import type { TabType } from '../layout/TabNavigation';
 import WelcomeScreen from './WelcomeScreen';
 
@@ -134,7 +134,7 @@ export default function LoadingScreen() {
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.8, ease: "easeInOut" }}
                         >
-                            <DeriverseLogo />
+                            <CDJLogo />
                         </motion.div>
                     )}
                 </motion.div>

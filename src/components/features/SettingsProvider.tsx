@@ -18,6 +18,7 @@ interface SettingsState {
     compactMode: boolean;
     showBenchmarkBTC: boolean;
     playerName: string;
+    aiPersonality: 'zen' | 'aggressive' | 'analytical';
 }
 
 const DEFAULT_SETTINGS: SettingsState = {
@@ -29,6 +30,7 @@ const DEFAULT_SETTINGS: SettingsState = {
     compactMode: false,
     showBenchmarkBTC: true,
     playerName: 'TRADER_X',
+    aiPersonality: 'analytical',
 };
 
 interface SettingsContextType {

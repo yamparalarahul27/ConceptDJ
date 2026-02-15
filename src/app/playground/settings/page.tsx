@@ -52,6 +52,31 @@ export default function SettingsPage() {
                                     className="w-full bg-white/5 border border-white/10 p-3 rounded-none text-white font-mono text-xs focus:border-purple-500 outline-none transition-colors"
                                 />
                             </div>
+
+                            <div>
+                                <label className="text-[9px] font-mono text-white/20 uppercase block mb-2">AI Coaching Personality</label>
+                                <div className="grid grid-cols-1 gap-2">
+                                    {(['zen', 'aggressive', 'analytical'] as const).map((style) => (
+                                        <button
+                                            key={style}
+                                            onClick={() => updateSetting('aiPersonality', style)}
+                                            className={`p-3 border text-left transition-all ${settings.aiPersonality === style
+                                                    ? 'border-purple-500 bg-purple-500/10 text-white'
+                                                    : 'border-white/5 bg-white/[0.02] text-white/40'
+                                                }`}
+                                        >
+                                            <div className="flex flex-col">
+                                                <span className="text-[10px] font-mono uppercase font-bold">{style}</span>
+                                                <span className="text-[8px] font-mono opacity-60">
+                                                    {style === 'zen' && 'Long-term focused, calm signals'}
+                                                    {style === 'aggressive' && 'High-performance focus, low tolerance'}
+                                                    {style === 'analytical' && 'Deep statistics and MAE/MFE focus'}
+                                                </span>
+                                            </div>
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     </div>
 

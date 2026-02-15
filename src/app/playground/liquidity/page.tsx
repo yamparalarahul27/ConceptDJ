@@ -3,6 +3,7 @@
 import React from 'react';
 import { LiquidityHeatmap } from '@/components/features/LiquidityHeatmap';
 import { OrderbookWidget } from '@/components/features/OrderbookWidget';
+import { ImpermanentLossCalculator } from '@/components/features/ImpermanentLossCalculator';
 import { Zap, Activity, Info, BarChart } from 'lucide-react';
 import { useSettings } from '@/components/features/SettingsProvider';
 
@@ -94,13 +95,6 @@ export default function LiquidityPage() {
                             </div>
                             <BarChart className="text-blue-400/20 group-hover:text-blue-400 transition-colors" size={20} />
                         </div>
-                    </div>
-                </div>
-
-                {/* Right: Orderbook & Detail (4/12) */}
-                <div className="lg:col-span-4 space-y-8">
-                    <div className="h-[520px]">
-                        <OrderbookWidget bids={MOCK_BIDS} asks={MOCK_ASKS} />
                     </div>
 
                     {/* Educational Widget */}

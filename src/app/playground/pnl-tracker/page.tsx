@@ -5,6 +5,8 @@ import { PaperHandsChart } from '../../../components/features/PaperHandsChart';
 import { ExecutionQualityChart } from '../../../components/features/ExecutionQualityChart';
 import { PnLHeatmap } from '../../../components/features/PnLHeatmap';
 import { useSettings } from '../../../components/features/SettingsProvider';
+import LargestTradesCard from '../../../components/features/LargestTradesCard';
+import { generateMockTrades } from '../../../lib/mockData';
 
 // ... DATA TYPES ...
 interface ChartPoint {
@@ -142,6 +144,17 @@ export default function ProPnLTrackerPage() {
                         </div>
                     )}
                 </div>
+
+                {/* Performance Outliers Section */}
+                <section className="space-y-6">
+                    <div className="flex items-center gap-3">
+                        <div className="w-1.5 h-1.5 bg-red-500 rounded-none"></div>
+                        <h2 className="text-xs font-mono font-bold text-white uppercase tracking-[0.2em]">Extreme Variance Analysis</h2>
+                    </div>
+                    <div className="grid grid-cols-1 gap-8">
+                        <LargestTradesCard trades={generateMockTrades()} />
+                    </div>
+                </section>
 
                 {/* Table Area */}
                 <div className="bg-white/5 border border-white/10 rounded-none overflow-hidden">

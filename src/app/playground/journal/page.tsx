@@ -4,8 +4,10 @@ import React, { useState } from 'react';
 import { AITiltMeter } from '@/components/features/AITiltMeter';
 import { PsychologicalBiasTracker } from '@/components/features/PsychologicalBiasTracker';
 import { ProJournalEntry } from '@/components/features/ProJournalEntry';
-import { Brain, Sliders, Info, LineChart } from 'lucide-react';
+import { Brain, Sliders, Info, LineChart, Target, Zap } from 'lucide-react';
 import { useSettings } from '@/components/features/SettingsProvider';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
+import { AIBehavioralCoach } from '@/components/features/AIBehavioralCoach';
 
 // --- MOCK DATA ---
 const BIAS_DATA = [
@@ -15,6 +17,14 @@ const BIAS_DATA = [
     { subject: 'Overconfidence', A: 65, fullMark: 100 },
     { subject: 'Loss Aversion', A: 75, fullMark: 100 },
     { subject: 'Hesitation', A: 20, fullMark: 100 },
+];
+
+const STRATEGY_ALPHA_DATA = [
+    { subject: 'Breakout', A: 120, B: 110, fullMark: 150 },
+    { subject: 'Mean Rev', A: 98, B: 130, fullMark: 150 },
+    { subject: 'Trend Fold', A: 86, B: 130, fullMark: 150 },
+    { subject: 'Scapping', A: 99, B: 100, fullMark: 150 },
+    { subject: 'News-Based', A: 85, B: 90, fullMark: 150 },
 ];
 
 const JOURNAL_ENTRIES = [
@@ -92,13 +102,71 @@ export default function ProJournalPage() {
             )}
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                {/* Bias Discovery (4/12) */}
-                <div className="lg:col-span-12 xl:col-span-4">
+                {/* Behavioral Analysis (4/12) */}
+                <div className="lg:col-span-12 xl:col-span-4 space-y-8">
                     <PsychologicalBiasTracker data={BIAS_DATA} />
+
+                    {/* Strategy Alpha Radar */}
+                    <div className="bg-white/5 border border-white/10 p-6 rounded-none relative overflow-hidden group">
+                        <div className="flex items-center justify-between mb-6">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-blue-500/10 border border-blue-500/20 text-blue-400">
+                                    <Target size={16} />
+                                </div>
+                                <div>
+                                    <h3 className="text-xs font-mono font-bold text-white uppercase tracking-widest">Strategy Alpha</h3>
+                                    <p className="text-[9px] font-mono text-white/30 uppercase">Edge Distribution by Tag</p>
+                                </div>
+                            </div>
+                            <div className="text-right">
+                                <span className="text-[10px] font-mono text-green-400 block">+12.4%</span>
+                                <span className="text-[8px] font-mono text-white/20 uppercase tracking-tighter">vs Peer Group</span>
+                            </div>
+                        </div>
+
+                        <div className="h-[250px] w-full mt-4">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <RadarChart cx="50%" cy="50%" outerRadius="70%" data={STRATEGY_ALPHA_DATA}>
+                                    <PolarGrid stroke="#ffffff10" />
+                                    <PolarAngleAxis
+                                        dataKey="subject"
+                                        tick={{ fill: '#ffffff40', fontSize: 10, fontFamily: 'monospace' }}
+                                    />
+                                    <Radar
+                                        name="Current"
+                                        dataKey="A"
+                                        stroke="#3b82f6"
+                                        fill="#3b82f6"
+                                        fillOpacity={0.5}
+                                    />
+                                    <Radar
+                                        name="Benchmark"
+                                        dataKey="B"
+                                        stroke="#ffffff20"
+                                        fill="#ffffff10"
+                                        fillOpacity={0.3}
+                                    />
+                                </RadarChart>
+                            </ResponsiveContainer>
+                        </div>
+
+                        <div className="mt-4 pt-4 border-t border-white/5 grid grid-cols-2 gap-4">
+                            <div className="flex items-center gap-2">
+                                <div className="w-2 h-2 bg-blue-500"></div>
+                                <span className="text-[9px] font-mono text-white/40 uppercase">Your Alpha</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <div className="w-2 h-2 bg-white/20"></div>
+                                <span className="text-[9px] font-mono text-white/40 uppercase">Global Avg</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Journal Feed (8/12) */}
-                <div className="lg:col-span-12 xl:col-span-8 flex flex-col">
+                <div className="lg:col-span-12 xl:col-span-8 flex flex-col space-y-8">
+                    <AIBehavioralCoach />
+
                     <div className="flex justify-between items-center mb-6 px-4 py-2 border-l border-white/20 bg-white/5">
                         <h3 className="text-xs font-mono font-bold text-white uppercase tracking-[0.2em] flex items-center gap-2">
                             Recent Behavioral Logs

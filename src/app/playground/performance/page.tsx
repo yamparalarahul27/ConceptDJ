@@ -3,6 +3,13 @@
 import React from 'react';
 import { AssetBenchmarkChart } from '@/components/features/AssetBenchmarkChart';
 import { ExecutionEfficiencyWidget } from '@/components/features/ExecutionEfficiencyWidget';
+import { RiskAnalyser } from '@/components/features/RiskAnalyser';
+import { DirectionalBias } from '@/components/features/DirectionalBias';
+import { MarketVolatilityCard } from '@/components/features/MarketVolatilityCard';
+import TimeBasedPerformanceCard from '@/components/features/TimeBasedPerformanceCard';
+import FeeDistribution from '@/components/features/FeeDistribution';
+import { generateMockTrades, calculateFeeBreakdown } from '@/lib/mockData';
+import { FundingHeatmap } from '@/components/features/FundingHeatmap';
 
 // --- MOCK PERFORMANCE DATA ---
 const MOCK_BENCHMARK_DATA = [
@@ -58,6 +65,41 @@ export default function PerformancePage() {
                 {/* Right: Asset Class breakdown (4/12) */}
                 <div className="lg:col-span-4">
                     <ExecutionEfficiencyWidget data={MOCK_EFFICIENCY_DATA} />
+                </div>
+            </div>
+
+            {/* Deep Risk & Bias Analysis */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div className="lg:col-span-4">
+                    <RiskAnalyser />
+                </div>
+                <div className="lg:col-span-4">
+                    <DirectionalBias />
+                </div>
+                <div className="lg:col-span-4">
+                    <MarketVolatilityCard />
+                </div>
+            </div>
+
+            {/* Temporal & Fee Analysis */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div className="lg:col-span-8">
+                    <TimeBasedPerformanceCard trades={generateMockTrades()} minHeight="h-[400px]" chartHeightClass="h-[300px]" />
+                </div>
+                <div className="lg:col-span-4">
+                    <FeeDistribution
+                        summary={{
+                            feeComposition: calculateFeeBreakdown(generateMockTrades()),
+                            cumulativeFees: 1240.50
+                        }}
+                    />
+                </div>
+            </div>
+
+            {/* Funding Volatility Section */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div className="lg:col-span-12">
+                    <FundingHeatmap />
                 </div>
             </div>
 
