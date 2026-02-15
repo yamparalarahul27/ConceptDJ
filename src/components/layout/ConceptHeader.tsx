@@ -4,12 +4,18 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Button } from '@/components/ui/button';
+import { ChevronDown } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const CONCEPTS = [
+    { name: 'Concept Overview', path: '/playground' },
     { name: 'Pro PnL Tracker', path: '/playground/pnl-tracker' },
     { name: 'Deep Performance', path: '/playground/performance' },
     { name: 'Trading Journal', path: '/playground/journal' },
     { name: 'Liquidity Analyser', path: '/playground/liquidity' },
+    { name: 'Advanced Charts', path: '/playground/tradingview-integration' },
     { name: 'Collective Settings', path: '/playground/settings' },
 ];
 
@@ -39,19 +45,37 @@ export default function ConceptHeader() {
                 </div>
 
                 <div className="relative flex-1 max-w-xs">
-                    <select
-                        value={pathname}
-                        onChange={handleChange}
-                        className="appearance-none bg-white/5 border border-white/10 rounded-none pl-4 pr-10 py-3 text-sm text-white focus:outline-none focus:border-purple-500/50 hover:bg-white/10 transition-colors cursor-pointer w-full"
-                    >
-                        <option value="/">Select a Concept...</option>
-                        {CONCEPTS.map(c => (
-                            <option key={c.path} value={c.path}>{c.name}</option>
-                        ))}
-                    </select>
-                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-white/50">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
-                    </div>
+                    <Popover>
+                        <PopoverTrigger asChild>
+                            <Button
+                                variant="outline"
+                                className="w-full justify-between px-4 py-6 font-normal rounded-none border-white/10 bg-white/5 hover:bg-white/10 text-white transition-all group"
+                            >
+                                <span className="truncate">
+                                    {CONCEPTS.find(c => c.path === pathname)?.name || 'Select a Concept...'}
+                                </span>
+                                <ChevronDown className="h-4 w-4 text-white/50 group-hover:text-white transition-colors" />
+                            </Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-[280px] p-2 bg-black/90 backdrop-blur-2xl border-white/10 rounded-none shadow-2xl" align="end">
+                            <div className="space-y-1">
+                                {CONCEPTS.map(c => (
+                                    <button
+                                        key={c.path}
+                                        onClick={() => router.push(c.path)}
+                                        className={cn(
+                                            "w-full text-left px-3 py-2 text-sm font-mono transition-colors rounded-none",
+                                            pathname === c.path
+                                                ? "bg-purple-500/20 text-purple-400 border-l-2 border-purple-500 pl-2.5"
+                                                : "text-white/60 hover:text-white hover:bg-white/5"
+                                        )}
+                                    >
+                                        {c.name}
+                                    </button>
+                                ))}
+                            </div>
+                        </PopoverContent>
+                    </Popover>
                 </div>
             </div>
         </header>

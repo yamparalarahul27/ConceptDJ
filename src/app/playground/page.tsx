@@ -38,6 +38,14 @@ const CONCEPTS = [
         color: 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20'
     },
     {
+        name: 'Advanced Charts',
+        description: 'Interactive TradingView lightweight charts for technical analysis.',
+        path: '/playground/tradingview-integration',
+        icon: BarChart2,
+        status: 'READY',
+        color: 'bg-pink-500/10 text-pink-400 border-pink-500/20'
+    },
+    {
         name: 'Collective Settings',
         description: 'Customize your Pro experience, theme adjustments, and UI preferences.',
         path: '/playground/settings',

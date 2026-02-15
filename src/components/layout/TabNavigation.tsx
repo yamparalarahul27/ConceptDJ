@@ -10,11 +10,12 @@ import HelpScreen from '../features/HelpScreen';
 import RoadmapScreen from '../features/RoadmapScreen';
 import { GlassmorphismNavbar, NavItem } from './GlassmorphismNavbar';
 import Footer from './Footer';
+import TradingViewIntegrationPage from '../../app/playground/tradingview-integration/page';
 
-export type TabType = 'dashboard' | 'lookup' | 'journal' | 'appdocs' | 'help' | 'roadmap' | 'profile-settings';
+export type TabType = 'dashboard' | 'lookup' | 'journal' | 'tradingview' | 'appdocs' | 'help' | 'roadmap' | 'profile-settings';
 
 const DEFAULT_TAB: TabType = 'dashboard';
-const PERSISTABLE_TABS: TabType[] = ['dashboard', 'lookup', 'journal', 'appdocs', 'help', 'roadmap', 'profile-settings'];
+const PERSISTABLE_TABS: TabType[] = ['dashboard', 'lookup', 'journal', 'tradingview', 'appdocs', 'help', 'roadmap', 'profile-settings'];
 
 /**
  * TabNavigation Component
@@ -86,6 +87,12 @@ export default function TabNavigation() {
             onClick: () => setActiveTab('lookup')
         },
         {
+            title: 'Charts',
+            href: '#tradingview',
+            category: 'main',
+            onClick: () => setActiveTab('tradingview')
+        },
+        {
             title: 'About',
             href: '#appdocs',
             category: 'dropdown',
@@ -119,6 +126,8 @@ export default function TabNavigation() {
                 return <TradeHistory onSwitchToRealData={handleSwitchToRealData} />;
             case 'journal':
                 return <Journal network={network} analyzingWallet={analyzingWallet} onNavigateToLookup={() => setActiveTab('lookup')} />;
+            case 'tradingview':
+                return <TradingViewIntegrationPage />;
             case 'appdocs':
                 return <AboutScreen />;
             case 'help':
