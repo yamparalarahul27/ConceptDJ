@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import TabNavigation from '@/components/layout/TabNavigation';
+import ConceptHeader from '@/components/layout/ConceptHeader';
 import SystemStatusStrip from '@/components/layout/SystemStatusStrip';
 
 /**
@@ -15,11 +15,10 @@ export default function PlaygroundLayout({
 }: {
     children: React.ReactNode;
 }) {
-    // Note: TabNavigation currently has its own header (GlassmorphismNavbar)
-    // In a future phase, we might separate the navigation from the screens.
     return (
         <div className="flex flex-col min-h-screen">
-            <main className="flex-1 flex flex-col">
+            <ConceptHeader />
+            <main className="flex-1 flex flex-col pt-24 sm:pt-28">
                 {children}
             </main>
 

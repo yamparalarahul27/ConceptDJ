@@ -6,7 +6,11 @@ import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 
 const CONCEPTS = [
-    { name: 'Pro PnL Tracker', path: '/pro-screens' },
+    { name: 'Pro PnL Tracker', path: '/playground/pnl-tracker' },
+    { name: 'Deep Performance', path: '/playground/performance' },
+    { name: 'Trading Journal', path: '/playground/journal' },
+    { name: 'Liquidity Analyser', path: '/playground/liquidity' },
+    { name: 'Collective Settings', path: '/playground/settings' },
 ];
 
 export default function ConceptHeader() {

@@ -20,3 +20,10 @@
 - Update `Backend.md` or `Frontend_UIUX.md` if architectural changes are made.
 - Keep `task.md` updated as the source of truth for progress.
 
+## Page Feedback: /playground/performance
+**Viewport:** 1512×802
+
+### 1. select
+**Location:** .fixed > .bg-black/80 > .relative > .appearance-none
+**Feedback:** Component
+So that user can Explore. by switching
