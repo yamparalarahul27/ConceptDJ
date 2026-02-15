@@ -5,6 +5,7 @@ import { AITiltMeter } from '@/components/features/AITiltMeter';
 import { PsychologicalBiasTracker } from '@/components/features/PsychologicalBiasTracker';
 import { ProJournalEntry } from '@/components/features/ProJournalEntry';
 import { Brain, Sliders, Info, LineChart } from 'lucide-react';
+import { useSettings } from '@/components/features/SettingsProvider';
 
 // --- MOCK DATA ---
 const BIAS_DATA = [
@@ -44,13 +45,16 @@ const JOURNAL_ENTRIES = [
 ];
 
 export default function ProJournalPage() {
+    const { settings } = useSettings();
     const [tiltLevel, setTiltLevel] = useState(78); // High tilt for demonstration
 
     return (
-        <div className="max-w-7xl mx-auto py-4 space-y-8 pb-24 px-6">
+        <div className={`max-w-7xl mx-auto py-4 space-y-8 pb-24 px-6 ${settings.compactMode ? 'scale-[0.98] origin-top' : ''}`}>
             <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div className="flex flex-col gap-2">
-                    <h1 className="text-3xl font-bold text-white uppercase tracking-tighter text-heading-32">Psychological Edge</h1>
+                    <h1 className="text-3xl font-bold text-white uppercase tracking-tighter text-heading-32">
+                        {settings.playerName}'s Psychological Edge
+                    </h1>
                     <div className="flex items-center gap-3">
                         <div className="flex items-center gap-2 text-purple-400 text-[10px] font-mono uppercase tracking-widest">
                             <Brain size={12} />
@@ -58,7 +62,7 @@ export default function ProJournalPage() {
                         </div>
                         <span className="text-white/20">•</span>
                         <div className="text-white/40 text-[10px] font-mono uppercase tracking-widest">
-                            SESSION REFLECTION V2.4
+                            SESSION REFLECTION v2.4
                         </div>
                     </div>
                 </div>
@@ -81,9 +85,11 @@ export default function ProJournalPage() {
             </header>
 
             {/* AI Tilt Meter - Full Width Hero */}
-            <section>
-                <AITiltMeter tiltLevel={tiltLevel} />
-            </section>
+            {settings.showAITiltMeter && (
+                <section>
+                    <AITiltMeter tiltLevel={tiltLevel} />
+                </section>
+            )}
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 {/* Bias Discovery (4/12) */}

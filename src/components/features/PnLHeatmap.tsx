@@ -31,7 +31,7 @@ export const PnLHeatmap: React.FC<PnLHeatmapProps> = ({ data }) => {
         <div className="bg-white/5 border border-white/10 p-6 rounded-none">
             <h3 className="text-xs font-mono font-bold text-white uppercase tracking-wider mb-6">PnL Intensity Heatmap</h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-8">
                 {monthsToShow.map((monthDate, mIdx) => {
                     const start = startOfMonth(monthDate);
                     const end = endOfMonth(monthDate);

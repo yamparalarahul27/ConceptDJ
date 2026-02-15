@@ -4,6 +4,7 @@ import React from 'react';
 import { LiquidityHeatmap } from '@/components/features/LiquidityHeatmap';
 import { OrderbookWidget } from '@/components/features/OrderbookWidget';
 import { Zap, Activity, Info, BarChart } from 'lucide-react';
+import { useSettings } from '@/components/features/SettingsProvider';
 
 // --- MOCK LIQUIDITY DATA ---
 const MOCK_ASKS = [
@@ -28,11 +29,14 @@ const MOCK_BIDS = [
  * Part of the "Pro Playground" Phase 5.
  */
 export default function LiquidityPage() {
+    const { settings } = useSettings();
     return (
-        <div className="max-w-7xl mx-auto py-4 space-y-8 pb-24 px-6">
+        <div className={`max-w-7xl mx-auto py-4 space-y-8 pb-24 px-6 ${settings.compactMode ? 'scale-[0.98] origin-top' : ''}`}>
             <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div className="flex flex-col gap-2">
-                    <h1 className="text-3xl font-bold text-white uppercase tracking-tighter text-heading-32">Liquidity Analyser</h1>
+                    <h1 className="text-3xl font-bold text-white uppercase tracking-tighter text-heading-32">
+                        {settings.playerName}'s Liquidity Analyser
+                    </h1>
                     <div className="flex items-center gap-3">
                         <div className="flex items-center gap-2 text-pink-400 text-[10px] font-mono uppercase tracking-widest">
                             <Zap size={12} className="animate-pulse" />
@@ -65,7 +69,7 @@ export default function LiquidityPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 {/* Left: Heatmap visualization (8/12) */}
                 <div className="lg:col-span-8 flex flex-col gap-8">
-                    <LiquidityHeatmap height={450} />
+                    {settings.showLiquidityHeatmap && <LiquidityHeatmap height={450} />}
 
                     {/* Depth Metrics Row */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

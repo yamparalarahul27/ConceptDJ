@@ -4,8 +4,9 @@ import React from 'react';
 import { PaperHandsChart } from '../../../components/features/PaperHandsChart';
 import { ExecutionQualityChart } from '../../../components/features/ExecutionQualityChart';
 import { PnLHeatmap } from '../../../components/features/PnLHeatmap';
+import { useSettings } from '../../../components/features/SettingsProvider';
 
-// --- DATA TYPES ---
+// ... DATA TYPES ...
 interface ChartPoint {
     date: string;
     value: number;
@@ -50,12 +51,15 @@ const MOCK_TRADES: Trade[] = [
 ];
 
 export default function ProPnLTrackerPage() {
+    const { settings } = useSettings();
     return (
         <div className="px-3 sm:px-6">
-            <div className="max-w-7xl mx-auto py-4 space-y-8 pb-24 px-6">
+            <div className={`max-w-7xl mx-auto py-4 space-y-8 pb-24 px-6 ${settings.compactMode ? 'scale-[0.98] origin-top' : ''}`}>
                 <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
-                        <h1 className="text-3xl font-bold text-white mb-2 uppercase tracking-tighter text-heading-32">Pro PnL Analytics</h1>
+                        <h1 className="text-3xl font-bold text-white mb-2 uppercase tracking-tighter text-heading-32">
+                            {settings.playerName}'s PnL Analytics
+                        </h1>
                         <div className="flex items-center gap-2 text-white/50 text-[10px] font-mono uppercase tracking-widest">
                             <span className="w-2 h-2 rounded-none bg-green-500"></span>
                             <span>Live Concept Preview</span>
@@ -75,7 +79,7 @@ export default function ProPnLTrackerPage() {
                 {/* Main Section: Equity & Execution */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {/* Paper Hands Tracker (2/3 width) */}
-                    <div className="lg:col-span-2 space-y-4">
+                    <div className={`${settings.showMAEFE ? 'lg:col-span-2' : 'lg:col-span-3'} space-y-4`}>
                         <div className="bg-white/5 border border-white/10 p-6 rounded-none relative">
                             <div className="flex items-center justify-between mb-8">
                                 <div className="flex flex-col gap-1">
@@ -103,9 +107,11 @@ export default function ProPnLTrackerPage() {
                     </div>
 
                     {/* Execution Quality (1/3 width) */}
-                    <div className="lg:col-span-1">
-                        <ExecutionQualityChart data={MOCK_TRADES_MAE_MFE} height={428} />
-                    </div>
+                    {settings.showMAEFE && (
+                        <div className="lg:col-span-1">
+                            <ExecutionQualityChart data={MOCK_TRADES_MAE_MFE} height={428} />
+                        </div>
+                    )}
                 </div>
 
                 {/* Stats & Heatmap Section */}
@@ -130,9 +136,11 @@ export default function ProPnLTrackerPage() {
                     </div>
 
                     {/* Heatmap Section */}
-                    <div className="lg:col-span-3">
-                        <PnLHeatmap data={[]} />
-                    </div>
+                    {settings.showPnLHeatmap && (
+                        <div className="lg:col-span-3">
+                            <PnLHeatmap data={[]} />
+                        </div>
+                    )}
                 </div>
 
                 {/* Table Area */}

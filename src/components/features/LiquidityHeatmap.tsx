@@ -68,12 +68,12 @@ export const LiquidityHeatmap: React.FC<LiquidityHeatmapProps> = ({ height = 500
 
             <div className="relative flex-1" style={{ minHeight: height - 100 }}>
                 {/* DISCRETE BLOCK OPTION (Selected) */}
-                <div className="grid grid-cols-30 gap-px h-full w-full" style={{ gridTemplateColumns: 'repeat(30, 1fr)' }}>
+                <div className="grid grid-cols-15 sm:grid-cols-30 gap-px h-full w-full" style={{ gridTemplateColumns: 'repeat(var(--cols, 30), 1fr)' }}>
                     {heatmapData.map((row, rIdx) => (
                         row.map((val, cIdx) => (
                             <div
                                 key={`cell-${rIdx}-${cIdx}`}
-                                className="w-full h-full transition-colors duration-500"
+                                className={`w-full h-full transition-colors duration-500 ${cIdx >= 15 ? 'hidden sm:block' : ''}`}
                                 style={{ backgroundColor: getIntensityColor(val) }}
                                 title={`Intensity: ${(val * 100).toFixed(0)}%`}
                             />

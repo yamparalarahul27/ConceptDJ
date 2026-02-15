@@ -98,6 +98,21 @@ export const ExecutionQualityChart: React.FC<ExecutionQualityChartProps> = ({ da
                         />
                     </ScatterChart>
                 </ResponsiveContainer>
+
+                {/* Mobile Fallback */}
+                <div className="sm:hidden flex flex-col justify-center items-center h-full text-center p-4">
+                    <div className="text-[10px] font-mono text-white/40 uppercase mb-4">View restricted on mobile</div>
+                    <div className="grid grid-cols-2 gap-4 w-full">
+                        <div className="p-3 bg-white/5 border border-white/10">
+                            <span className="text-[8px] text-white/20 uppercase block">Avg MAE</span>
+                            <span className="text-sm font-bold text-red-400 font-pixel">-$120</span>
+                        </div>
+                        <div className="p-3 bg-white/5 border border-white/10">
+                            <span className="text-[8px] text-white/20 uppercase block">Avg MFE</span>
+                            <span className="text-sm font-bold text-green-400 font-pixel">+$450</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
