@@ -9,12 +9,12 @@ import '@pqina/flip/dist/flip.min.css';
 import { Agentation } from "agentation";
 import LoadingScreen from "@/components/ui/LoadingScreen";
 import MobileRestrictedView from "@/components/layout/MobileRestrictedView";
-import Providers from "./providers";
+import ConceptHeader from "@/components/layout/ConceptHeader";
 import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
-  title: "Deriverse",
-  description: "Deriverse Trade Lookup and Analytics Platform",
+  title: "CDJ",
+  description: "CDJ Trade Lookup and Analytics Platform",
 };
 
 export default function RootLayout({
@@ -31,14 +31,16 @@ export default function RootLayout({
           ${GeistMono.variable} 
           ${GeistPixelGrid.variable} 
           antialiased
+          bg-[#0D0D21] text-white selection:bg-purple-500/30 flex flex-col min-h-screen
         `}
       >
-        <Providers>
-          <div className="hidden md:block h-full">
-            {children}
-          </div>
-          <LoadingScreen />
-        </Providers>
+        <MobileRestrictedView />
+        <ConceptHeader />
+        <main className="flex-1 relative overflow-auto">
+          {children}
+        </main>
+
+        <LoadingScreen />
         <Toaster
           position="top-right"
           theme="dark"

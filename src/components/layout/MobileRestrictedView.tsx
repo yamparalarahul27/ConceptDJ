@@ -15,7 +15,7 @@ export default function MobileRestrictedView() {
             <div className="mb-8">
                 <Image
                     src="/assets/deriverse_j_hero_logo.png"
-                    alt="Deriverse hero logo"
+                    alt="CDJ Logo"
                     width={180}
                     height={56}
                     priority
@@ -31,7 +31,7 @@ export default function MobileRestrictedView() {
                     <div className="p-4 flex items-center justify-center">
                         <Image
                             src="/assets/deriverse_desktop_icon.png"
-                            alt="Deriverse desktop icon"
+                            alt="CDJ Icon"
                             width={192}
                             height={192}
                         />
