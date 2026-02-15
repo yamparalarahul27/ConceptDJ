@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 
 const CONCEPTS = [
-    { name: 'Pro PnL Tracker', path: '/pro-pnl-tracker' },
+    { name: 'Pro PnL Tracker', path: '/pro-screens' },
 ];
 
 export default function ConceptHeader() {
@@ -32,16 +32,6 @@ export default function ConceptHeader() {
                         <span className="text-sm font-medium whitespace-nowrap">Visit Deriverse Journal [Alpha]</span>
                     </Link>
 
-                    <Link href="/" className="flex items-center gap-3">
-                        <Image
-                            src="/assets/deriverse_desktop_icon.png"
-                            alt="CDJ"
-                            width={32}
-                            height={32}
-                            className="w-8 h-8 rounded-none"
-                        />
-                        <span className="font-bold text-lg tracking-tight">Concepts</span>
-                    </Link>
                 </div>
 
                 <div className="relative flex-1 max-w-xs">
