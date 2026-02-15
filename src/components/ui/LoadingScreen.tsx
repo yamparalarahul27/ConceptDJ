@@ -5,9 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { DeriverseLogo } from '../layout/DeriverseLogo';
 import type { TabType } from '../layout/TabNavigation';
 import WelcomeScreen from './WelcomeScreen';
-import DeriverseWalletAsk from './DeriverseWalletAsk';
 
-type LoadingPhase = 'welcome' | 'wallet-ask' | 'logo' | 'complete';
+type LoadingPhase = 'welcome' | 'logo' | 'complete';
 
 // Navigation event types
 type NavigationEvent = {
@@ -109,34 +108,9 @@ export default function LoadingScreen() {
     }, [isVisible]);
 
     const handleWelcomeComplete = () => {
-        setCurrentPhase('wallet-ask');
-    };
-
-    const handleNavigateToDashboard = () => {
-        // Navigate to dashboard tab
-        dispatchTabChange('dashboard');
         setCurrentPhase('logo');
     };
 
-    const handleNavigateToLookup = (walletAddress: string) => {
-        // Navigate to lookup tab with wallet address
-        dispatchTabChange('lookup');
-        setCurrentPhase('logo');
-    };
-
-    const handleReturnToWelcome = () => {
-        dispatchShowWelcome();
-    };
-
-    const handleWalletChoice = (choice: 'wallet' | 'mock') => {
-        // Route users to lookup (wallet) or dashboard (mock) tabs
-        const nextTab: TabType = choice === 'wallet' ? 'lookup' : 'dashboard';
-        dispatchTabChange(nextTab);
-
-        // Both choices now lead to the logo animation
-        // The actual wallet connection/data fetching happens in the app
-        setCurrentPhase('logo');
-    };
 
     return (
         <AnimatePresence>
@@ -152,15 +126,6 @@ export default function LoadingScreen() {
                         onComplete={handleWelcomeComplete}
                     />
 
-                    {/* Wallet Ask Phase */}
-                    {currentPhase === 'wallet-ask' && (
-                        <DeriverseWalletAsk
-                            onChoice={handleWalletChoice}
-                            onNavigateToDashboard={handleNavigateToDashboard}
-                            onNavigateToLookup={handleNavigateToLookup}
-                            onReturnToWelcome={handleReturnToWelcome}
-                        />
-                    )}
 
                     {/* Logo Animation Phase */}
                     {currentPhase === 'logo' && (

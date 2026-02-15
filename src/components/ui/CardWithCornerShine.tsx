@@ -136,7 +136,7 @@ export const CardWithCornerShine = ({
     const containerClasses = [
         'group relative',
         minHeight,
-        'rounded-[0px]',
+        'rounded-none]',
         bgOpacityClass,
         'bg-black/10',
         'border border-white/10',

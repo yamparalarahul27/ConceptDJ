@@ -42,7 +42,7 @@ export default function UnsavedChangesModal({
                             className="relative w-full max-w-md"
                         >
                             {/* Glassmorphism Container */}
-                            <div className="relative overflow-hidden rounded-lg border border-white/10 bg-[#0D0D21]/95 backdrop-blur-xl shadow-2xl">
+                            <div className="relative overflow-hidden rounded-none border border-white/10 bg-[#0D0D21]/95 backdrop-blur-xl shadow-2xl">
                                 {/* Corner Accents */}
                                 <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-blue-400/40"></div>
                                 <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-blue-400/40"></div>
@@ -53,7 +53,7 @@ export default function UnsavedChangesModal({
                                 <div className="relative z-10 p-6">
                                     {/* Icon */}
                                     <div className="mb-4 flex justify-center">
-                                        <div className="rounded-full bg-blue-500/10 p-3">
+                                        <div className="rounded-none bg-blue-500/10 p-3">
                                             <svg
                                                 className="h-6 w-6 text-blue-400"
                                                 fill="none"
@@ -84,19 +84,19 @@ export default function UnsavedChangesModal({
                                     <div className="flex gap-3">
                                         <button
                                             onClick={onDiscard}
-                                            className="flex-1 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-medium text-white/80 transition-colors hover:bg-white/10"
+                                            className="flex-1 rounded-none border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-medium text-white/80 transition-colors hover:bg-white/10"
                                         >
                                             Discard
                                         </button>
                                         <button
                                             onClick={onCancel}
-                                            className="flex-1 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-medium text-white/80 transition-colors hover:bg-white/10"
+                                            className="flex-1 rounded-none border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-medium text-white/80 transition-colors hover:bg-white/10"
                                         >
                                             Cancel
                                         </button>
                                         <button
                                             onClick={onSave}
-                                            className="flex-1 rounded-lg bg-blue-500 px-4 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+                                            className="flex-1 rounded-none bg-blue-500 px-4 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
                                         >
                                             Save
                                         </button>

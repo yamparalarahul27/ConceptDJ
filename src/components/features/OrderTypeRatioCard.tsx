@@ -61,7 +61,7 @@ export default function OrderTypeRatioCard({ trades }: OrderTypeRatioCardProps) 
           </div>
 
           <div>
-            <span className="px-1.5 py-0.5 bg-white/10 text-white/60 text-xs font-mono rounded-sm">
+            <span className="px-1.5 py-0.5 bg-white/10 text-white/60 text-xs font-mono rounded-none">
               {ratio.limitCount} Limit / {ratio.marketCount} Market
             </span>
           </div>

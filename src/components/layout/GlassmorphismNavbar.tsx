@@ -382,7 +382,7 @@ export const GlassmorphismNavbar = ({
 
                                 <button
                                     onClick={onProfileSettingsClick}
-                                    className="hidden sm:flex items-center justify-center w-8 h-8 rounded-full"
+                                    className="hidden sm:flex items-center justify-center w-8 h-8 rounded-none"
                                     aria-label="Profile and Settings"
                                 >
                                     <img src="/assets/Profile_icon.png" alt="Profile &amp; Settings" className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity" />
@@ -413,7 +413,7 @@ export const GlassmorphismNavbar = ({
                     />
 
                     {/* Menu panel */}
-                    <div className="absolute top-14 bottom-4 left-3 right-3 bg-black/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col animate-in slide-in-from-top duration-300">
+                    <div className="absolute top-14 bottom-4 left-3 right-3 bg-black/95 backdrop-blur-xl border border-white/10 rounded-none shadow-2xl overflow-hidden flex flex-col animate-in slide-in-from-top duration-300">
                         {/* Scrollable content */}
                         <div className="flex-1 overflow-y-auto p-6 space-y-6">
                             {/* Main navigation */}
@@ -437,7 +437,7 @@ export const GlassmorphismNavbar = ({
                                                     : 'text-white/60 hover:text-white hover:bg-white/5'
                                                     }`}
                                             >
-                                                <span className={`w-1.5 h-1.5 rounded-full ${isActive(item.href) ? 'bg-white' : 'bg-white/20'}`} />
+                                                <span className={`w-1.5 h-1.5 rounded-none ${isActive(item.href) ? 'bg-white' : 'bg-white/20'}`} />
                                                 {item.title}
                                             </a>
                                         ))}
@@ -466,7 +466,7 @@ export const GlassmorphismNavbar = ({
                                                     : 'text-white/60 hover:text-white hover:bg-white/5'
                                                     }`}
                                             >
-                                                <span className={`w-1.5 h-1.5 rounded-full ${isActive(item.href) ? 'bg-white' : 'bg-white/20'}`} />
+                                                <span className={`w-1.5 h-1.5 rounded-none ${isActive(item.href) ? 'bg-white' : 'bg-white/20'}`} />
                                                 {item.title}
                                             </a>
                                         ))}
@@ -495,7 +495,7 @@ export const GlassmorphismNavbar = ({
                                                     : 'text-white/60 hover:text-white hover:bg-white/5'
                                                     }`}
                                             >
-                                                <span className={`w-1.5 h-1.5 rounded-full ${isActive(item.href) ? 'bg-white' : 'bg-white/20'}`} />
+                                                <span className={`w-1.5 h-1.5 rounded-none ${isActive(item.href) ? 'bg-white' : 'bg-white/20'}`} />
                                                 {item.title}
                                             </a>
                                         ))}

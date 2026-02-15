@@ -325,7 +325,7 @@ export default function Journal({ network = 'mock', analyzingWallet, onNavigateT
             {/* Loading State */}
             {loading && (
                 <div className="flex flex-col items-center justify-center min-h-[300px] text-white">
-                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-500 mb-4"></div>
+                    <div className="animate-spin rounded-none h-8 w-8 border-b-2 border-purple-500 mb-4"></div>
                     <p className="text-white/60">Loading journal entries...</p>
                 </div>
             )}

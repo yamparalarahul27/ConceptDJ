@@ -56,7 +56,7 @@ export default function FeeDistribution({ summary, className }: FeeDistributionP
                                 <span className="text-white font-mono text-sm tabular-nums">
                                     {formatUsd(item.amount)}
                                 </span>
-                                <span className="px-2 py-0.5 bg-white/10 text-white/60 text-xs font-mono rounded-sm tabular-nums min-w-[60px] text-center">
+                                <span className="px-2 py-0.5 bg-white/10 text-white/60 text-xs font-mono rounded-none tabular-nums min-w-[60px] text-center">
                                     {formatPercent(item.percent)}
                                 </span>
                             </div>

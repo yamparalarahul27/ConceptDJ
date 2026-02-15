@@ -66,7 +66,7 @@ export default function TableUI_Demo({ activeFilter = 'All', trades }: TableUIDe
             key: 'side',
             header: 'Side',
             render: (value) => (
-                <span className={`px-2 py-1 rounded-sm text-xs font-mono ${value === 'BUY' || value === 'LONG'
+                <span className={`px-2 py-1 rounded-none text-xs font-mono ${value === 'BUY' || value === 'LONG'
                     ? 'bg-green-500/20 text-green-400'
                     : 'bg-red-500/20 text-red-400'
                     }`}>
@@ -108,7 +108,7 @@ export default function TableUI_Demo({ activeFilter = 'All', trades }: TableUIDe
             key: 'leverage',
             header: 'Leverage',
             render: (value) => (
-                <span className="px-2 py-1 bg-purple-500/20 text-purple-400 rounded-sm text-xs font-mono">
+                <span className="px-2 py-1 bg-purple-500/20 text-purple-400 rounded-none text-xs font-mono">
                     {value}
                 </span>
             ),
@@ -117,7 +117,7 @@ export default function TableUI_Demo({ activeFilter = 'All', trades }: TableUIDe
             key: 'status',
             header: 'Status',
             render: (value) => (
-                <span className={`px-2 py-1 rounded-sm text-xs font-bold ${value === 'Win'
+                <span className={`px-2 py-1 rounded-none text-xs font-bold ${value === 'Win'
                     ? 'bg-green-500/20 text-green-400'
                     : 'bg-red-500/20 text-red-400'
                     }`}>

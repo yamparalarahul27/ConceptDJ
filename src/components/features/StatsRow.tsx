@@ -39,7 +39,7 @@ export default function StatsRow({ activeFilter = 'All', trades }: StatsRowProps
                             {stats.winRate}%
                         </span>
                         <div className="flex items-center gap-2">
-                            <span className="px-1.5 py-0.5 bg-white/10 text-white/60 text-xs font-mono rounded-sm">
+                            <span className="px-1.5 py-0.5 bg-white/10 text-white/60 text-xs font-mono rounded-none">
                                 {stats.wins}W / {stats.losses}L
                             </span>
                         </div>

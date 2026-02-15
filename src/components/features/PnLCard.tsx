@@ -174,7 +174,7 @@ export default function PnLCard({ activeFilter = 'All', trades }: PnLCardProps) 
                                 Visualisation Chart
                             </span>
                             <div className={`
-                                p-1.5 rounded-full bg-black border border-white/10 
+                                p-1.5 rounded-none bg-black border border-white/10 
                                 group-hover:border-white/30 transition-all duration-300
                                 ${isChartVisible ? 'rotate-180' : ''}
                             `}>
@@ -184,7 +184,7 @@ export default function PnLCard({ activeFilter = 'All', trades }: PnLCardProps) 
 
                         {/* Drawdown Stats Table - Above Chart */}
                         {isChartVisible && showDrawdown && (
-                            <div className="mt-4 p-4 bg-black/20 border border-white/10 rounded-sm animate-in fade-in slide-in-from-top-4 duration-300">
+                            <div className="mt-4 p-4 bg-black/20 border border-white/10 rounded-none animate-in fade-in slide-in-from-top-4 duration-300">
                                 <div className="grid grid-cols-3 gap-4 text-center">
                                     <div>
                                         <div className="text-red-400 text-num-32 font-mono">

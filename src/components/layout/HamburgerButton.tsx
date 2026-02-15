@@ -130,19 +130,19 @@ export const HamburgerButton = ({
             <div className={`${config.container} flex flex-col justify-between relative`}>
                 {/* Top bar - moves down then rotates 45deg */}
                 <span
-                    className={`w-full ${config.barHeight} ${barColor} rounded-full transition-all duration-300 origin-center`}
+                    className={`w-full ${config.barHeight} ${barColor} rounded-none transition-all duration-300 origin-center`}
                     style={isOpen ? { transform: `translateY(${config.translate}) rotate(45deg)` } : {}}
                 />
 
                 {/* Middle bar - fades out when open */}
                 <span
-                    className={`w-full ${config.barHeight} ${barColor} rounded-full transition-all duration-300 ${isOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'
+                    className={`w-full ${config.barHeight} ${barColor} rounded-none transition-all duration-300 ${isOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'
                         }`}
                 />
 
                 {/* Bottom bar - moves up then rotates -45deg */}
                 <span
-                    className={`w-full ${config.barHeight} ${barColor} rounded-full transition-all duration-300 origin-center`}
+                    className={`w-full ${config.barHeight} ${barColor} rounded-none transition-all duration-300 origin-center`}
                     style={isOpen ? { transform: `translateY(-${config.translate}) rotate(-45deg)` } : {}}
                 />
             </div>

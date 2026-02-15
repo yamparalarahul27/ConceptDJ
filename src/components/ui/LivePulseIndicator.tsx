@@ -115,13 +115,13 @@ export const LivePulseIndicator = ({
             {/* Ping animation layer (expanding circle) */}
             {!noPing && (
                 <span
-                    className={`absolute inline-flex h-full w-full rounded-full ${bgColor} opacity-75 animate-ping`}
+                    className={`absolute inline-flex h-full w-full rounded-none ${bgColor} opacity-75 animate-ping`}
                 />
             )}
 
             {/* Solid glowing dot */}
             <span
-                className={`relative inline-flex rounded-full ${sizeClasses[size]} ${bgColor} ${glowShadow}`}
+                className={`relative inline-flex rounded-none ${sizeClasses[size]} ${bgColor} ${glowShadow}`}
             />
         </span>
     );

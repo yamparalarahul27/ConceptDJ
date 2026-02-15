@@ -75,7 +75,7 @@ export default function DeriverseTradesTable({ trades, onSaveTrades, savingTrade
                         >
                             {savingTrades ? (
                                 <>
-                                    <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-white"></div>
+                                    <div className="animate-spin rounded-none h-3 w-3 border-b-2 border-white"></div>
                                     <span>Saving...</span>
                                 </>
                             ) : (

@@ -46,7 +46,7 @@ export default function LargestLossCard({ trades }: LargestLossCardProps) {
             <div className="space-y-1">
               <div className="flex items-center gap-2 text-white/60 text-sm font-mono">
                 <span className="text-white/80">{worstTrade.symbol}</span>
-                <span className="px-1.5 py-0.5 bg-white/10 text-white/60 text-xs font-mono rounded-sm">
+                <span className="px-1.5 py-0.5 bg-white/10 text-white/60 text-xs font-mono rounded-none">
                   {worstTrade.side.toUpperCase()}
                 </span>
               </div>

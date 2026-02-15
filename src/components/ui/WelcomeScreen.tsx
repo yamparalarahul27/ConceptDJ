@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import MobileRestrictedView from '../layout/MobileRestrictedView';
 import WelcomeCard from './WelcomeCard';
 import WelcomeButton from './WelcomeButton';
 import WelcomeFooter from './WelcomeFooter';
@@ -36,25 +35,11 @@ const WelcomeContent = {
 };
 
 export const WelcomeScreen = ({ onComplete, isVisible }: WelcomeScreenProps) => {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
 
     const handleGetStarted = () => {
         onComplete();
     };
 
-    if (isVisible && isMobile) {
-        return <MobileRestrictedView />;
-    }
 
     return (
         <AnimatePresence>

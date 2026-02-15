@@ -59,94 +59,33 @@ export default function Home({ network = 'mock', analyzingWallet, onNavigateToLo
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Determine which trades to display
-  const displayTrades = useMemo(() => {
-    return network === 'devnet' ? realTrades : MOCK_TRADES;
-  }, [network, realTrades]);
+  // Always use mock trades for purely visual concepts
+  const displayTrades = MOCK_TRADES;
 
-  // Fetch real trades when in devnet mode
+  // Use only mock annotations
   useEffect(() => {
-    async function fetchRealTrades() {
-      if (network === 'devnet' && analyzingWallet) {
-        setLoading(true);
-        setError(null);
-        try {
-          const service = new SupabaseTradeService();
-          const trades = await service.getTrades(analyzingWallet);
-
-          setRealTrades(trades);
-          setAnnotations({}); // Reset annotations for real data in Home as they aren't used here
-
-          if (trades.length === 0) {
-            toast.info('No trades found for this wallet on Devnet');
-          }
-        } catch (err) {
-          console.error('Failed to load trades:', err);
-          setError('Failed to load trades from database');
-          toast.error('Failed to load trades');
-        } finally {
-          setLoading(false);
-        }
-      } else if (network === 'devnet' && !analyzingWallet) {
-        // Devnet selected but no wallet -> Prompt user
-        setRealTrades([]);
-        setAnnotations({});
-      } else {
-        // Mock mode - Load from localStorage
-        const localAnnotations = loadAnnotations();
-        const mappedAnnotations: Record<string, any> = {};
-        Object.keys(localAnnotations).forEach(id => {
-          const local = localAnnotations[id];
-          if (local && local.note) {
-            mappedAnnotations[id] = {
-              tradeId: id,
-              notes: local.note,
-              tags: [],
-              lessonsLearned: ''
-            };
-          }
-        });
-        setAnnotations(mappedAnnotations);
+    const localAnnotations = loadAnnotations();
+    const mappedAnnotations: Record<string, any> = {};
+    Object.keys(localAnnotations).forEach(id => {
+      const local = localAnnotations[id];
+      if (local && local.note) {
+        mappedAnnotations[id] = {
+          tradeId: id,
+          notes: local.note,
+          tags: [],
+          lessonsLearned: ''
+        };
       }
-    }
+    });
+    setAnnotations(mappedAnnotations);
+  }, []);
 
-    fetchRealTrades();
-  }, [network, analyzingWallet]);
-
+  // Mock ingestion logic
   useEffect(() => {
-    if (network !== 'devnet' || !analyzingWallet) {
-      setLastIngestionAt(null);
-      setIngestionLoading(false);
-      setIngestionError(null);
-      return;
-    }
-
-    let mounted = true;
-    const walletService = new SupabaseWalletService();
-
-    setIngestionLoading(true);
+    setLastIngestionAt(null);
+    setIngestionLoading(false);
     setIngestionError(null);
-    walletService
-      .getWallet(analyzingWallet)
-      .then((wallet) => {
-        if (!mounted) return;
-        setLastIngestionAt(wallet?.last_synced_at ?? null);
-      })
-      .catch(() => {
-        if (!mounted) return;
-        setIngestionError('Failed to load ingestion time');
-        setLastIngestionAt(null);
-      })
-      .finally(() => {
-        if (mounted) {
-          setIngestionLoading(false);
-        }
-      });
-
-    return () => {
-      mounted = false;
-    };
-  }, [network, analyzingWallet]);
+  }, []);
 
   const availablePairs = useMemo(() => {
     const symbols = new Set<string>();
@@ -249,7 +188,7 @@ export default function Home({ network = 'mock', analyzingWallet, onNavigateToLo
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] text-white">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500 mb-4"></div>
+        <div className="animate-spin rounded-none h-12 w-12 border-b-2 border-purple-500 mb-4"></div>
         <p className="text-white/60">Loading your trading analytics...</p>
       </div>
     );
@@ -347,7 +286,7 @@ export default function Home({ network = 'mock', analyzingWallet, onNavigateToLo
                 <span className="mt-2 text-num-48 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
                   {winStats.winRate}%
                 </span>
-                <span className="px-1.5 py-0.5 bg-white/10 text-white/60 text-xs font-mono rounded-sm">
+                <span className="px-1.5 py-0.5 bg-white/10 text-white/60 text-xs font-mono rounded-none">
                   {winStats.wins}W / {winStats.losses}L
                 </span>
               </div>

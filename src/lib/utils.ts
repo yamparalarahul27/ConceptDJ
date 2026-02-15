@@ -1,15 +1,8 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { Connection } from "@solana/web3.js";
-import { RPC_HTTP } from "./constants";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
-}
-
-// Get Solana RPC Connection
-export function getRpcConnection(): Connection {
-  return new Connection(RPC_HTTP, 'confirmed');
 }
 
 // Format timestamp to readable date/time

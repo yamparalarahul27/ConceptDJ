@@ -19,45 +19,45 @@ export default function ConceptHeader() {
     };
 
     return (
-        <header className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#0D0D21]">
-            <div className="flex items-center gap-6">
-                <Link
-                    href="https://deriverse.vercel.app"
-                    className="flex items-center gap-2 text-white/60 hover:text-white transition-colors"
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="m15 18-6-6 6-6" />
-                    </svg>
-                    <span className="text-sm font-medium">Back to App</span>
-                </Link>
+        <header className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 py-2 sm:py-3">
+            <div className="bg-black/80 max-w-7xl mx-auto backdrop-blur-xl border border-white/10 rounded-none px-6 py-4 flex items-center justify-between gap-8 shadow-2xl shadow-black/20">
+                <div className="flex items-center gap-6">
+                    <Link
+                        href="https://deriverse.vercel.app"
+                        className="flex items-center gap-2 text-white/60 hover:text-white transition-colors"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="m15 18-6-6 6-6" />
+                        </svg>
+                        <span className="text-sm font-medium whitespace-nowrap">Visit Deriverse Journal [Alpha]</span>
+                    </Link>
 
-                <div className="h-6 w-px bg-white/10 mx-2"></div>
+                    <Link href="/" className="flex items-center gap-3">
+                        <Image
+                            src="/assets/deriverse_desktop_icon.png"
+                            alt="CDJ"
+                            width={32}
+                            height={32}
+                            className="w-8 h-8 rounded-none"
+                        />
+                        <span className="font-bold text-lg tracking-tight">Concepts</span>
+                    </Link>
+                </div>
 
-                <Link href="/" className="flex items-center gap-3">
-                    <Image
-                        src="/assets/deriverse_desktop_icon.png"
-                        alt="CDJ"
-                        width={32}
-                        height={32}
-                        className="w-8 h-8 rounded-lg"
-                    />
-                    <span className="font-bold text-lg tracking-tight">Concepts</span>
-                </Link>
-            </div>
-
-            <div className="relative">
-                <select
-                    value={pathname}
-                    onChange={handleChange}
-                    className="appearance-none bg-white/5 border border-white/10 rounded-lg pl-4 pr-10 py-2 text-sm text-white focus:outline-none focus:border-purple-500/50 hover:bg-white/10 transition-colors cursor-pointer min-w-[200px]"
-                >
-                    <option value="/">Select a Concept...</option>
-                    {CONCEPTS.map(c => (
-                        <option key={c.path} value={c.path}>{c.name}</option>
-                    ))}
-                </select>
-                <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-white/50">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+                <div className="relative flex-1 max-w-xs">
+                    <select
+                        value={pathname}
+                        onChange={handleChange}
+                        className="appearance-none bg-white/5 border border-white/10 rounded-none pl-4 pr-10 py-3 text-sm text-white focus:outline-none focus:border-purple-500/50 hover:bg-white/10 transition-colors cursor-pointer w-full"
+                    >
+                        <option value="/">Select a Concept...</option>
+                        {CONCEPTS.map(c => (
+                            <option key={c.path} value={c.path}>{c.name}</option>
+                        ))}
+                    </select>
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-white/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+                    </div>
                 </div>
             </div>
         </header>

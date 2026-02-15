@@ -38,11 +38,11 @@ const MOCK_TRADES: Trade[] = [
 
 export default function ProPnLTrackerPage() {
     return (
-        <div className="max-w-7xl mx-auto p-6 space-y-8">
+        <div className="max-w-7xl mx-auto p-4 space-y-8">
             <header>
                 <h1 className="text-3xl font-bold text-white mb-2">Pro PnL Analytics</h1>
                 <div className="flex items-center gap-2 text-white/50 text-sm">
-                    <span className="w-2 h-2 rounded-full bg-green-500"></span>
+                    <span className="w-2 h-2 rounded-none bg-green-500"></span>
                     <span>Live Concept Preview</span>
                     <span className="mx-2">•</span>
                     <span className="font-mono text-xs border border-white/10 px-2 py-0.5 rounded">DATA: HARDCODED</span>
@@ -51,35 +51,35 @@ export default function ProPnLTrackerPage() {
 
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div className="bg-white/5 border border-white/10 p-6 rounded-lg">
+                <div className="bg-white/5 border border-white/10 p-6 rounded-none">
                     <span className="text-white/40 text-sm block mb-1">Total PnL</span>
                     <span className="text-3xl font-bold text-green-400">+$2,450.20</span>
                     <span className="text-green-500/50 text-xs ml-2">+15.2%</span>
                 </div>
-                <div className="bg-white/5 border border-white/10 p-6 rounded-lg">
+                <div className="bg-white/5 border border-white/10 p-6 rounded-none">
                     <span className="text-white/40 text-sm block mb-1">Win Rate</span>
                     <span className="text-3xl font-bold text-white">68%</span>
                     <span className="text-white/30 text-xs ml-2">Last 30 days</span>
                 </div>
-                <div className="bg-white/5 border border-white/10 p-6 rounded-lg">
+                <div className="bg-white/5 border border-white/10 p-6 rounded-none">
                     <span className="text-white/40 text-sm block mb-1">Profit Factor</span>
                     <span className="text-3xl font-bold text-blue-400">2.4</span>
                 </div>
-                <div className="bg-white/5 border border-white/10 p-6 rounded-lg">
+                <div className="bg-white/5 border border-white/10 p-6 rounded-none">
                     <span className="text-white/40 text-sm block mb-1">Avg Trade</span>
                     <span className="text-3xl font-bold text-white">$120.50</span>
                 </div>
             </div>
 
             {/* Main Chart Area (Placeholder) */}
-            <div className="bg-white/5 border border-white/10 rounded-xl p-8 h-[400px] flex items-center justify-center relative overflow-hidden group">
+            <div className="bg-white/5 border border-white/10 rounded-none p-8 h-[400px] flex items-center justify-center relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-green-500/5 pointer-events-none"></div>
                 <div className="text-center">
                     <p className="text-white/40 mb-4">Interactive PnL Equity Curve Visualization</p>
                     {/* Simple CSS Bar Chart for demo */}
                     <div className="flex items-end gap-2 h-32">
                         {MOCK_PNL_HISTORY.map((point, i) => (
-                            <div key={i} className="w-8 bg-green-500/20 hover:bg-green-500/60 transition-all rounded-t-sm relative group/bar" style={{ height: `${(point.value / 2500) * 100}%` }}>
+                            <div key={i} className="w-8 bg-green-500/20 hover:bg-green-500/60 transition-all rounded-none relative group/bar" style={{ height: `${(point.value / 2500) * 100}%` }}>
                                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover/bar:opacity-100 whitespace-nowrap z-10">
                                     ${point.value}
                                 </div>
@@ -90,7 +90,7 @@ export default function ProPnLTrackerPage() {
             </div>
 
             {/* Recent Trades Table */}
-            <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden">
+            <div className="bg-white/5 border border-white/10 rounded-none overflow-hidden">
                 <div className="px-6 py-4 border-b border-white/10 flex justify-between items-center">
                     <h3 className="font-semibold text-white">Recent Trades</h3>
                     <button className="text-xs text-purple-400 hover:text-purple-300">View All</button>

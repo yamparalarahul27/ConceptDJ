@@ -1,9 +1,8 @@
-import { useState } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import CardWithCornerShine from '../ui/CardWithCornerShine';
 import AddressInput from '../ui/AddressInput';
 import { HeliusService, TransactionLog } from '../../services/HeliusService';
 import { DeriverseTradeService } from '../../services/DeriverseTradeService';
-import { getRpcConnection } from '../../lib/utils';
 import DeriverseTradesTable from './DeriverseTradesTable';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
 import { useWalletConnection } from '../../lib/hooks/useWalletConnection';
@@ -12,6 +11,8 @@ import { SupabaseTradeService } from '../../services/SupabaseTradeService';
 import { toast } from 'sonner';
 import AnalyticsConfirmModal from '../ui/AnalyticsConfirmModal';
 import SyncStatus from '../ui/SyncStatus';
+import { MOCK_TRADES } from '../../lib/mockData';
+import { loadAnnotations } from '../../lib/annotationStorage';
 
 type TabType = 'deriverse' | 'all';
 type InputMode = 'manual' | 'wallet';
@@ -84,102 +85,16 @@ export default function TradeHistory({ onSwitchToRealData }: TradeHistoryProps =
     setLoading(true);
     setError(null);
     setHasSearched(true);
-
-    // Only clear tables if we are doing a fresh lookup or forced refresh
-    if (forceRefresh || !hasCachedData) {
-      setTransactions([]);
-      setDeriverseTrades([]);
-    }
-
     setCurrentWalletAddress(address);
-    if (forceRefresh) {
-      setDataSource('fresh');
-    }
 
-    try {
-      // Save/Get wallet from Supabase
-      let currentWallet;
-      try {
-        currentWallet = await walletService.saveWallet({
-          address,
-          network: 'devnet',
-          provider: walletName || undefined,
-          method: inputMode === 'wallet' ? 'wallet_connect' : 'manual',
-        });
-        console.log('[Supabase] Wallet info sync:', address);
-        setWalletInfo(currentWallet);
-      } catch (supabaseError) {
-        console.error('[Supabase] Failed to sync wallet info:', supabaseError);
-      }
+    // Mock delay
+    await new Promise(r => setTimeout(r, 1500));
 
-      // Check for cached trades if not forced to refresh
-      let cachedTrades: any[] = [];
-      if (!forceRefresh) {
-        try {
-          cachedTrades = await tradeService.getTrades(address);
-          if (cachedTrades.length > 0) {
-            console.log(`[Cache] Found ${cachedTrades.length} cached trades`);
-            setDeriverseTrades(cachedTrades);
-            setDataSource('cache');
-            setHasCachedData(true);
-            setLoadingDeriverse(false);
-          }
-        } catch (cacheError) {
-          console.warn('[Cache] Failed to load cached trades:', cacheError);
-        }
-      }
-
-      // Fetch fresh data if needed (forced or no cache)
-      if (forceRefresh || cachedTrades.length === 0) {
-        const connection = getRpcConnection();
-        setDataSource('fresh');
-
-        // Fetch Helius transactions
-        setLoadingHelius(true);
-        const heliusPromise = heliusService.fetchAllTransactions(address)
-          .then(response => {
-            setTransactions(response.transactions);
-            setLoadingHelius(false);
-          })
-          .catch(err => {
-            console.error('[Helius] Error:', err);
-            setLoadingHelius(false);
-          });
-
-        // Fetch Deriverse trades
-        setLoadingDeriverse(true);
-        const deriversePromise = deriverseService.fetchTradesForWallet(connection, address)
-          .then(async (trades) => {
-            setDeriverseTrades(trades);
-            setLoadingDeriverse(false);
-            setHasCachedData(true); // Now we have data that CAN be cached
-
-            // Update sync time after successful fetch
-            try {
-              await walletService.updateSyncTime(address);
-              // Refresh wallet info from DB to get NEW sync time
-              const updatedWallet = await walletService.getWallet(address);
-              if (updatedWallet) setWalletInfo(updatedWallet);
-              console.log('[Supabase] Updated sync time for:', address);
-            } catch (syncError) {
-              console.warn('[Supabase] Failed to update sync time:', syncError);
-            }
-          })
-          .catch(err => {
-            console.error('[Deriverse] Error:', err);
-            setLoadingDeriverse(false);
-          });
-
-        await Promise.all([heliusPromise, deriversePromise]);
-      } else {
-        // We are showing cached data. Skip Helius fetch to save RPC credits.
-        console.log('[Cache] Skipping Helius fetch to save RPC credits');
-      }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
-    } finally {
-      setLoading(false);
-    }
+    setDeriverseTrades(MOCK_TRADES);
+    setTransactions([]);
+    setDataSource('fresh');
+    setHasCachedData(true);
+    setLoading(false);
   };
 
   const handleSaveTrades = async () => {
@@ -309,7 +224,7 @@ export default function TradeHistory({ onSwitchToRealData }: TradeHistoryProps =
               >
                 Deriverse Trades
                 {deriverseTrades.length > 0 && (
-                  <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-blue-500/20 text-blue-300">
+                  <span className="ml-2 px-2 py-0.5 text-xs rounded-none bg-blue-500/20 text-blue-300">
                     {deriverseTrades.length}
                   </span>
                 )}
@@ -323,7 +238,7 @@ export default function TradeHistory({ onSwitchToRealData }: TradeHistoryProps =
               >
                 All Transactions
                 {transactions.length > 0 && (
-                  <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-blue-500/20 text-blue-300">
+                  <span className="ml-2 px-2 py-0.5 text-xs rounded-none bg-blue-500/20 text-blue-300">
                     {transactions.length}
                   </span>
                 )}
@@ -346,7 +261,7 @@ export default function TradeHistory({ onSwitchToRealData }: TradeHistoryProps =
                 {loadingDeriverse ? (
                   <div className="rounded-none border border-white/10 bg-black/80 backdrop-blur-xl p-12 text-center">
                     <div className="flex items-center justify-center">
-                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+                      <div className="animate-spin rounded-none h-8 w-8 border-b-2 border-blue-500"></div>
                       <span className="ml-3 text-zinc-400">Parsing Deriverse trades...</span>
                     </div>
                   </div>
@@ -368,7 +283,7 @@ export default function TradeHistory({ onSwitchToRealData }: TradeHistoryProps =
                 {loadingHelius ? (
                   <div className="rounded-none border border-white/10 bg-black/80 backdrop-blur-xl p-12 text-center">
                     <div className="flex items-center justify-center">
-                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+                      <div className="animate-spin rounded-none h-8 w-8 border-b-2 border-blue-500"></div>
                       <span className="ml-3 text-zinc-400">Fetching transactions...</span>
                     </div>
                   </div>

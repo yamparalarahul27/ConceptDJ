@@ -8,7 +8,6 @@ import "./globals.css";
 import '@pqina/flip/dist/flip.min.css';
 import { Agentation } from "agentation";
 import LoadingScreen from "@/components/ui/LoadingScreen";
-import MobileRestrictedView from "@/components/layout/MobileRestrictedView";
 import ConceptHeader from "@/components/layout/ConceptHeader";
 import { Toaster } from "sonner";
 
@@ -34,9 +33,8 @@ export default function RootLayout({
           bg-[#0D0D21] text-white selection:bg-purple-500/30 flex flex-col min-h-screen
         `}
       >
-        <MobileRestrictedView />
         <ConceptHeader />
-        <main className="flex-1 relative overflow-auto">
+        <main className="flex-1 relative overflow-auto pt-36">
           {children}
         </main>
 

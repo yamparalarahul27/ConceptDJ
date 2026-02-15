@@ -119,7 +119,7 @@ export default function LargestTradesCard({ trades }: LargestTradesCardProps) {
                 <div className="flex items-center justify-center gap-1 text-white/60 text-sm font-mono">
                   <AssetIcon trade={bestTrade} />
                   <span className="text-white/80">{bestTrade.symbol}</span>
-                  <span className="px-1.5 py-0.5 bg-white/10 text-white/60 text-xs font-mono rounded-sm">
+                  <span className="px-1.5 py-0.5 bg-white/10 text-white/60 text-xs font-mono rounded-none">
                     {bestTrade.side.toUpperCase()}
                   </span>
                 </div>
@@ -145,7 +145,7 @@ export default function LargestTradesCard({ trades }: LargestTradesCardProps) {
                 <div className="flex items-center justify-center gap-1 text-white/60 text-sm font-mono">
                   <AssetIcon trade={worstTrade} />
                   <span className="text-white/80">{worstTrade.symbol}</span>
-                  <span className="px-1.5 py-0.5 bg-white/10 text-white/60 text-xs font-mono rounded-sm">
+                  <span className="px-1.5 py-0.5 bg-white/10 text-white/60 text-xs font-mono rounded-none">
                     {worstTrade.side.toUpperCase()}
                   </span>
                 </div>
