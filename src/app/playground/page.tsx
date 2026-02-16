@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowUpRight, BarChart2, BookOpen, Activity, Settings, Zap, Compass, TrendingUp } from 'lucide-react';
 import { PixelHeading } from '@/components/ui/pixel-heading-character';
+import Footer from '@/components/layout/Footer';
 
 const CONCEPTS = [
     {
@@ -144,16 +145,7 @@ export default function PlaygroundDashboard() {
                 ))}
             </div>
 
-            <footer className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-                <div className="text-[10px] font-mono text-white/20 uppercase tracking-widest">
-                    SYSTEM STATUS: <span className="text-green-500/50">OPERATIONAL</span>
-                </div>
-                <div className="flex gap-8 text-[10px] font-mono text-white/20 uppercase tracking-widest">
-                    <span className="hover:text-white cursor-pointer transition-colors">Documentation</span>
-                    <span className="hover:text-white cursor-pointer transition-colors">Support</span>
-                    <span className="hover:text-white cursor-pointer transition-colors">Build 2024.02.15</span>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 }
