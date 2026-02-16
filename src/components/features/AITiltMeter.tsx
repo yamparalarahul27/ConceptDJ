@@ -53,13 +53,13 @@ export const AITiltMeter: React.FC<AITiltMeterProps> = ({ tiltLevel }) => {
                     </div>
                     <div>
                         <div className="flex items-center gap-2 mb-1">
-                            <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest leading-none">AI Tilt Meter</span>
-                            <span className={`text-[10px] font-mono px-1.5 py-0.5 border ${borderColor} ${color} font-bold`}>{status}</span>
+                            <span className="text-[12px] font-mono text-white/40 uppercase tracking-widest leading-none font-bold">AI Tilt Meter</span>
+                            <span className={`text-[12px] font-mono px-1.5 py-0.5 border ${borderColor} ${color} font-bold`}>{status}</span>
                         </div>
                         <h3 className={`text-2xl font-bold font-mono tracking-tighter uppercase ${color}`}>
                             {tiltLevel}% VARIANCE
                         </h3>
-                        <p className="text-white/50 text-[10px] font-mono uppercase tracking-tight mt-2">
+                        <p className="text-white/50 text-[12px] font-mono uppercase tracking-tight mt-2 font-bold">
                             {desc}
                         </p>
                     </div>
@@ -68,8 +68,8 @@ export const AITiltMeter: React.FC<AITiltMeterProps> = ({ tiltLevel }) => {
                 {/* Gauge Visualization */}
                 <div className="flex-1 w-full max-w-md">
                     <div className="flex justify-between items-end mb-2">
-                        <span className="text-[9px] font-mono text-white/20 uppercase">Rational</span>
-                        <span className="text-[9px] font-mono text-white/20 uppercase">Emotional</span>
+                        <span className="text-[12px] font-mono text-white/20 uppercase font-bold">Rational</span>
+                        <span className="text-[12px] font-mono text-white/20 uppercase font-bold">Emotional</span>
                     </div>
                     <div className="h-4 w-full bg-white/5 border border-white/10 rounded-none relative overflow-hidden">
                         {/* Threshold Markers */}
@@ -88,7 +88,7 @@ export const AITiltMeter: React.FC<AITiltMeterProps> = ({ tiltLevel }) => {
                             style={{ left: `${Math.max(0, tiltLevel - 5)}%`, width: '10%' }}
                         />
                     </div>
-                    <div className="grid grid-cols-3 gap-1 mt-1 text-[8px] font-mono text-white/10 text-center uppercase">
+                    <div className="grid grid-cols-3 gap-1 mt-1 text-[12px] font-mono text-white/10 text-center uppercase font-bold">
                         <div>Safe Zone</div>
                         <div>Caution</div>
                         <div>Danger</div>
@@ -96,7 +96,7 @@ export const AITiltMeter: React.FC<AITiltMeterProps> = ({ tiltLevel }) => {
                 </div>
             </div>
 
-            <div className="mt-6 flex flex-wrap gap-4 pt-4 border-t border-white/5 text-[9px] font-mono text-white/30 uppercase tracking-tighter">
+            <div className="mt-6 flex flex-wrap gap-4 pt-4 border-t border-white/5 text-[12px] font-mono text-white/30 uppercase tracking-tighter font-bold">
                 <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-none bg-red-500/40"></span>
                     <span>Loss Streak: 3x (High Correlation)</span>

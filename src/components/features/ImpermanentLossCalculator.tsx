@@ -21,8 +21,8 @@ export const ImpermanentLossCalculator: React.FC = () => {
                         <Calculator size={16} />
                     </div>
                     <div>
-                        <h3 className="text-xs font-mono font-bold text-white uppercase tracking-widest">IL Calculator</h3>
-                        <p className="text-[9px] font-mono text-white/30 uppercase">Automated Market Maker Edge Case</p>
+                        <h3 className="text-[12px] font-mono font-bold text-white uppercase tracking-widest">IL Calculator</h3>
+                        <p className="text-[12px] font-mono text-white/30 uppercase font-bold">Automated Market Maker Edge Case</p>
                     </div>
                 </div>
                 <Info size={14} className="text-white/20" />
@@ -31,7 +31,7 @@ export const ImpermanentLossCalculator: React.FC = () => {
             <div className="space-y-8 flex-1">
                 <div>
                     <div className="flex justify-between items-end mb-3">
-                        <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest">Asset A Price Change</span>
+                        <span className="text-[12px] font-mono text-white/40 uppercase tracking-widest font-bold">Asset A Price Change</span>
                         <span className="text-sm font-bold text-white font-pixel">+{priceChange}%</span>
                     </div>
                     <input
@@ -46,15 +46,15 @@ export const ImpermanentLossCalculator: React.FC = () => {
 
                 <div className="p-6 bg-white/[0.02] border border-white/5 text-center flex flex-col gap-2 relative overflow-hidden group">
                     <div className="absolute inset-0 bg-yellow-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <span className="text-[9px] font-mono text-white/20 uppercase tracking-[0.2em] relative z-10">Calculated Impermanent Loss</span>
+                    <span className="text-[12px] font-mono text-white/20 uppercase tracking-[0.2em] relative z-10 font-bold">Calculated Impermanent Loss</span>
                     <span className="text-4xl font-bold text-yellow-500 font-pixel relative z-10">{ilValue}%</span>
-                    <p className="text-[8px] font-mono text-white/20 uppercase mt-2 relative z-10 tracking-tighter">
+                    <p className="text-[12px] font-mono text-white/20 uppercase mt-2 relative z-10 tracking-tighter font-bold">
                         Loss compared to holding assets outside the pool.
                     </p>
                 </div>
             </div>
 
-            <div className="mt-8 p-3 border border-dashed border-white/10 text-[9px] font-mono text-white/40 uppercase leading-relaxed">
+            <div className="mt-8 p-3 border border-dashed border-white/10 text-[12px] font-mono text-white/40 uppercase leading-relaxed font-bold">
                 <span className="text-yellow-500/60 font-bold block mb-1">PRO INSIGHT:</span>
                 Yield farming APR must exceed {Math.abs(parseFloat(ilValue))}% to be net-profitable in this scenario.
             </div>

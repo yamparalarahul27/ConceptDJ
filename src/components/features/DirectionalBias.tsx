@@ -14,11 +14,11 @@ export const DirectionalBias: React.FC = () => {
         <div className="bg-white/5 border border-white/10 p-6 rounded-none h-full flex flex-col">
             <div className="flex items-center justify-between mb-8">
                 <div>
-                    <h3 className="text-xs font-mono font-bold text-white uppercase tracking-widest">Directional Bias</h3>
-                    <p className="text-[9px] font-mono text-white/30 uppercase">Win Rate % by Orientation</p>
+                    <h3 className="text-[12px] font-mono font-bold text-white uppercase tracking-widest">Directional Bias</h3>
+                    <p className="text-[12px] font-mono text-white/30 uppercase font-bold">Win Rate % by Orientation</p>
                 </div>
                 <div className="flex gap-2">
-                    <div className="px-2 py-1 bg-green-500/10 border border-green-500/20 text-[9px] font-mono text-green-400 uppercase">Bully Bias</div>
+                    <div className="px-2 py-1 bg-green-500/10 border border-green-500/20 text-[12px] font-mono text-green-400 uppercase font-bold">Bully Bias</div>
                 </div>
             </div>
 
@@ -26,18 +26,18 @@ export const DirectionalBias: React.FC = () => {
                 <div className="p-4 bg-white/[0.02] border border-white/5">
                     <div className="flex items-center gap-2 text-green-400 mb-2">
                         <ArrowUpRight size={14} />
-                        <span className="text-[10px] font-mono uppercase font-bold">Longs</span>
+                        <span className="text-[12px] font-mono uppercase font-bold">Longs</span>
                     </div>
                     <span className="text-2xl font-bold text-white font-pixel">64%</span>
-                    <span className="text-[9px] font-mono text-white/20 uppercase block mt-1">Win Rate</span>
+                    <span className="text-[12px] font-mono text-white/20 uppercase block mt-1 font-bold">Win Rate</span>
                 </div>
                 <div className="p-4 bg-white/[0.02] border border-white/5">
                     <div className="flex items-center gap-2 text-red-400 mb-2">
                         <ArrowDownRight size={14} />
-                        <span className="text-[10px] font-mono uppercase font-bold">Shorts</span>
+                        <span className="text-[12px] font-mono uppercase font-bold">Shorts</span>
                     </div>
                     <span className="text-2xl font-bold text-white font-pixel">42%</span>
-                    <span className="text-[9px] font-mono text-white/20 uppercase block mt-1">Win Rate</span>
+                    <span className="text-[12px] font-mono text-white/20 uppercase block mt-1 font-bold">Win Rate</span>
                 </div>
             </div>
 
@@ -48,14 +48,14 @@ export const DirectionalBias: React.FC = () => {
                         <YAxis
                             dataKey="side"
                             type="category"
-                            tick={{ fill: '#ffffff20', fontSize: 10, fontFamily: 'monospace' }}
+                            tick={{ fill: '#ffffff20', fontSize: 12, fontFamily: 'monospace', fontWeight: 'bold' }}
                             axisLine={false}
                             tickLine={false}
                         />
                         <Tooltip
                             cursor={{ fill: '#ffffff05' }}
                             contentStyle={{ backgroundColor: '#000', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 0 }}
-                            itemStyle={{ fontSize: '10px', fontFamily: 'monospace', textTransform: 'uppercase' }}
+                            itemStyle={{ fontSize: '12px', fontFamily: 'monospace', textTransform: 'uppercase', fontWeight: 'bold' }}
                         />
                         <Bar dataKey="winRate" radius={[0, 2, 2, 0]} barSize={20}>
                             {DATA.map((entry, index) => (
@@ -67,7 +67,7 @@ export const DirectionalBias: React.FC = () => {
             </div>
 
             <div className="mt-6 p-3 bg-blue-500/5 border border-blue-500/10">
-                <p className="text-[9px] font-mono text-blue-400 uppercase leading-relaxed text-center">
+                <p className="text-[12px] font-mono text-blue-400 uppercase leading-relaxed text-center font-bold">
                     AI Insight: You perform significantly better during expansion phases than mean-reversion pullbacks.
                 </p>
             </div>

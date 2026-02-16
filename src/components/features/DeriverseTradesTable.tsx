@@ -48,21 +48,21 @@ export default function DeriverseTradesTable({ trades, onSaveTrades, savingTrade
             {/* Statistics Summary */}
             <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
                 <div className="rounded-none border border-white/10 bg-black/80 backdrop-blur-xl p-4 md:col-span-1">
-                    <p className="text-xs text-zinc-400 uppercase tracking-wider mb-1">Total Trades</p>
+                    <p className="text-[12px] text-zinc-400 uppercase tracking-wider mb-1 font-bold">Total Trades</p>
                     <p className="text-2xl font-semibold text-white font-mono">{trades.length}</p>
                 </div>
                 <div className="rounded-none border border-white/10 bg-black/80 backdrop-blur-xl p-4 md:col-span-2">
-                    <p className="text-xs text-zinc-400 uppercase tracking-wider mb-1">Total PnL</p>
+                    <p className="text-[12px] text-zinc-400 uppercase tracking-wider mb-1 font-bold">Total PnL</p>
                     <p className={`text-2xl font-semibold font-mono ${totalPnL >= 0 ? 'text-green-400' : 'text-red-400'}`}>
                         {totalPnL >= 0 ? '+' : ''}{totalPnL.toFixed(2)} USDC
                     </p>
                 </div>
                 <div className="rounded-none border border-white/10 bg-black/80 backdrop-blur-xl p-4 md:col-span-1">
-                    <p className="text-xs text-zinc-400 uppercase tracking-wider mb-1">Win Rate</p>
+                    <p className="text-[12px] text-zinc-400 uppercase tracking-wider mb-1 font-bold">Win Rate</p>
                     <p className="text-2xl font-semibold text-white font-mono">{winRate.toFixed(1)}%</p>
                 </div>
                 <div className="rounded-none border border-white/10 bg-black/80 backdrop-blur-xl p-4 md:col-span-1">
-                    <p className="text-xs text-zinc-400 uppercase tracking-wider mb-1">Total Fees</p>
+                    <p className="text-[12px] text-zinc-400 uppercase tracking-wider mb-1 font-bold">Total Fees</p>
                     <p className="text-2xl font-semibold text-white font-mono">{totalFees.toFixed(2)} USDC
                     </p>
                 </div>
@@ -87,7 +87,7 @@ export default function DeriverseTradesTable({ trades, onSaveTrades, savingTrade
                         </button>
                     ) : (
                         <div className="text-center">
-                            <p className="text-xs text-zinc-400 uppercase tracking-wider mb-1">Actions</p>
+                            <p className="text-[12px] text-zinc-400 uppercase tracking-wider mb-1 font-bold">Actions</p>
                             <p className="text-sm text-zinc-500">No trades to save</p>
                         </div>
                     )}
@@ -104,16 +104,16 @@ export default function DeriverseTradesTable({ trades, onSaveTrades, savingTrade
                     <table className="w-full text-left">
                         <thead className="sticky top-0 bg-black/90 backdrop-blur-xl border-b border-white/10">
                             <tr>
-                                <th className="px-6 py-4 text-xs font-semibold text-white/70 uppercase tracking-wider">Time</th>
-                                <th className="px-6 py-4 text-xs font-semibold text-white/70 uppercase tracking-wider">Symbol</th>
-                                <th className="px-6 py-4 text-xs font-semibold text-white/70 uppercase tracking-wider">Type</th>
-                                <th className="px-6 py-4 text-xs font-semibold text-white/70 uppercase tracking-wider">Side</th>
-                                <th className="px-6 py-4 text-xs font-semibold text-white/70 uppercase tracking-wider text-right">Quantity</th>
-                                <th className="px-6 py-4 text-xs font-semibold text-white/70 uppercase tracking-wider text-right">Price</th>
-                                <th className="px-6 py-4 text-xs font-semibold text-white/70 uppercase tracking-wider text-right">Notional</th>
-                                <th className="px-6 py-4 text-xs font-semibold text-white/70 uppercase tracking-wider text-right">PnL</th>
-                                <th className="px-6 py-4 text-xs font-semibold text-white/70 uppercase tracking-wider text-right">Fee</th>
-                                <th className="px-6 py-4 text-xs font-semibold text-white/70 uppercase tracking-wider">Signature</th>
+                                <th className="px-6 py-4 text-[12px] font-semibold text-white/70 uppercase tracking-wider">Time</th>
+                                <th className="px-6 py-4 text-[12px] font-semibold text-white/70 uppercase tracking-wider">Symbol</th>
+                                <th className="px-6 py-4 text-[12px] font-semibold text-white/70 uppercase tracking-wider">Type</th>
+                                <th className="px-6 py-4 text-[12px] font-semibold text-white/70 uppercase tracking-wider">Side</th>
+                                <th className="px-6 py-4 text-[12px] font-semibold text-white/70 uppercase tracking-wider text-right">Quantity</th>
+                                <th className="px-6 py-4 text-[12px] font-semibold text-white/70 uppercase tracking-wider text-right">Price</th>
+                                <th className="px-6 py-4 text-[12px] font-semibold text-white/70 uppercase tracking-wider text-right">Notional</th>
+                                <th className="px-6 py-4 text-[12px] font-semibold text-white/70 uppercase tracking-wider text-right">PnL</th>
+                                <th className="px-6 py-4 text-[12px] font-semibold text-white/70 uppercase tracking-wider text-right">Fee</th>
+                                <th className="px-6 py-4 text-[12px] font-semibold text-white/70 uppercase tracking-wider">Signature</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-white/5">

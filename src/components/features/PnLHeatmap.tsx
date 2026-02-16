@@ -73,7 +73,7 @@ export const PnLHeatmap: React.FC<PnLHeatmapProps> = ({ data }) => {
                     >
                         <ChevronLeft size={16} className="text-white/40" />
                     </button>
-                    <span className="text-[10px] font-mono text-white/80 uppercase tracking-widest min-w-[120px] text-center">
+                    <span className="text-[12px] font-mono text-white/80 uppercase tracking-widest min-w-[120px] text-center font-bold">
                         {format(currentMonth, 'MMMM yyyy')}
                     </span>
                     <button
@@ -85,10 +85,10 @@ export const PnLHeatmap: React.FC<PnLHeatmapProps> = ({ data }) => {
                 </div>
             </div>
 
-            <div className="relative">
-                <div className="grid grid-cols-7 gap-1.5">
+            <div className="relative max-w-[620px] mx-auto">
+                <div className="grid grid-cols-7 gap-1">
                     {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((d, i) => (
-                        <div key={i} className="text-[9px] font-mono text-white/20 text-center pb-2">{d}</div>
+                        <div key={i} className="text-[12px] font-mono text-white/20 text-center pb-2 font-bold">{d}</div>
                     ))}
 
                     {/* Padding for start of month */}
@@ -117,7 +117,7 @@ export const PnLHeatmap: React.FC<PnLHeatmapProps> = ({ data }) => {
                 {hoveredDay && (
                     <div className="absolute top-[-60px] left-1/2 -translate-x-1/2 z-20 pointer-events-none">
                         <div className="bg-black/95 border border-white/30 px-6 py-4 backdrop-blur-xl shadow-2xl flex flex-col items-center min-w-[180px] transform scale-110">
-                            <span className="text-[10px] font-mono text-white/50 uppercase tracking-widest mb-1.5 border-b border-white/10 pb-1 w-full text-center">
+                            <span className="text-[12px] font-mono text-white/50 uppercase tracking-widest mb-1.5 border-b border-white/10 pb-1 w-full text-center font-bold block">
                                 {format(hoveredDay, 'EEEE, MMM dd')}
                             </span>
                             <span className={`text-xl font-pixel font-bold mt-1 ${activePnL >= 0 ? 'text-green-400' : 'text-red-400'}`}>
@@ -131,15 +131,15 @@ export const PnLHeatmap: React.FC<PnLHeatmapProps> = ({ data }) => {
             <div className="mt-10 flex items-center justify-center gap-8">
                 <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 bg-red-500/40 border border-red-500/20" />
-                    <span className="text-[9px] font-mono text-white/40 uppercase tracking-tight">Large Loss</span>
+                    <span className="text-[12px] font-mono text-white/40 uppercase tracking-tight font-bold">Large Loss</span>
                 </div>
                 <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 bg-white/5 border border-white/5" />
-                    <span className="text-[9px] font-mono text-white/40 uppercase tracking-tight">Neutral</span>
+                    <span className="text-[12px] font-mono text-white/40 uppercase tracking-tight font-bold">Neutral</span>
                 </div>
                 <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 bg-green-500/60 border border-green-500/20" />
-                    <span className="text-[9px] font-mono text-white/40 uppercase tracking-tight">Core Profit</span>
+                    <span className="text-[12px] font-mono text-white/40 uppercase tracking-tight font-bold">Core Profit</span>
                 </div>
             </div>
         </div>

@@ -47,21 +47,21 @@ export const LiquidityHeatmap: React.FC<LiquidityHeatmapProps> = ({ height = 500
         <div className="bg-white/5 border border-white/10 p-4 rounded-none h-full flex flex-col overflow-hidden relative group">
             <div className="flex justify-between items-center mb-6">
                 <div className="flex flex-col gap-1">
-                    <h3 className="text-xs font-mono font-bold text-white uppercase tracking-widest">Liquidity Density Heatmap</h3>
-                    <p className="text-[9px] font-mono text-white/30 uppercase">Instrument: SOL-PERP // Aggregation: 10bps</p>
+                    <h3 className="text-[12px] font-mono font-bold text-white uppercase tracking-widest">Liquidity Density Heatmap</h3>
+                    <p className="text-[12px] font-mono text-white/30 uppercase font-bold">Instrument: SOL-PERP // Aggregation: 10bps</p>
                 </div>
                 <div className="flex items-center gap-4">
                     <div className="flex items-center gap-1.5 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all">
                         <span className="w-1.5 h-1.5 rounded-none bg-blue-500"></span>
-                        <span className="text-[8px] font-mono text-white/40 uppercase">Low</span>
+                        <span className="text-[12px] font-mono text-white/40 uppercase font-bold">Low</span>
                     </div>
                     <div className="flex items-center gap-1.5 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all">
                         <span className="w-1.5 h-1.5 rounded-none bg-purple-500"></span>
-                        <span className="text-[8px] font-mono text-white/40 uppercase">Med</span>
+                        <span className="text-[12px] font-mono text-white/40 uppercase font-bold">Med</span>
                     </div>
                     <div className="flex items-center gap-1.5 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all">
                         <span className="w-1.5 h-1.5 rounded-none bg-pink-500"></span>
-                        <span className="text-[8px] font-mono text-white/40 uppercase">Cluster</span>
+                        <span className="text-[12px] font-mono text-white/40 uppercase font-bold">Cluster</span>
                     </div>
                 </div>
             </div>
@@ -89,9 +89,9 @@ export const LiquidityHeatmap: React.FC<LiquidityHeatmapProps> = ({ height = 500
 
                 {/* Overlay Price Gauges */}
                 <div className="absolute inset-y-0 left-0 flex flex-col justify-between py-1 px-2 pointer-events-none">
-                    <span className="text-[8px] font-mono text-white/40 bg-black/40 backdrop-blur-sm px-1">112.50</span>
-                    <span className="text-[8px] font-mono text-white/40 bg-black/40 backdrop-blur-sm px-1">110.00</span>
-                    <span className="text-[8px] font-mono text-white/40 bg-black/40 backdrop-blur-sm px-1">107.50</span>
+                    <span className="text-[12px] font-mono text-white/40 bg-black/40 backdrop-blur-sm px-1 font-bold">112.50</span>
+                    <span className="text-[12px] font-mono text-white/40 bg-black/40 backdrop-blur-sm px-1 font-bold">110.00</span>
+                    <span className="text-[12px] font-mono text-white/40 bg-black/40 backdrop-blur-sm px-1 font-bold">107.50</span>
                 </div>
             </div>
 
@@ -99,12 +99,12 @@ export const LiquidityHeatmap: React.FC<LiquidityHeatmapProps> = ({ height = 500
                 <div className="flex items-center gap-3">
                     <div className="flex items-center gap-1.5">
                         <div className="w-2 h-0.5 bg-pink-500 animate-pulse"></div>
-                        <span className="text-[10px] font-mono text-pink-400 uppercase font-bold">WHALE CLUSTER DETECTED</span>
+                        <span className="text-[12px] font-mono text-pink-400 uppercase font-bold">WHALE CLUSTER DETECTED</span>
                     </div>
                     <span className="text-white/20">|</span>
-                    <span className="text-[9px] font-mono text-white/30 uppercase">Liquidity wall forming at 108.50</span>
+                    <span className="text-[12px] font-mono text-white/30 uppercase font-bold">Liquidity wall forming at 108.50</span>
                 </div>
-                <button className="text-[9px] font-mono text-blue-400 uppercase tracking-tighter hover:underline">Download Map .JSON</button>
+                <button className="text-[12px] font-mono text-blue-400 uppercase tracking-tighter hover:underline font-bold">Download Map .JSON</button>
             </div>
         </div>
     );

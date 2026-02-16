@@ -12,9 +12,9 @@ export default function NotFound() {
                 <div className="border border-white/10 bg-white/5 p-4 flex items-center justify-between mb-8 overflow-hidden relative">
                     <div className="flex items-center gap-3">
                         <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-                        <span className="text-[10px] text-white/40 uppercase tracking-widest leading-none">Status: Critical Malfunction</span>
+                        <span className="text-[12px] text-white/40 uppercase tracking-widest leading-none font-bold">Status: Critical Malfunction</span>
                     </div>
-                    <div className="text-[10px] text-white/20 uppercase tracking-widest leading-none">Ref: ER_VOID_404</div>
+                    <div className="text-[12px] text-white/20 uppercase tracking-widest leading-none font-bold">Ref: ER_VOID_404</div>
 
                     {/* Subtle Glitch Lines */}
                     <div className="absolute inset-0 pointer-events-none opacity-10">
@@ -43,11 +43,11 @@ export default function NotFound() {
                     {/* Diagnostic Stats */}
                     <div className="grid grid-cols-2 gap-4">
                         <div className="p-4 bg-white/5 border border-white/10">
-                            <span className="text-[9px] text-white/20 uppercase block mb-1">Error Code</span>
+                            <span className="text-[12px] text-white/20 uppercase block mb-1 font-bold">Error Code</span>
                             <span className="text-sm font-bold text-white">404_PAGE_NOT_FOUND</span>
                         </div>
                         <div className="p-4 bg-white/5 border border-white/10">
-                            <span className="text-[9px] text-white/20 uppercase block mb-1">Subsystem</span>
+                            <span className="text-[12px] text-white/20 uppercase block mb-1 font-bold">Subsystem</span>
                             <span className="text-sm font-bold text-white">ROUTING_MANAGER_V2</span>
                         </div>
                     </div>
@@ -71,7 +71,7 @@ export default function NotFound() {
                         </Link>
                     </div>
 
-                    <p className="text-center text-[9px] text-white/20 uppercase tracking-[0.3em] pt-8">
+                    <p className="text-center text-[12px] text-white/20 uppercase tracking-[0.3em] pt-8 font-bold">
                         © 2024 COLLECTIVE DATA JOURNAL // SYSTEM V2.4.0
                     </p>
                 </div>

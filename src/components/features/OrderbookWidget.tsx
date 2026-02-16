@@ -27,7 +27,7 @@ export const OrderbookWidget: React.FC<OrderbookWidgetProps> = ({ bids = [], ask
     );
 
     return (
-        <div className="bg-white/5 border border-white/10 rounded-none overflow-hidden h-full flex flex-col font-mono text-[9px] uppercase tracking-tighter">
+        <div className="bg-white/5 border border-white/10 rounded-none overflow-hidden h-full flex flex-col font-mono text-[12px] uppercase tracking-tighter font-bold">
             {/* Header */}
             <div className="px-4 py-3 bg-white/[0.03] border-b border-white/5 flex justify-between items-center">
                 <span className="text-white/40 font-bold tracking-widest">Orderbook Deep</span>
@@ -55,7 +55,7 @@ export const OrderbookWidget: React.FC<OrderbookWidgetProps> = ({ bids = [], ask
             <div className="px-4 py-2 bg-white/[0.02] border-y border-white/5 flex justify-between items-center">
                 <div className="flex flex-col">
                     <span className="text-white font-bold text-sm tracking-tight font-pixel">108.42</span>
-                    <span className="text-[7px] text-white/20">Index: 108.41</span>
+                    <span className="text-[12px] text-white/20 font-bold">Index: 108.41</span>
                 </div>
                 <div className="text-right">
                     <span className="text-white/40">Spread:</span>
@@ -83,11 +83,11 @@ export const OrderbookWidget: React.FC<OrderbookWidgetProps> = ({ bids = [], ask
             {/* Footer */}
             <div className="px-4 py-3 bg-white/[0.03] border-t border-white/5 grid grid-cols-2 gap-2">
                 <div className="flex flex-col">
-                    <span className="text-[7px] text-white/20">Depth (50)</span>
+                    <span className="text-[12px] text-white/20 font-bold">Depth (50)</span>
                     <span className="text-green-400 font-bold">1.2M Bids</span>
                 </div>
                 <div className="flex flex-col text-right">
-                    <span className="text-[7px] text-white/20">Skew</span>
+                    <span className="text-[12px] text-white/20 font-bold">Skew</span>
                     <span className="text-red-400 font-bold">+2.4% Ask</span>
                 </div>
             </div>

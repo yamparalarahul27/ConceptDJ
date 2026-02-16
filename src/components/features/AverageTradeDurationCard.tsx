@@ -58,7 +58,7 @@ export default function AverageTradeDurationCard({ trades, minHeight = 'min-h-[3
       <div className="flex flex-col h-full justify-between relative z-10">
         <div>
           <div className="flex items-center">
-            <h3 className="text-white/40 text-sm font-mono uppercase tracking-wider">Average Trade Duration</h3>
+            <h3 className="text-white/40 text-[12px] font-mono uppercase tracking-wider font-bold">Average Trade Duration</h3>
             <InfoTooltip infoKey="avgTradeDuration" />
           </div>
         </div>
@@ -77,9 +77,8 @@ export default function AverageTradeDurationCard({ trades, minHeight = 'min-h-[3
                       return (
                         <div
                           key={`${key}-${digit}-${idx}`}
-                          className={`flex flex-1 justify-center px-2 py-3 ${
-                            isFirst ? 'border-r border-white/20' : ''
-                          }`}
+                          className={`flex flex-1 justify-center px-2 py-3 ${isFirst ? 'border-r border-white/20' : ''
+                            }`}
                         >
                           {digit}
                         </div>
@@ -90,7 +89,7 @@ export default function AverageTradeDurationCard({ trades, minHeight = 'min-h-[3
                       aria-hidden="true"
                     />
                   </div>
-                  <div className="mt-2 text-[10px] uppercase tracking-[0.4em] text-white/40 text-center">
+                  <div className="mt-2 text-[12px] uppercase tracking-[0.4em] text-white/40 text-center font-bold">
                     {caption}
                   </div>
                 </div>

@@ -46,6 +46,11 @@ export const COMPONENT_INFO = {
     walletSelector: "Select your connected Solana wallet to view its specific trading history and performance metrics. Currently in demo mode with pre-loaded addresses.",
 
     timeFilters: "Filter your dashboard data by specific time periods. This affects PnL calculations, trading volume, fee distribution, and the transaction list.",
+
+    // Risk Intelligence
+    trs: "Trade Risk Score measures how much damage a single trade can do to total equity, adjusted for risk to stop, position sizing, and market volatility.",
+    prs: "Portfolio Risk Score measures overall portfolio fragility considering total downside risk, leverage, exposure, concentration, and correlation.",
+    rcs: "Risk Consistency Score evaluates behavioral discipline over time by looking at risk stability, position size drift, and emotional trading patterns.",
 } as const;
 
 export type ComponentInfoKey = keyof typeof COMPONENT_INFO;

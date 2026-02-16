@@ -18,6 +18,7 @@ const CORE_CONCEPTS = [
     { name: 'Trading Journal', path: '/playground/journal' },
     { name: 'Liquidity Analyser', path: '/playground/liquidity' },
     { name: 'Advanced Charts', path: '/playground/tradingview-integration' },
+    { name: 'Risk Intelligence', path: '/playground/risk-intelligence' },
     { name: 'Cards & Widgets', path: '/playground/widgets' },
 ];
 
