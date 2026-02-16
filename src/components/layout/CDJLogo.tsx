@@ -44,7 +44,6 @@ export const CDJLogo = () => {
                 variants={logoVariants}
                 className="text-white/40 font-mono text-[10px] tracking-[0.6em] uppercase mt-4"
             >
-                Synchronizing Professional Workspace
             </motion.p>
         </motion.div>
     );

@@ -6,11 +6,12 @@ import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, SquareArrowOutUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const CORE_CONCEPTS = [
     { name: 'Concept Overview', path: '/playground' },
+    { name: 'Pixel Typography', path: '/playground/pixel-demo' },
     { name: 'Portfolio Dashboard', path: '/playground/portfolio' },
     { name: 'Pro PnL Tracker', path: '/playground/pnl-tracker' },
     { name: 'Deep Performance', path: '/playground/performance' },
@@ -31,23 +32,47 @@ export default function ConceptHeader() {
 
     const allLinks = [...CORE_CONCEPTS, ...EXPERIMENTS];
 
+    const isInPlayground = pathname?.startsWith('/playground');
+
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 py-2 sm:py-3">
-            <div className="bg-black/80 max-w-7xl mx-auto backdrop-blur-xl border border-white/10 rounded-none px-6 py-4 flex items-center justify-between gap-8 shadow-2xl shadow-black/20">
+        <header className={cn(
+            "fixed left-0 right-0 z-50 px-3 sm:px-6 py-2 sm:py-3 transition-all duration-300",
+            isInPlayground ? "top-10" : "top-0"
+        )}>
+            <div className="bg-black/80 max-w-7xl mx-auto backdrop-blur-xl border border-white/10 rounded-none px-6 py-4 flex items-center justify-between gap-8 shadow-2xl shadow-black/20 relative">
                 <div className="flex items-center gap-6">
                     <Link
                         href="https://deriverse.vercel.app"
-                        className="flex items-center gap-2 text-white/60 hover:text-white transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 text-white/60 hover:text-white transition-all group px-3 py-2 rounded-none hover:bg-white/10"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="m15 18-6-6 6-6" />
-                        </svg>
-                        <span className="text-sm font-medium whitespace-nowrap">Visit Deriverse Journal [Alpha]</span>
+                        <Image
+                            src="/assets/deriverse_j_hero_logo.png"
+                            alt="Deriverse Logo"
+                            width={120}
+                            height={120}
+                        />
+                        <SquareArrowOutUpRight size={18} className="opacity-80 group-hover:opacity-100 transition-all" />
                     </Link>
 
                 </div>
 
-                <div className="relative flex-1 max-w-xs">
+                {/* Centered CDJ Logo */}
+                <Link
+                    href="/playground"
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hover:opacity-100 transition-opacity"
+                >
+                    <Image
+                        src="/assets/CDJ.png"
+                        alt="CDJ Logo"
+                        width={140}
+                        height={140}
+                        className="w-auto h-10 md:h-10"
+                    />
+                </Link>
+
+                <div className="relative flex-1 max-w-[240px] focus-within:z-10">
                     <Popover>
                         <PopoverTrigger asChild>
                             <Button
@@ -60,7 +85,7 @@ export default function ConceptHeader() {
                                 <ChevronDown className="h-4 w-4 text-white/50 group-hover:text-white transition-colors" />
                             </Button>
                         </PopoverTrigger>
-                        <PopoverContent className="w-[280px] p-0 bg-black/90 backdrop-blur-2xl border-white/10 rounded-none shadow-2xl overflow-hidden" align="end">
+                        <PopoverContent className="w-[240px] p-0 bg-black/90 backdrop-blur-2xl border-white/10 rounded-none shadow-2xl overflow-hidden" align="end">
                             <div className="max-h-[70vh] overflow-y-auto custom-scrollbar">
                                 {/* Core Concepts */}
                                 <div className="p-2">

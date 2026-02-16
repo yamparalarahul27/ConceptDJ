@@ -113,7 +113,11 @@
   --font-mono: var(--font-geist-mono);
   /* Define all pixel font variables */
   --font-pixel: var(--font-geist-pixel-grid);
+  --font-pixel-grid: var(--font-geist-pixel-grid);
   --font-pixel-square: var(--font-geist-pixel-square);
+  --font-pixel-circle: var(--font-geist-pixel-circle);
+  --font-pixel-triangle: var(--font-geist-pixel-triangle);
+  --font-pixel-line: var(--font-geist-pixel-line);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -581,6 +585,7 @@ body {
   font-weight: 600;
   font-size: 0.875rem;
 }
+
 /* ============================================
    Custom Loading Spinner
    ============================================ */
@@ -608,5 +613,7 @@ body {
 }
 
 @keyframes spinner-border {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }

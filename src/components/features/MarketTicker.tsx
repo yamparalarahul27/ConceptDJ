@@ -23,7 +23,7 @@ export const MarketTicker: React.FC = () => {
     const items = useMemo(() => [...MOCK_TICKER, ...MOCK_TICKER, ...MOCK_TICKER], []);
 
     return (
-        <div className="w-full bg-black border-b border-white/10 overflow-hidden h-10 flex items-center relative z-50">
+        <div className="w-full bg-black border-b border-white/10 overflow-hidden h-10 flex items-center fixed top-0 left-0 right-0 z-[60]">
             {/* Gradient Overlays */}
             <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black to-transparent z-10"></div>
             <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black to-transparent z-10"></div>

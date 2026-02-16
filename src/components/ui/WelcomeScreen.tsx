@@ -29,9 +29,9 @@ interface WelcomeScreenProps {
 }
 
 const WelcomeContent = {
-    greeting: "Hi, welcome to Deriverse Journal",
-    description: "This app is made to help traders on Deriverse Dex to get in-depth analytics and journal their trades to become more discipline and profitable.",
-    buttonText: "Awesome! Let's get started"
+    greeting: "Hi, welcome",
+    description: "This app is a collective of all new and upcoming Feature UI Ideas forDeriverse Journal App. There are 20+ ideas and Components, which are designed to make Trading Accessible and Flexible",
+    buttonText: "Interesting right? Let's Explore"
 };
 
 export const WelcomeScreen = ({ onComplete, isVisible }: WelcomeScreenProps) => {

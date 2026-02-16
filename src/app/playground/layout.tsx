@@ -24,7 +24,7 @@ export default function PlaygroundLayout({
             <div className="flex flex-col min-h-screen">
                 <ConceptHeader />
                 <MarketTicker />
-                <main className="flex-1 flex flex-col pt-24 sm:pt-28 relative">
+                <main className="flex-1 flex flex-col pt-[104px] sm:pt-[20px] relative">
                     {children}
                 </main>
 

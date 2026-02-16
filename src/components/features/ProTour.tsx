@@ -71,7 +71,7 @@ export const ProTour: React.FC = () => {
                     <div className="p-4 bg-white/5 border border-white/10 w-fit mb-6 text-purple-400">
                         <currentStep.icon size={32} />
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-3 uppercase tracking-tighter italic">
+                    <h3 className="text-2xl font-semibold text-white mb-3 uppercase tracking-tighter">
                         {currentStep.title}
                     </h3>
                     <p className="text-white/50 text-sm leading-relaxed font-light">
@@ -91,7 +91,7 @@ export const ProTour: React.FC = () => {
 
                     <button
                         onClick={() => step < steps.length - 1 ? setStep(step + 1) : completeTour()}
-                        className="flex items-center gap-2 bg-white text-black px-6 py-2.5 text-[10px] font-mono uppercase font-bold hover:bg-purple-500 hover:text-white transition-all group"
+                        className="flex items-center gap-2 bg-white text-black px-6 py-2.5 text-[10px] font-mono uppercase font-semibold hover:bg-purple-500 hover:text-white transition-all group"
                     >
                         {step === steps.length - 1 ? 'Execute Playground' : 'Next Discovery'}
                         <ChevronRight size={14} className="group-hover:translate-x-0.5 transition-transform" />

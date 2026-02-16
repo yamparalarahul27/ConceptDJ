@@ -3,8 +3,17 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowUpRight, BarChart2, BookOpen, Activity, Settings, Zap, Compass, TrendingUp } from 'lucide-react';
+import { PixelHeading } from '@/components/ui/pixel-heading-character';
 
 const CONCEPTS = [
+    {
+        name: 'Pixel Typography',
+        description: 'Interactive per-character animated headings using the Geist Pixel font system.',
+        path: '/playground/pixel-demo',
+        icon: TrendingUp,
+        status: 'NEW',
+        color: 'bg-purple-600/10 text-purple-400 border-purple-500/30'
+    },
     {
         name: 'Portfolio Dashboard',
         description: 'Comprehensive view of portfolio value, asset allocation across chains, and market watch.',
@@ -74,18 +83,31 @@ const CONCEPTS = [
 export default function PlaygroundDashboard() {
     return (
         <div className="max-w-7xl mx-auto py-12 px-6">
-            <header className="mb-16">
+            <header className="mb-16 flex flex-col items-center text-center">
                 <div className="flex items-center gap-3 mb-4">
                     <div className="w-2 h-2 rounded-none bg-purple-500 animate-pulse"></div>
-                    <span className="text-[10px] font-mono text-white/40 uppercase tracking-[0.3em]">Pro Explorer v1.0</span>
+                    <span className="text-[10px] font-mono text-white/40 uppercase tracking-[0.3em]">Explorer v1.0</span>
                 </div>
-                <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 uppercase tracking-tighter">
-                    CDJ Collective <br />
-                    <span className="text-white/20">Concept Playground</span>
-                </h1>
+
+                <PixelHeading
+                    mode="wave"
+                    autoPlay
+                    cycleInterval={340}
+                    staggerDelay={200}
+                    defaultFontIndex={0}
+                    showLabel={false}
+                    className="text-5xl md:text-8xl font-light text-white mb-4 uppercase tracking-tighter"
+                >
+                    CDJ Collective
+                </PixelHeading>
+
+                <h2 className="text-2xl md:text-4xl font-regular text-white/20 mb-8 uppercase">
+                    Concept Playground
+                </h2>
+
                 <p className="text-lg text-white/50 max-w-2xl font-light leading-relaxed">
-                    Explore high-fidelity UI concepts for the next generation of trading analytics.
-                    Built with <span className="text-white">Geist Pixel System</span> and professional-grade data visualization.
+                    Explore high-fidelity UI concepts for Deriverse Journal App. <br />
+                    Powered by <span className="text-white"><Link href="https://deriverse.io" target="_blank">Deriverse</Link></span> The next-gen, fully on-chain, and decentralized Solana trading ecosystem
                 </p>
             </header>
 

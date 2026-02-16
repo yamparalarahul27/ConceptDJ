@@ -3,6 +3,10 @@ import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import {
   GeistPixelGrid,
+  GeistPixelSquare,
+  GeistPixelCircle,
+  GeistPixelTriangle,
+  GeistPixelLine,
 } from 'geist/font/pixel';
 import "./globals.css";
 import '@pqina/flip/dist/flip.min.css';
@@ -29,6 +33,10 @@ export default function RootLayout({
           ${GeistSans.variable} 
           ${GeistMono.variable} 
           ${GeistPixelGrid.variable} 
+          ${GeistPixelSquare.variable} 
+          ${GeistPixelCircle.variable} 
+          ${GeistPixelTriangle.variable} 
+          ${GeistPixelLine.variable} 
           antialiased
           bg-[#0D0D21] text-white selection:bg-purple-500/30 flex flex-col min-h-screen
         `}
