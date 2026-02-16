@@ -45,7 +45,7 @@ export const OrderbookWidget: React.FC<OrderbookWidgetProps> = ({ bids = [], ask
                         <span className="text-red-400 font-bold relative z-10">{ask.price.toFixed(2)}</span>
                         <div className="flex gap-4 relative z-10">
                             <span className="text-white/60">{ask.amount.toFixed(1)}</span>
-                            <span className="text-white/30 italic w-16 text-right">{ask.total.toFixed(1)}</span>
+                            <span className="text-white/30 w-16 text-right">{ask.total.toFixed(1)}</span>
                         </div>
                     </div>
                 ))}
@@ -74,7 +74,7 @@ export const OrderbookWidget: React.FC<OrderbookWidgetProps> = ({ bids = [], ask
                         <span className="text-green-400 font-bold relative z-10">{bid.price.toFixed(2)}</span>
                         <div className="flex gap-4 relative z-10">
                             <span className="text-white/60">{bid.amount.toFixed(1)}</span>
-                            <span className="text-white/30 italic w-16 text-right">{bid.total.toFixed(1)}</span>
+                            <span className="text-white/30 w-16 text-right">{bid.total.toFixed(1)}</span>
                         </div>
                     </div>
                 ))}

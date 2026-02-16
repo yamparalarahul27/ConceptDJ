@@ -59,7 +59,7 @@ export const AITiltMeter: React.FC<AITiltMeterProps> = ({ tiltLevel }) => {
                         <h3 className={`text-2xl font-bold font-mono tracking-tighter uppercase ${color}`}>
                             {tiltLevel}% VARIANCE
                         </h3>
-                        <p className="text-white/50 text-[10px] font-mono uppercase tracking-tight mt-2 italic">
+                        <p className="text-white/50 text-[10px] font-mono uppercase tracking-tight mt-2">
                             {desc}
                         </p>
                     </div>

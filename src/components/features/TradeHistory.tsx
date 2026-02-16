@@ -290,7 +290,7 @@ export default function TradeHistory({ onSwitchToRealData }: TradeHistoryProps =
                 ) : transactions.length === 0 ? (
                   <div className="rounded-none border border-white/10 bg-black/80 backdrop-blur-xl p-12 text-center max-w-2xl mx-auto">
                     <p className="text-zinc-400 mb-2">Transaction history is not cached.</p>
-                    <p className="text-zinc-500 text-sm mb-6 italic">
+                    <p className="text-zinc-500 text-sm mb-6">
                       "Sorry for the inconvenience, we are working on limited resources, that's why this force refresh is enabled, to save Helius usage."
                     </p>
                     <p className="text-zinc-400 text-sm">

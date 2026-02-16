@@ -8,22 +8,6 @@ import Footer from '@/components/layout/Footer';
 
 const CONCEPTS = [
     {
-        name: 'Pixel Typography',
-        description: 'Interactive per-character animated headings using the Geist Pixel font system.',
-        path: '/playground/pixel-demo',
-        icon: TrendingUp,
-        status: 'NEW',
-        color: 'bg-purple-600/10 text-purple-400 border-purple-500/30'
-    },
-    {
-        name: 'Portfolio Dashboard',
-        description: 'Comprehensive view of portfolio value, asset allocation across chains, and market watch.',
-        path: '/playground/portfolio',
-        icon: TrendingUp,
-        status: 'NEW',
-        color: 'bg-purple-600/10 text-purple-400 border-purple-500/30'
-    },
-    {
         name: 'Pro PnL Tracker',
         description: 'Advanced Profit & Loss analysis with drawdown visualization and calendar heatmaps.',
         path: '/playground/pnl-tracker',
@@ -54,6 +38,22 @@ const CONCEPTS = [
         icon: Zap,
         status: 'READY',
         color: 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20'
+    },
+    {
+        name: 'Pixel Typography',
+        description: 'Interactive per-character animated headings using the Geist Pixel font system.',
+        path: '/playground/pixel-demo',
+        icon: TrendingUp,
+        status: 'NEW',
+        color: 'bg-purple-600/10 text-purple-400 border-purple-500/30'
+    },
+    {
+        name: 'Portfolio Dashboard',
+        description: 'Comprehensive view of portfolio value, asset allocation across chains, and market watch.',
+        path: '/playground/portfolio',
+        icon: TrendingUp,
+        status: 'NEW',
+        color: 'bg-purple-600/10 text-purple-400 border-purple-500/30'
     },
     {
         name: 'Advanced Charts',

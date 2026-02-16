@@ -38,7 +38,7 @@ export function PixelHeadingCharacterDemo() {
         useState<(typeof PREFIX_FONTS)[number]>("none")
     const [headingLevel, setHeadingLevel] =
         useState<(typeof HEADING_LEVELS)[number]>("h1")
-    const [fontWeight, setFontWeight] = useState<(typeof FONT_WEIGHTS)[number]>(FONT_WEIGHTS[4]) // Default to Bold
+    const [fontWeight, setFontWeight] = useState<(typeof FONT_WEIGHTS)[number]>(FONT_WEIGHTS[0]) // Default to Light
     const [defaultFontIndex, setDefaultFontIndex] = useState(3)
     const [isolateEnabled, setIsolateEnabled] = useState(false)
     const [isolateChars, setIsolateChars] = useState("x")

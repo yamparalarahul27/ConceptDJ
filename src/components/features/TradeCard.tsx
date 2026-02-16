@@ -111,7 +111,7 @@ export default function TradeCard({ trade, annotation, onAnnotate }: TradeCardPr
                         )}
 
                         {truncatedNote && (
-                            <p className="text-xs text-white/50 line-clamp-2 italic font-serif">
+                            <p className="text-xs text-white/50 line-clamp-2 font-serif">
                                 "{truncatedNote}"
                             </p>
                         )}
@@ -119,7 +119,7 @@ export default function TradeCard({ trade, annotation, onAnnotate }: TradeCardPr
                         {annotation.lessonsLearned && !truncatedNote && (
                             <div className="bg-purple-500/5 p-2 border border-purple-500/10">
                                 <p className="text-[10px] text-purple-400 font-bold mb-1 uppercase">Lesson</p>
-                                <p className="text-xs text-white/70 line-clamp-1 italic">
+                                <p className="text-xs text-white/70 line-clamp-1">
                                     {annotation.lessonsLearned}
                                 </p>
                             </div>

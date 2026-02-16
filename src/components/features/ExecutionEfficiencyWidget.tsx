@@ -71,7 +71,7 @@ export const ExecutionEfficiencyWidget: React.FC<ExecutionEfficiencyWidgetProps>
             </div>
 
             <div className="mt-8 p-4 bg-purple-500/5 border border-purple-500/10 rounded-none">
-                <p className="text-[10px] font-mono text-purple-400 leading-relaxed uppercase tracking-tighter italic">
+                <p className="text-[10px] font-mono text-purple-400 leading-relaxed uppercase tracking-tighter">
                     <span className="font-bold underline">TRADER EDGE:</span> YOUR EXECUTION EFFICIENCY IS 22% HIGHER ON PERPETUALS. CONSIDER REDUCING SPOT ALLOCATION.
                 </p>
             </div>

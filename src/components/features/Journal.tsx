@@ -278,7 +278,7 @@ export default function Journal({ network = 'mock', analyzingWallet, onNavigateT
                                 <div className="absolute right-0 mt-2 w-56 bg-[#0D0D21] border border-white/10 shadow-2xl z-50 p-2 glass-morphism">
                                     <div className="max-h-60 overflow-y-auto custom-scrollbar p-1">
                                         {availableTags.length === 0 ? (
-                                            <p className="text-[10px] text-white/30 p-2 italic">Add annotations to see tags</p>
+                                            <p className="text-[10px] text-white/30 p-2">Add annotations to see tags</p>
                                         ) : (
                                             availableTags.map(tag => (
                                                 <button

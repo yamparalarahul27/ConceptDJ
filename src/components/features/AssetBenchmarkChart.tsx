@@ -49,7 +49,7 @@ export const AssetBenchmarkChart: React.FC<AssetBenchmarkChartProps> = ({ data, 
             <div className="flex items-center justify-between mb-8">
                 <div className="flex flex-col gap-1">
                     <h3 className="text-xs font-mono font-bold text-white uppercase tracking-wider">Self vs. Market (Alpha Analysis)</h3>
-                    <p className="text-[10px] text-white/40 font-mono italic">Relative performance in % yield</p>
+                    <p className="text-[10px] text-white/40 font-mono">Relative performance in % yield</p>
                 </div>
                 <div className="text-right">
                     <span className="text-[10px] text-white/40 font-mono uppercase block mb-1 font-bold text-purple-400 tracking-tighter">TOTAL ALPHA (MTD)</span>

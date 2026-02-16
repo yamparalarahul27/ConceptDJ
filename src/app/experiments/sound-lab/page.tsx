@@ -71,7 +71,7 @@ export default function SoundLabPage() {
                     <section className="p-6 bg-purple-500/5 border border-purple-500/10 rounded-none">
                         <div className="flex items-start gap-3">
                             <Info size={16} className="text-purple-400 shrink-0 mt-0.5" />
-                            <p className="text-xs text-white/50 leading-relaxed italic">
+                            <p className="text-xs text-white/50 leading-relaxed">
                                 Note: These sounds are generated programmatically using Sine, Triangle, and Sawtooth oscillators with exponential decay envelopes.
                             </p>
                         </div>

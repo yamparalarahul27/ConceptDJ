@@ -53,7 +53,18 @@ const WIDGET_LIBRARY: WidgetMetadata[] = [
         origin: 'Pro PnL Tracker',
         icon: TrendingUp,
         component: PaperHandsChart,
-        mockData: { data: [/* mock data would go here */], height: 250 }
+        mockData: {
+            data: [
+                { date: '2024-01-01', value: 1000, time: 'Jan 01' },
+                { date: '2024-01-02', value: 1250, time: 'Jan 02' },
+                { date: '2024-01-03', value: 1100, time: 'Jan 03' },
+                { date: '2024-01-04', value: 1400, time: 'Jan 04' },
+                { date: '2024-01-05', value: 1350, time: 'Jan 05' },
+                { date: '2024-01-06', value: 1800, time: 'Jan 06' },
+                { date: '2024-01-07', value: 2100, time: 'Jan 07' },
+            ],
+            height: 250
+        }
     },
     {
         id: 'tilt-meter',
@@ -76,7 +87,17 @@ const WIDGET_LIBRARY: WidgetMetadata[] = [
         origin: 'Pro PnL Tracker',
         icon: BarChart2,
         component: PnLHeatmap,
-        mockData: { data: [] }
+        mockData: {
+            data: [
+                { date: '2024-01-01', pnl: 450 },
+                { date: '2024-01-02', pnl: -120 },
+                { date: '2024-01-03', pnl: 890 },
+                { date: '2024-01-04', pnl: 230 },
+                { date: '2024-01-05', pnl: -50 },
+                { date: '2024-01-06', pnl: 120 },
+                { date: '2024-01-07', pnl: 560 }
+            ]
+        }
     },
     {
         id: 'risk-analyser',
@@ -99,7 +120,17 @@ const WIDGET_LIBRARY: WidgetMetadata[] = [
         origin: 'Deep Performance',
         icon: Activity,
         component: ExecutionQualityChart,
-        mockData: { data: [], height: 250 }
+        mockData: {
+            data: [
+                { pair: 'SOL-PERP', mae: 120.50, mfe: 450.50, pnl: 380.00 },
+                { pair: 'BTC-PERP', mae: 450.00, mfe: 100.00, pnl: -320.00 },
+                { pair: 'JUP-PERP', mae: 50.00, mfe: 890.00, pnl: 810.00 },
+                { pair: 'ETH-PERP', mae: 230.20, mfe: 560.20, pnl: 430.20 },
+                { pair: 'BONK-PERP', mae: 150.50, mfe: 20.00, pnl: -130.50 },
+                { pair: 'ARB-PERP', mae: 420.00, mfe: 450.00, pnl: 10.00 },
+            ],
+            height: 250
+        }
     },
     {
         id: 'asset-benchmark',
@@ -111,7 +142,18 @@ const WIDGET_LIBRARY: WidgetMetadata[] = [
         origin: 'Deep Performance',
         icon: Compass,
         component: AssetBenchmarkChart,
-        mockData: { height: 250 }
+        mockData: {
+            data: [
+                { time: '0', pnl: 0, btc: 0, eth: 0 },
+                { time: '1', pnl: 2, btc: 1.5, eth: 1 },
+                { time: '2', pnl: 1.5, btc: 3, eth: 2.5 },
+                { time: '3', pnl: 4, btc: 3.5, eth: 3 },
+                { time: '4', pnl: 6, btc: 5, eth: 4.5 },
+                { time: '5', pnl: 5.5, btc: 4.5, eth: 4 },
+                { time: '6', pnl: 8.5, btc: 6, eth: 5.5 },
+            ],
+            height: 250
+        }
     },
     {
         id: 'liquidity-heatmap',
@@ -235,13 +277,13 @@ export default function WidgetsLibraryPage() {
                                 </div>
                                 <div>
                                     <span className="text-[10px] font-mono text-purple-500/60 uppercase block mb-1">Calculation Method</span>
-                                    <p className="text-xs text-white/40 font-mono leading-relaxed italic">{widget.calculation}</p>
+                                    <p className="text-xs text-white/40 font-mono leading-relaxed">{widget.calculation}</p>
                                 </div>
                                 <div className="p-4 bg-purple-500/5 border border-purple-500/10">
                                     <span className="text-[10px] font-mono text-purple-400 uppercase block mb-1 flex items-center gap-2">
                                         <Info size={12} /> Trader Utility
                                     </span>
-                                    <p className="text-xs text-white/70 italic leading-relaxed">{widget.utility}</p>
+                                    <p className="text-xs text-white/70 leading-relaxed">{widget.utility}</p>
                                 </div>
                             </div>
 

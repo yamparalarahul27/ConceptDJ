@@ -287,10 +287,10 @@ export default function AnnotationModal({
                                                     }
                                                 }}
                                                 placeholder="What is the one thing you learned from this?"
-                                                className="w-full h-16 rounded-none border border-purple-500/20 bg-black/40 px-4 py-2 text-sm text-white placeholder:text-purple-400/20 focus:border-purple-400/40 focus:outline-none transition-all resize-none italic"
+                                                className="w-full h-16 rounded-none border border-purple-500/20 bg-black/40 px-4 py-2 text-sm text-white placeholder:text-purple-400/20 focus:border-purple-400/40 focus:outline-none transition-all resize-none"
                                             />
                                             <div className="flex items-center justify-between text-[10px]">
-                                                <span className="text-purple-400/40 italic">
+                                                <span className="text-purple-400/40">
                                                     Distill your core insight
                                                 </span>
                                                 <span className={`font-mono ${remainingLessonChars < 20 ? 'text-red-400' : 'text-purple-400/40'}`}>

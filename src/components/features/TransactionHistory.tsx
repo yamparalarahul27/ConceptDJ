@@ -98,7 +98,7 @@ export const TransactionHistory: React.FC = () => {
                                         {tx.status}
                                     </span>
                                 </td>
-                                <td className="py-4 text-right font-mono text-xs text-white/20 italic group-hover:text-white/40 transition-colors">
+                                <td className="py-4 text-right font-mono text-xs text-white/20 group-hover:text-white/40 transition-colors">
                                     {tx.id}
                                 </td>
                             </tr>

@@ -49,7 +49,7 @@ export const ExecutionQualityChart: React.FC<ExecutionQualityChartProps> = ({ da
             <div className="flex items-center justify-between mb-6">
                 <div className="flex flex-col gap-1">
                     <h3 className="text-xs font-mono font-bold text-white uppercase tracking-wider">Execution Quality (MAE/MFE)</h3>
-                    <p className="text-[10px] text-white/40 font-mono italic">Analysis of paper losses vs potential peaks</p>
+                    <p className="text-[10px] text-white/40 font-mono">Analysis of paper losses vs potential peaks</p>
                 </div>
                 <div className="group relative border border-white/10 p-1 hover:bg-white/5 transition-colors cursor-help">
                     <Info size={14} className="text-white/40 group-hover:text-purple-400 transition-colors" />

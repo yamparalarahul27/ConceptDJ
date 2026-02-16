@@ -59,7 +59,7 @@ export const ProJournalEntry: React.FC<ProJournalEntryProps> = ({ date, sentimen
                         <span className="text-[10px] font-mono uppercase tracking-tighter">Session Reflection Log // RAW_TEXT</span>
                     </div>
                     <div className="bg-white/[0.02] border border-white/5 p-4 rounded-none relative">
-                        <p className="text-sm font-light text-white/70 leading-relaxed italic">
+                        <p className="text-sm font-light text-white/70 leading-relaxed">
                             "{content}"
                         </p>
                         <div className="absolute top-0 right-0 p-2 opacity-5 group-hover:opacity-20 transition-opacity">

@@ -154,7 +154,7 @@ export default function UISkillsExperimentPage() {
                         <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div> LABS READY
                     </span>
                 </div>
-                <div className="text-[10px] font-mono text-white/10 uppercase italic">
+                <div className="text-[10px] font-mono text-white/10 uppercase">
                     Pushing the boundaries of decentralized analytics.
                 </div>
             </footer>
