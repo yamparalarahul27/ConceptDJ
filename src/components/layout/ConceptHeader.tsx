@@ -11,6 +11,7 @@ import { cn } from '@/lib/utils';
 
 const CORE_CONCEPTS = [
     { name: 'Concept Overview', path: '/playground' },
+    { name: 'Portfolio Dashboard', path: '/playground/portfolio' },
     { name: 'Pro PnL Tracker', path: '/playground/pnl-tracker' },
     { name: 'Deep Performance', path: '/playground/performance' },
     { name: 'Trading Journal', path: '/playground/journal' },

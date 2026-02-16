@@ -2,9 +2,17 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, BarChart2, BookOpen, Activity, Settings, Zap, Compass } from 'lucide-react';
+import { ArrowUpRight, BarChart2, BookOpen, Activity, Settings, Zap, Compass, TrendingUp } from 'lucide-react';
 
 const CONCEPTS = [
+    {
+        name: 'Portfolio Dashboard',
+        description: 'Comprehensive view of portfolio value, asset allocation across chains, and market watch.',
+        path: '/playground/portfolio',
+        icon: TrendingUp,
+        status: 'NEW',
+        color: 'bg-purple-600/10 text-purple-400 border-purple-500/30'
+    },
     {
         name: 'Pro PnL Tracker',
         description: 'Advanced Profit & Loss analysis with drawdown visualization and calendar heatmaps.',
