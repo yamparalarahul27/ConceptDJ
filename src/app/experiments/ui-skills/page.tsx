@@ -10,8 +10,20 @@ import {
     ExternalLink,
     Code2,
     Palette,
-    Zap
+    Zap,
+    Calendar
 } from 'lucide-react';
+import { PnLHeatmap } from '@/components/features/PnLHeatmap';
+
+const MOCK_HEATMAP_DATA = [
+    { date: '2024-01-01', pnl: 450 },
+    { date: '2024-01-02', pnl: -120 },
+    { date: '2024-01-03', pnl: 890 },
+    { date: '2024-01-04', pnl: 230 },
+    { date: '2024-01-05', pnl: -50 },
+    { date: '2024-01-06', pnl: 120 },
+    { date: '2024-01-07', pnl: 560 }
+];
 
 const SKILLS = [
     {
@@ -131,15 +143,27 @@ export default function UISkillsExperimentPage() {
                         </div>
                     </div>
 
-                    <div className="w-full md:w-2/3 bg-white/[0.03] border border-white/10 aspect-video flex flex-col items-center justify-center relative overflow-hidden group">
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.1),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-                        <Palette size={48} className="text-white/10 mb-6 group-hover:text-purple-500 transition-colors" />
-                        <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest">Awaiting First Artifact...</span>
+                    <div className="w-full md:w-2/3 bg-black/40 border border-white/10 p-6 relative overflow-hidden group min-h-[400px]">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.05),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+
+                        <div className="relative z-10 w-full">
+                            <div className="flex items-center justify-between mb-8">
+                                <span className="text-[10px] font-mono text-purple-400 bg-purple-500/10 px-2 py-1 uppercase tracking-widest flex items-center gap-2">
+                                    <Calendar size={12} /> Active Artifact: PnL Calendar
+                                </span>
+                                <div className="flex items-center gap-2">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+                                    <span className="text-[8px] font-mono text-white/20 uppercase tracking-widest">Live Preview</span>
+                                </div>
+                            </div>
+
+                            <PnLHeatmap data={MOCK_HEATMAP_DATA} />
+                        </div>
 
                         {/* Decorative Pixel Grid */}
-                        <div className="absolute bottom-4 right-4 grid grid-cols-4 gap-1">
+                        <div className="absolute bottom-4 right-4 grid grid-cols-4 gap-1 opacity-20">
                             {Array.from({ length: 16 }).map((_, i) => (
-                                <div key={i} className="w-1 h-1 bg-white/5"></div>
+                                <div key={i} className="w-1 h-1 bg-white/40"></div>
                             ))}
                         </div>
                     </div>
