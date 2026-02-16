@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, BarChart2, BookOpen, Activity, Settings, Zap } from 'lucide-react';
+import { ArrowUpRight, BarChart2, BookOpen, Activity, Settings, Zap, Compass } from 'lucide-react';
 
 const CONCEPTS = [
     {
@@ -44,6 +44,14 @@ const CONCEPTS = [
         icon: BarChart2,
         status: 'READY',
         color: 'bg-pink-500/10 text-pink-400 border-pink-500/20'
+    },
+    {
+        name: 'Cards & Widgets',
+        description: 'Comprehensive audit and documentation of all analytical modules.',
+        path: '/playground/widgets',
+        icon: Compass,
+        status: 'READY',
+        color: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20'
     },
     {
         name: 'Collective Settings',

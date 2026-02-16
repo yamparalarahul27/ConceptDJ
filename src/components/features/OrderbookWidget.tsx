@@ -19,10 +19,11 @@ interface OrderbookWidgetProps {
  * Displays real-time depth with intensity visualization.
  * Optimized for high-density information display.
  */
-export const OrderbookWidget: React.FC<OrderbookWidgetProps> = ({ bids, asks }) => {
+export const OrderbookWidget: React.FC<OrderbookWidgetProps> = ({ bids = [], asks = [] }) => {
     const maxTotal = Math.max(
-        ...bids.map(b => b.total),
-        ...asks.map(a => a.total)
+        ...bids.map(b => b.total || 0),
+        ...asks.map(a => a.total || 0),
+        1 // Prevent division by zero
     );
 
     return (
