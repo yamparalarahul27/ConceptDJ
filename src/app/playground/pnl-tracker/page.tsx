@@ -62,7 +62,7 @@ export default function ProPnLTrackerPage() {
                 <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
                         <h1 className="text-3xl font-bold text-white mb-2 uppercase tracking-tighter text-heading-32">
-                            {settings.playerName}'s PnL Analytics
+                            {settings.playerName}Pro PnL Analytics
                         </h1>
                         <div className="flex items-center gap-2 text-white/50 text-[10px] font-mono uppercase tracking-widest">
                             <span className="w-2 h-2 rounded-none bg-green-500"></span>
