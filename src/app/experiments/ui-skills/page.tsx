@@ -76,9 +76,9 @@ export default function UISkillsExperimentPage() {
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-6xl md:text-8xl font-bold uppercase tracking-tighter mb-8 bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent"
+                    className="text-2xl md:text-6xl font-bold uppercase tracking-tighter mb-8 bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent"
                 >
-                    Design <br />System <br />Evo.
+                    Design <br />System <br />Research.
                 </motion.h1>
                 <p className="text-xl text-white/50 font-light leading-relaxed max-w-2xl">
                     Researching the next generation of interface design using agent-optimized skills.
