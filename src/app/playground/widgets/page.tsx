@@ -204,7 +204,7 @@ const WIDGET_LIBRARY: WidgetMetadata[] = [
             ]
         }
     },
-    {
+    /*
         id: 'equity-curve-analysis',
         name: 'Equity Curve Analysis',
         category: 'Performance',
@@ -224,7 +224,7 @@ const WIDGET_LIBRARY: WidgetMetadata[] = [
             minHeight: "h-[400px]",
             chartHeightClass: "h-[300px]"
         }
-    },
+    */
     {
         id: 'portfolio-performance',
         name: 'Portfolio Performance',
