@@ -3,7 +3,8 @@
 ## Live Apps
 - Main app: [https://conceptdj.vercel.app](https://conceptdj.vercel.app)
 - Demo Video: [https://youtu.be/odKifzz8NbI](https://youtu.be/odKifzz8NbI)
-
+- Main Screens PDF Doc: [https://drive.google.com/file/d/1rKDJrtJwz-4fTcpLxoxOmnGv8XXFQblV/view?usp=drive_link](https://drive.google.com/file/d/1rKDJrtJwz-4fTcpLxoxOmnGv8XXFQblV/view?usp=drive_link)
+  
 ## Overview
 Concept Deriverse is a UI only trading analytics and journal experience for Solana Dex Traders.
 
