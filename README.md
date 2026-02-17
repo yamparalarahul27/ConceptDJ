@@ -7,10 +7,8 @@
 Concept Deriverse is a UI only trading analytics and journal experience for Solana Dex Traders.
 
 ## Features
-- Wallet lookup with mock/devnet modes
-- Trading analytics: win rate, avg win/loss, volume, fee composition, long/short ratio
-- Journaling with annotations, streak tracking, tag filters
-- 15 analytical cards/widgets across performance, psychology, market depth, and utilities: Paper Hands Tracker, AI Tilt Meter, PnL & Funding Heatmaps, Risk Radar, Execution Quality, Asset Benchmark, Liquidity Heatmap, Orderbook Depth, Portfolio Performance & Fragility, Direction Bias, Market Volatility, Behavioral Log, TradingView Chart, and more premium UI components (CardWithCornerShine, GlassmorphismNavbar, LivePulseIndicator)
+- 20+ analytical cards/widgets across performance, psychology, market depth, and utilities: Paper Hands Tracker, AI Tilt Meter, PnL & Funding Heatmaps, Risk Radar, Execution Quality, Asset Benchmark, Liquidity Heatmap, Orderbook Depth, Portfolio Performance & Fragility, Direction Bias, Market Volatility, Behavioral Log, TradingView Chart, and more premium UI components (CardWithCornerShine, GlassmorphismNavbar, LivePulseIndicator)
+- Experiments with sound and design
 
 ## Tech Stack
 - Next.js 16 (App Router), React 19, TypeScript
