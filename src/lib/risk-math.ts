@@ -111,8 +111,8 @@ export const calculateRCS = (
 };
 
 export const getRCSLabel = (score: number) => {
-    if (score >= 80) return { label: 'Highly Disciplined', color: 'text-green-400' };
-    if (score >= 60) return { label: 'Mostly Consistent', color: 'text-amber-400' };
+    if (score >= 80) return { label: 'Disciplined', color: 'text-green-400' };
+    if (score >= 60) return { label: 'Consistent', color: 'text-amber-400' };
     if (score >= 40) return { label: 'Unstable', color: 'text-orange-400' };
     return { label: 'Emotion Driven', color: 'text-red-400' };
 };
