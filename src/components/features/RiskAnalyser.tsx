@@ -21,7 +21,7 @@ const MOCK_RISK_DATA: RiskData[] = [
 
 export const RiskAnalyser: React.FC = () => {
     return (
-        <div className="bg-white/5 border border-white/10 p-6 rounded-none relative overflow-hidden group h-full flex flex-col">
+        <div className="bg-white/5 border border-white/10 p-6 rounded-none overflow-hidden group h-full flex flex-col">
             <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
                     <div className="p-2 bg-red-500/10 border border-red-500/20 text-red-500">

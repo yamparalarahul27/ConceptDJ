@@ -10,7 +10,9 @@ import {
     Activity,
     Waves,
     Play,
-    Info
+    Info,
+    X,
+    Bell
 } from 'lucide-react';
 import { useSound } from '@/hooks/useSound';
 import { cn } from '@/lib/utils';
@@ -19,13 +21,13 @@ export default function SoundLabPage() {
     const { playSynthesizedSound } = useSound();
     const [lastPlayed, setLastPlayed] = useState<string | null>(null);
 
-    const handlePlay = (type: 'click' | 'success' | 'alert' | 'tick') => {
+    const handlePlay = (type: 'click' | 'success' | 'alert' | 'tick' | 'error' | 'notification') => {
         playSynthesizedSound(type);
         setLastPlayed(type);
     };
 
     return (
-        <div className="min-h-screen bg-black text-white p-8 md:p-16">
+        <div className="min-h-screen text-white p-8 md:p-16 max-w-7xl mx-auto">
             {/* Header */}
             <header className="mb-24">
                 <div className="flex items-center gap-3 mb-4">
@@ -44,12 +46,14 @@ export default function SoundLabPage() {
                 <div className="lg:col-span-4 space-y-12">
                     <section>
                         <h2 className="text-[10px] font-mono text-white/20 uppercase tracking-widest mb-6">Master Oscillators</h2>
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-3 gap-4">
                             {[
                                 { id: 'click', label: 'UI Click', icon: MousePointer2 },
                                 { id: 'tick', label: 'Data Tick', icon: Activity },
                                 { id: 'success', label: 'Success', icon: Zap },
                                 { id: 'alert', label: 'Alert Thud', icon: ShieldAlert },
+                                { id: 'error', label: 'Error Tone', icon: X },
+                                { id: 'notification', label: 'Notification', icon: Bell },
                             ].map((s) => (
                                 <button
                                     key={s.id}

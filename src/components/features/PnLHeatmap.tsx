@@ -45,11 +45,11 @@ export const PnLHeatmap: React.FC<PnLHeatmapProps> = ({ data }) => {
     };
 
     const getIntensityClass = (pnl: number) => {
-        if (pnl <= -100) return 'bg-red-500/40 border-red-500/20';
-        if (pnl < 0) return 'bg-red-500/20 border-red-500/10';
-        if (pnl >= 200) return 'bg-green-500/60 border-green-500/20';
-        if (pnl > 0) return 'bg-green-500/20 border-green-500/10';
-        return 'bg-white/5 border-white/5';
+        if (pnl <= -100) return 'bg-red-500/40 border-red-500/25 shadow-[0_0_0_1px_rgba(248,113,113,0.25)]';
+        if (pnl < 0) return 'bg-red-500/15 border-red-500/20 shadow-[0_0_0_1px_rgba(248,113,113,0.15)]';
+        if (pnl >= 200) return 'bg-green-500/50 border-green-500/25 shadow-[0_0_0_1px_rgba(74,222,128,0.25)]';
+        if (pnl > 0) return 'bg-green-500/15 border-green-500/20 shadow-[0_0_0_1px_rgba(74,222,128,0.15)]';
+        return 'bg-white/10 border-white/10 shadow-[0_0_0_1px_rgba(255,255,255,0.06)]';
     };
 
     const monthStart = startOfMonth(currentMonth);
@@ -62,7 +62,7 @@ export const PnLHeatmap: React.FC<PnLHeatmapProps> = ({ data }) => {
     const activePnL = hoveredDay ? getMockPnL(hoveredDay) : 0;
 
     return (
-        <div className="bg-white/5 border border-white/10 p-6 rounded-none relative">
+        <div className="bg-white/[0.03] border border-white/10 p-6 rounded-none relative shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
             <div className="flex items-center justify-between mb-8">
                 <h3 className="text-xs font-mono font-bold text-white uppercase tracking-wider">PnL Intensity Heatmap</h3>
 
@@ -85,8 +85,8 @@ export const PnLHeatmap: React.FC<PnLHeatmapProps> = ({ data }) => {
                 </div>
             </div>
 
-            <div className="relative max-w-[620px] mx-auto">
-                <div className="grid grid-cols-7 gap-1">
+            <div className="relative max-w-[720px] mx-auto">
+                <div className="grid grid-cols-7 gap-2">
                     {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((d, i) => (
                         <div key={i} className="text-[12px] font-mono text-white/20 text-center pb-2 font-bold">{d}</div>
                     ))}
@@ -103,9 +103,9 @@ export const PnLHeatmap: React.FC<PnLHeatmapProps> = ({ data }) => {
                                 key={i}
                                 onMouseEnter={() => setHoveredDay(day)}
                                 onMouseLeave={() => setHoveredDay(null)}
-                                className={`aspect-square border transition-all hover:scale-110 cursor-crosshair ${getIntensityClass(pnl)} flex items-center justify-center relative group/cell`}
+                                className={`aspect-square rounded-sm border transition-all hover:scale-110 cursor-crosshair ${getIntensityClass(pnl)} flex items-center justify-center relative group/cell backdrop-blur-[1px]`}
                             >
-                                <span className="text-[14px] font-mono text-white/20 group-hover/cell:text-white/60 transition-colors">
+                                <span className="text-[14px] font-mono text-white/30 group-hover/cell:text-white/70 transition-colors">
                                     {format(day, 'd')}
                                 </span>
                             </div>

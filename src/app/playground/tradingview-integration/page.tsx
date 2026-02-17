@@ -3,10 +3,12 @@
 import React from 'react';
 import { TradingViewChart } from '@/components/features/TradingViewChart';
 import { motion } from 'framer-motion';
+import { ConceptMetaBar } from '@/components/features/ConceptMetaBar';
 
 export default function TradingViewIntegrationPage() {
     return (
         <div className="w-full max-w-7xl mx-auto px-6 space-y-8 pb-12">
+            <ConceptMetaBar />
             {/* Header Section */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -22,7 +24,7 @@ export default function TradingViewIntegrationPage() {
                     </p>
                 </div>
 
-                <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2 self-start md:self-auto">
+                <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-none px-4 py-2 self-start md:self-auto">
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                     <span className="text-xs font-mono text-white/60 uppercase tracking-widest">Live Feed active</span>
                 </div>

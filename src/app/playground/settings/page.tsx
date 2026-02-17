@@ -3,6 +3,7 @@
 import React from 'react';
 import { useSettings } from '@/components/features/SettingsProvider';
 import { Settings as SettingsIcon, Layout, Eye, User, RotateCcw, Save } from 'lucide-react';
+import { ConceptMetaBar } from '@/components/features/ConceptMetaBar';
 
 export default function SettingsPage() {
     const { settings, updateSetting, resetSettings } = useSettings();
@@ -24,6 +25,7 @@ export default function SettingsPage() {
 
     return (
         <div className="max-w-7xl mx-auto py-4 space-y-8 pb-24 px-6">
+            <ConceptMetaBar />
             <header className="flex flex-col gap-2">
                 <h1 className="text-3xl font-bold text-white uppercase tracking-tighter text-heading-32">Collective Settings</h1>
                 <div className="flex items-center gap-3">

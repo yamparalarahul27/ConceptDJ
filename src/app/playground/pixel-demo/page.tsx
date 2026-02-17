@@ -4,10 +4,12 @@ import React from 'react';
 import { PixelHeadingCharacterDemo } from '@/components/ui/PixelHeadingCharacterDemo';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import { ConceptMetaBar } from '@/components/features/ConceptMetaBar';
 
 export default function PixelDemoPage() {
     return (
         <div className="max-w-7xl mx-auto py-12 px-6">
+            <ConceptMetaBar className="mb-8" />
             <div className="mb-12">
                 <Link
                     href="/playground"

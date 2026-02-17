@@ -11,15 +11,15 @@ import { cn } from '@/lib/utils';
 
 const CORE_CONCEPTS = [
     { name: 'Concept Overview', path: '/playground' },
-    { name: 'Pixel Typography', path: '/playground/pixel-demo' },
-    { name: 'Portfolio Dashboard', path: '/playground/portfolio' },
     { name: 'Pro PnL Tracker', path: '/playground/pnl-tracker' },
+    { name: 'Portfolio Dashboard', path: '/playground/portfolio' },
     { name: 'Deep Performance', path: '/playground/performance' },
     { name: 'Trading Journal', path: '/playground/journal' },
-    { name: 'Liquidity Analyser', path: '/playground/liquidity' },
     { name: 'Advanced Charts', path: '/playground/tradingview-integration' },
     { name: 'Risk Intelligence', path: '/playground/risk-intelligence' },
     { name: 'Cards & Widgets', path: '/playground/widgets' },
+     { name: 'Liquidity Analyser', path: '/playground/liquidity' },
+     { name: 'Pixel Typography', path: '/playground/pixel-demo' },
 ];
 
 const EXPERIMENTS = [

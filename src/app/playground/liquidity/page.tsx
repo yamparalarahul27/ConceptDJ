@@ -6,6 +6,7 @@ import { OrderbookWidget } from '@/components/features/OrderbookWidget';
 import { ImpermanentLossCalculator } from '@/components/features/ImpermanentLossCalculator';
 import { Zap, Activity, Info, BarChart } from 'lucide-react';
 import { useSettings } from '@/components/features/SettingsProvider';
+import { ConceptMetaBar } from '@/components/features/ConceptMetaBar';
 
 // --- MOCK LIQUIDITY DATA ---
 const MOCK_ASKS = [
@@ -32,7 +33,8 @@ const MOCK_BIDS = [
 export default function LiquidityPage() {
     const { settings } = useSettings();
     return (
-        <div className={`max-w-7xl mx-auto py-4 space-y-8 pb-24 px-6 ${settings.compactMode ? 'scale-[0.98] origin-top' : ''}`}>
+        <div className={`max-w-[1200px] mx-auto py-4 space-y-8 pb-24 px-6 ${settings.compactMode ? 'scale-[0.98] origin-top' : ''}`}>
+            <ConceptMetaBar />
             <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div className="flex flex-col gap-2">
                     <h1 className="text-3xl font-bold text-white uppercase tracking-tighter text-heading-32">
@@ -69,7 +71,7 @@ export default function LiquidityPage() {
             {/* Main Terminal Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 {/* Left: Heatmap visualization (8/12) */}
-                <div className="lg:col-span-8 flex flex-col gap-8">
+                <div className="lg:col-span-12 flex flex-col gap-8">
                     {settings.showLiquidityHeatmap && <LiquidityHeatmap height={450} />}
 
                     {/* Depth Metrics Row */}
@@ -99,9 +101,6 @@ export default function LiquidityPage() {
 
                     {/* Educational Widget */}
                     <div className="p-6 bg-blue-500/5 border border-blue-500/10 rounded-none relative overflow-hidden">
-                        <div className="absolute top-0 right-0 p-4 opacity-10">
-                            <Info size={48} />
-                        </div>
                         <h4 className="text-[10px] font-mono font-bold text-blue-400 uppercase tracking-widest mb-4">Liquidity Logic</h4>
                         <p className="text-[10px] font-mono text-white/40 uppercase leading-relaxed tracking-tighter">
                             Heatmap clusters indicate where limit orders are concentrated.

@@ -79,6 +79,14 @@ const CONCEPTS = [
         status: 'READY',
         color: 'bg-white/10 text-white border-white/10'
     },
+    {
+        name: 'Archive',
+        description: 'Staged concepts and retired modules for reference.',
+        path: '/playground/archive',
+        icon: BookOpen,
+        status: 'INFO',
+        color: 'bg-white/5 text-white/60 border-white/10'
+    },
 ];
 
 export default function PlaygroundDashboard() {

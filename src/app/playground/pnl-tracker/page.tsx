@@ -1,12 +1,13 @@
 'use client';
 
 import React from 'react';
-import { PaperHandsChart } from '../../../components/features/PaperHandsChart';
+import { PnLChart } from '../../../components/features/PnLChart';
 import { ExecutionQualityChart } from '../../../components/features/ExecutionQualityChart';
 import { PnLHeatmap } from '../../../components/features/PnLHeatmap';
 import { useSettings } from '../../../components/features/SettingsProvider';
 import LargestTradesCard from '../../../components/features/LargestTradesCard';
 import { generateMockTrades } from '../../../lib/mockData';
+import { ConceptMetaBar } from '../../../components/features/ConceptMetaBar';
 
 // ... DATA TYPES ...
 interface ChartPoint {
@@ -57,6 +58,7 @@ export default function ProPnLTrackerPage() {
     return (
         <div className="px-3 sm:px-6">
             <div className={`max-w-7xl mx-auto py-4 space-y-8 pb-24 px-6 ${settings.compactMode ? 'scale-[0.98] origin-top' : ''}`}>
+                <ConceptMetaBar />
                 <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
                         <h1 className="text-3xl font-bold text-white mb-2 uppercase tracking-tighter text-heading-32">
@@ -104,7 +106,7 @@ export default function ProPnLTrackerPage() {
                                 </div>
                             </div>
 
-                            <PaperHandsChart data={MOCK_PNL_HISTORY} height={350} />
+                            <PnLChart data={MOCK_PNL_HISTORY} height={350} />
                         </div>
                     </div>
 

@@ -12,14 +12,19 @@ interface Transaction {
     asset: string;
     amount: string;
     status: 'Done' | 'Pending' | 'Failed';
+    channel: string;
+    counterparty: string;
+    fee: string;
     id: string;
 }
 
 const TX_DATA: Transaction[] = [
-    { date: '2026-02-16', time: '10:42', type: 'Deposit', asset: 'BTC', amount: '0.012300', status: 'Done', id: '#TXN10293' },
-    { date: '2026-02-15', time: '19:10', type: 'Deposit', asset: 'USDT', amount: '250.00', status: 'Done', id: '#TXN10211' },
-    { date: '2026-02-15', time: '09:05', type: 'Deposit', asset: 'ETH', amount: '0.450000', status: 'Pending', id: '#TXN10177' },
-    { date: '2026-02-14', time: '21:36', type: 'Deposit', asset: 'INR', amount: '10,000.00', status: 'Failed', id: '#TXN10102' },
+    { date: '2026-02-16', time: '10:42', type: 'Deposit', asset: 'BTC', amount: '0.012300', status: 'Done', channel: 'On-chain', counterparty: 'Self-custody', fee: '0.0001 BTC', id: '#TXN10293' },
+    { date: '2026-02-15', time: '19:10', type: 'Deposit', asset: 'USDT', amount: '250.00', status: 'Done', channel: 'Exchange', counterparty: 'Binance', fee: '$0.45', id: '#TXN10211' },
+    { date: '2026-02-15', time: '09:05', type: 'Deposit', asset: 'ETH', amount: '0.450000', status: 'Pending', channel: 'Bridge', counterparty: 'LayerZero', fee: '0.003 ETH', id: '#TXN10177' },
+    { date: '2026-02-14', time: '21:36', type: 'Deposit', asset: 'INR', amount: '10,000.00', status: 'Failed', channel: 'Bank', counterparty: 'HDFC', fee: '₹0.00', id: '#TXN10102' },
+    { date: '2026-02-13', time: '14:18', type: 'Withdraw', asset: 'SOL', amount: '35.5000', status: 'Done', channel: 'Exchange', counterparty: 'FTX', fee: '0.02 SOL', id: '#TXN10088' },
+    { date: '2026-02-12', time: '08:57', type: 'Transfer', asset: 'USDC', amount: '1,200.00', status: 'Pending', channel: 'Wallet', counterparty: 'Ledger', fee: '$0.18', id: '#TXN10045' },
 ];
 
 export const TransactionHistory: React.FC = () => {
@@ -67,6 +72,9 @@ export const TransactionHistory: React.FC = () => {
                             <th className="text-left py-4 w-[200px]">Date / Time</th>
                             <th className="text-left py-4 w-[120px]">Type</th>
                             <th className="text-left py-4 w-[100px]">Asset</th>
+                            <th className="text-left py-4 w-[120px]">Channel</th>
+                            <th className="text-left py-4 w-[140px]">Counterparty</th>
+                            <th className="text-right py-4 w-[120px]">Fee</th>
                             <th className="text-right py-4 w-[160px]">Amount</th>
                             <th className="text-center py-4 w-[110px]">Status</th>
                             <th className="text-right py-4">Ref ID</th>
@@ -87,6 +95,13 @@ export const TransactionHistory: React.FC = () => {
                                 <td className="py-4 text-left">
                                     <span className="text-xs font-bold font-mono text-white">{tx.asset}</span>
                                 </td>
+                                <td className="py-4 text-left">
+                                    <span className="text-[11px] font-mono text-white/40">{tx.channel}</span>
+                                </td>
+                                <td className="py-4 text-left">
+                                    <span className="text-[11px] font-mono text-white/50">{tx.counterparty}</span>
+                                </td>
+                                <td className="py-4 text-right font-mono text-xs text-white/50">{tx.fee}</td>
                                 <td className="py-4 text-right font-mono text-sm text-white/60">{tx.amount}</td>
                                 <td className="py-4 text-center">
                                     <span className={cn(

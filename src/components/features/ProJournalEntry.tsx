@@ -62,9 +62,6 @@ export const ProJournalEntry: React.FC<ProJournalEntryProps> = ({ date, sentimen
                         <p className="text-sm font-light text-white/70 leading-relaxed">
                             "{content}"
                         </p>
-                        <div className="absolute top-0 right-0 p-2 opacity-5 group-hover:opacity-20 transition-opacity">
-                            <Clock size={48} />
-                        </div>
                     </div>
 
                     <div className="mt-4 flex gap-4">

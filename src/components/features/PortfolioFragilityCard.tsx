@@ -48,12 +48,12 @@ export const PortfolioFragilityCard: React.FC = () => {
                 </div>
             </div>
 
-            <div className="flex flex-col items-center justify-center py-8">
+            <div className="flex flex-col items-center justify-center">
                 <RiskGauge
                     score={prs}
                     label={label}
                     labelColor={color}
-                    subLabel="Portfolio Risk Score"
+                    subLabel="Risk Score"
                     size={220}
                 />
             </div>

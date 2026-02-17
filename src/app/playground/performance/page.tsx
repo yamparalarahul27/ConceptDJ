@@ -10,9 +10,7 @@ import TimeBasedPerformanceCard from '@/components/features/TimeBasedPerformance
 import FeeDistribution from '@/components/features/FeeDistribution';
 import { generateMockTrades, calculateFeeBreakdown } from '@/lib/mockData';
 import { FundingHeatmap } from '@/components/features/FundingHeatmap';
-import { PnLHeatmap } from '@/components/features/PnLHeatmap';
-
-const MOCK_HEATMAP_DATA: any[] = []; // Handled by internal mock for now
+import { ConceptMetaBar } from '@/components/features/ConceptMetaBar';
 
 // --- MOCK PERFORMANCE DATA ---
 const MOCK_BENCHMARK_DATA = [
@@ -39,6 +37,7 @@ const MOCK_EFFICIENCY_DATA = {
 export default function PerformancePage() {
     return (
         <div className="max-w-7xl mx-auto py-4 space-y-8 pb-24 px-6">
+            <ConceptMetaBar />
             <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div>
                     <h1 className="text-3xl font-bold text-white mb-2 uppercase tracking-tighter text-heading-32">Deep Analytics</h1>
@@ -66,69 +65,34 @@ export default function PerformancePage() {
                 </div>
 
                 {/* Right: Asset Class breakdown (4/12) */}
-                <div className="lg:col-span-4">
+                <div className="lg:col-span-4 h-full">
                     <ExecutionEfficiencyWidget data={MOCK_EFFICIENCY_DATA} />
                 </div>
             </div>
 
             {/* Deep Risk & Bias Analysis */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-4">
+                <div className="lg:col-span-4 h-full">
                     <RiskAnalyser />
                 </div>
-                <div className="lg:col-span-4">
+                <div className="lg:col-span-4 h-full">
                     <DirectionalBias />
                 </div>
-                <div className="lg:col-span-4">
+                <div className="lg:col-span-4 h-full">
                     <MarketVolatilityCard />
                 </div>
             </div>
 
             {/* Temporal & Fee Analysis */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-8">
+                <div className="lg:col-span-12">
                     <TimeBasedPerformanceCard trades={generateMockTrades()} minHeight="h-[400px]" chartHeightClass="h-[300px]" />
                 </div>
-                <div className="lg:col-span-4">
-                    <FeeDistribution
-                        summary={{
-                            feeComposition: calculateFeeBreakdown(generateMockTrades()),
-                            cumulativeFees: 1240.50
-                        }}
-                    />
-                </div>
             </div>
 
-            {/* Performance Analytics Heatmaps */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <PnLHeatmap data={MOCK_HEATMAP_DATA} />
-                <FundingHeatmap />
-            </div>
+            {/* Performance Analytics Heatmap */}
+            <FundingHeatmap />
 
-            {/* Bottom Section: Efficiency Metrics */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="bg-white/5 border border-white/10 p-6 rounded-none">
-                    <span className="text-white/40 text-[12px] font-mono uppercase block mb-1 font-bold">Time Weighted Alpha</span>
-                    <span className="text-3xl font-bold text-white font-pixel">1.24x</span>
-                    <p className="mt-2 text-[12px] text-white/20 font-mono uppercase tracking-tighter leading-relaxed font-bold">
-                        Your strategy generates 1.24% extra return for every 1% of market volatility.
-                    </p>
-                </div>
-                <div className="bg-white/5 border border-white/10 p-6 rounded-none">
-                    <span className="text-white/40 text-[12px] font-mono uppercase block mb-1 font-bold">Execution Score</span>
-                    <span className="text-3xl font-bold text-purple-400 font-pixel">92/100</span>
-                    <p className="mt-2 text-[12px] text-white/20 font-mono uppercase tracking-tighter leading-relaxed font-bold">
-                        Top quartile efficiency. Your exit timing is in the top 5% of active users.
-                    </p>
-                </div>
-                <div className="bg-white/5 border border-white/10 p-6 rounded-none">
-                    <span className="text-white/40 text-[12px] font-mono uppercase block mb-1 font-bold">Asset Allocation Opt</span>
-                    <span className="text-3xl font-bold text-blue-400 font-pixel">Spot +8%</span>
-                    <p className="mt-2 text-[12px] text-white/20 font-mono uppercase tracking-tighter leading-relaxed font-bold">
-                        Algorithmic suggestion: Increase spot exposure to diversify volatility profile.
-                    </p>
-                </div>
-            </div>
         </div>
     );
 }

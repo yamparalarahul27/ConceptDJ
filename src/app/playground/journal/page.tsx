@@ -2,22 +2,12 @@
 
 import React, { useState } from 'react';
 import { AITiltMeter } from '@/components/features/AITiltMeter';
-import { PsychologicalBiasTracker } from '@/components/features/PsychologicalBiasTracker';
 import { ProJournalEntry } from '@/components/features/ProJournalEntry';
 import { Brain, Sliders, Info, LineChart, Target, Zap } from 'lucide-react';
 import { useSettings } from '@/components/features/SettingsProvider';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 import { AIBehavioralCoach } from '@/components/features/AIBehavioralCoach';
-
-// --- MOCK DATA ---
-const BIAS_DATA = [
-    { subject: 'FOMO', A: 45, fullMark: 100 },
-    { subject: 'Revenge Trading', A: 85, fullMark: 100 },
-    { subject: 'Sunk Cost', A: 30, fullMark: 100 },
-    { subject: 'Overconfidence', A: 65, fullMark: 100 },
-    { subject: 'Loss Aversion', A: 75, fullMark: 100 },
-    { subject: 'Hesitation', A: 20, fullMark: 100 },
-];
+import { ConceptMetaBar } from '@/components/features/ConceptMetaBar';
 
 const STRATEGY_ALPHA_DATA = [
     { subject: 'Breakout', A: 120, B: 110, fullMark: 150 },
@@ -60,6 +50,7 @@ export default function ProJournalPage() {
 
     return (
         <div className={`max-w-7xl mx-auto py-4 space-y-8 pb-24 px-6 ${settings.compactMode ? 'scale-[0.98] origin-top' : ''}`}>
+            <ConceptMetaBar />
             <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div className="flex flex-col gap-2">
                     <h1 className="text-3xl font-bold text-white uppercase tracking-tighter text-heading-32">
@@ -101,13 +92,10 @@ export default function ProJournalPage() {
                 </section>
             )}
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                {/* Behavioral Analysis (4/12) */}
-                <div className="lg:col-span-12 xl:col-span-4 space-y-8">
-                    <PsychologicalBiasTracker data={BIAS_DATA} />
-
-                    {/* Strategy Alpha Radar */}
-                    <div className="bg-white/5 border border-white/10 p-6 rounded-none relative overflow-hidden group">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+                {/* Strategy Alpha card */}
+                <div>
+                    <div className="bg-white/5 border border-white/10 p-6 rounded-none relative overflow-hidden group h-[320px]">
                         <div className="flex items-center justify-between mb-6">
                             <div className="flex items-center gap-3">
                                 <div className="p-2 bg-blue-500/10 border border-blue-500/20 text-blue-400">
@@ -124,7 +112,7 @@ export default function ProJournalPage() {
                             </div>
                         </div>
 
-                        <div className="h-[250px] w-full mt-4">
+                        <div className="h-[200px] w-full mt-4">
                             <ResponsiveContainer width="100%" height="100%">
                                 <RadarChart cx="50%" cy="50%" outerRadius="70%" data={STRATEGY_ALPHA_DATA}>
                                     <PolarGrid stroke="#ffffff10" />
@@ -163,41 +151,44 @@ export default function ProJournalPage() {
                     </div>
                 </div>
 
-                {/* Journal Feed (8/12) */}
-                <div className="lg:col-span-12 xl:col-span-8 flex flex-col space-y-8">
+                {/* Neural Execution Coach */}
+                <div className="flex flex-col space-y-8">
                     <AIBehavioralCoach />
-
-                    <div className="flex justify-between items-center mb-6 px-4 py-2 border-l border-white/20 bg-white/5">
-                        <h3 className="text-xs font-mono font-bold text-white uppercase tracking-[0.2em] flex items-center gap-2">
-                            Recent Behavioral Logs
-                        </h3>
-                        <div className="flex gap-4">
-                            <span className="text-[9px] font-mono text-white/20 uppercase cursor-pointer hover:text-white transition-colors flex items-center gap-1.5">
-                                <LineChart size={10} /> Analytics
-                            </span>
-                            <span className="text-[9px] font-mono text-white/20 uppercase cursor-pointer hover:text-white transition-colors flex items-center gap-1.5">
-                                <Info size={10} /> Filter By Emotion
-                            </span>
-                        </div>
-                    </div>
-
-                    <div className="space-y-4">
-                        {JOURNAL_ENTRIES.map(entry => (
-                            <ProJournalEntry
-                                key={entry.id}
-                                date={entry.date}
-                                sentiment={entry.sentiment}
-                                bias={entry.bias}
-                                metrics={entry.metrics}
-                                content={entry.content}
-                            />
-                        ))}
-                    </div>
-
-                    <button className="mt-8 w-full py-4 border border-dashed border-white/10 text-[10px] font-mono text-white/20 uppercase hover:border-white/30 hover:text-white/60 transition-all tracking-widest">
-                        + Load Archival Session Data
-                    </button>
                 </div>
+            </div>
+
+            {/* Recent Behavioral Logs */}
+            <div className="space-y-4">
+                <div className="flex justify-between items-center px-4 py-2 border-l border-white/20 bg-white/5">
+                    <h3 className="text-xs font-mono font-bold text-white uppercase tracking-[0.2em] flex items-center gap-2">
+                        Recent Behavioral Logs
+                    </h3>
+                    <div className="flex gap-4">
+                        <span className="text-[9px] font-mono text-white/20 uppercase cursor-pointer hover:text-white transition-colors flex items-center gap-1.5">
+                            <LineChart size={10} /> Analytics
+                        </span>
+                        <span className="text-[9px] font-mono text-white/20 uppercase cursor-pointer hover:text-white transition-colors flex items-center gap-1.5">
+                            <Info size={10} /> Filter By Emotion
+                        </span>
+                    </div>
+                </div>
+
+                <div className="space-y-4">
+                    {JOURNAL_ENTRIES.map(entry => (
+                        <ProJournalEntry
+                            key={entry.id}
+                            date={entry.date}
+                            sentiment={entry.sentiment}
+                            bias={entry.bias}
+                            metrics={entry.metrics}
+                            content={entry.content}
+                        />
+                    ))}
+                </div>
+
+                <button className="mt-4 w-full py-4 border border-dashed border-white/10 text-[10px] font-mono text-white/20 uppercase hover:border-white/30 hover:text-white/60 transition-all tracking-widest">
+                    + Load Archival Session Data
+                </button>
             </div>
         </div>
     );

@@ -5,6 +5,30 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, TrendingUp } from 'lucide-react';
 import { useSound } from '@/hooks/useSound';
 import { cn } from '@/lib/utils';
+import { PnLChart } from './PnLChart';
+
+const MOCK_PORTFOLIO_SERIES = (() => {
+    const base = 205_000;
+    let current = base;
+
+    return Array.from({ length: 400 }, (_, i) => {
+        const day = i + 1;
+
+        // Create ebb-and-flow with small shocks to show realistic swings
+        const drift = 350; // gentle upward trend
+        const wave = Math.sin(day / 3) * 2_200 + Math.cos(day / 5) * 1_400;
+        const shock = (day % 11 === 0 ? -6_500 : 0) + (day % 17 === 0 ? 5_200 : 0) + (day % 23 === 0 ? -4_800 : 0);
+        const correction = day % 7 === 0 ? -2_200 : 0;
+
+        const delta = drift + wave + shock + correction;
+        current = Math.max(180_000, current + delta);
+
+        return {
+            time: `D${day}`,
+            value: Number(current.toFixed(2)),
+        };
+    });
+})();
 
 export const PortfolioValueBox: React.FC = () => {
     const { playSynthesizedSound } = useSound();
@@ -24,13 +48,13 @@ export const PortfolioValueBox: React.FC = () => {
             className="w-full bg-white/[0.02] border border-white/10 p-6 rounded-none"
         >
             {/* Header / Title */}
-            <div className="flex items-center gap-2 mb-8 opacity-40">
+            <div className="flex items-center justify-center text-center gap-2 mb-8 opacity-40">
                 <TrendingUp size={14} />
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em]">Portfolio Performance</span>
             </div>
 
             {/* Summary Row */}
-            <div className="flex flex-col md:flex-row gap-12 md:gap-24 mb-8">
+            <div className="flex flex-col md:flex-row gap-12 md:gap-24 mb-8 items-center md:items-center md:justify-center text-center md:text-left">
                 <div>
                     <label className="text-[10px] font-mono uppercase tracking-widest text-white/30 block mb-2">Total Value</label>
                     <div className="text-4xl md:text-5xl font-bold tracking-tighter text-white font-mono">$276,643.73</div>
@@ -46,38 +70,9 @@ export const PortfolioValueBox: React.FC = () => {
                 </div>
             </div>
 
-            {/* Chart Area (Simplified SVG Line Chart) */}
-            <div className="h-[240px] w-full border border-white/5 bg-white/[0.01] p-4 relative group overflow-hidden">
-                <svg className="w-full h-full" viewBox="0 0 1000 240" preserveAspectRatio="none">
-                    <defs>
-                        <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#22c55e" stopOpacity="0.1" />
-                            <stop offset="100%" stopColor="#22c55e" stopOpacity="0" />
-                        </linearGradient>
-                    </defs>
-                    <path
-                        d="M 0 180 Q 100 160 200 190 T 400 140 T 600 120 T 800 80 T 1000 40"
-                        fill="none"
-                        stroke="#22c55e"
-                        strokeWidth="2"
-                    />
-                    <path
-                        d="M 0 180 Q 100 160 200 190 T 400 140 T 600 120 T 800 80 T 1000 40 V 240 H 0 Z"
-                        fill="url(#chartGradient)"
-                    />
-                </svg>
-
-                {/* Hover Tooltip Placeholder */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                    <div className="bg-black border border-white/20 p-2 font-mono text-[10px]">
-                        <div className="text-white/40 mb-1">Feb 16, 2026</div>
-                        <div className="text-green-400 font-bold">$276,643.73</div>
-                    </div>
-                </div>
-
-                {/* Axis Labels */}
-                <div className="absolute bottom-2 left-4 text-[9px] font-mono text-white/20 uppercase tracking-tighter">Jan 2026</div>
-                <div className="absolute bottom-2 right-4 text-[9px] font-mono text-white/20 uppercase tracking-tighter">Today</div>
+            {/* Chart Area (Interactive PnL chart) */}
+            <div className="h-[240px] w-full border border-white/5 bg-white/[0.01] p-2">
+                <PnLChart data={MOCK_PORTFOLIO_SERIES} height={240} />
             </div>
 
             {/* Time Filters */}

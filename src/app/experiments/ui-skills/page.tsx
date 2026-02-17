@@ -54,7 +54,7 @@ const SKILLS = [
 
 export default function UISkillsExperimentPage() {
     return (
-        <div className="min-h-screen bg-black text-white p-8 md:p-16 selection:bg-purple-500/30">
+        <div className="min-h-screen text-white p-8 md:p-16 max-w-7xl mx-auto selection:bg-purple-500/30">
             {/* Nav Header */}
             <div className="flex justify-between items-center mb-24">
                 <div className="flex items-center gap-3">

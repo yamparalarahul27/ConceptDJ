@@ -8,7 +8,7 @@
  * Eliminates the need for external MP3/WAV files for UI feedback.
  */
 export const useSound = () => {
-    const playSynthesizedSound = (type: 'click' | 'success' | 'alert' | 'tick') => {
+    const playSynthesizedSound = (type: 'click' | 'success' | 'alert' | 'tick' | 'error' | 'notification') => {
         if (typeof window === 'undefined') return;
 
         const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
@@ -70,6 +70,32 @@ export const useSound = () => {
 
                 oscillator.start(now);
                 oscillator.stop(now + 0.4);
+                break;
+
+            case 'error':
+                // Sharp descending error tone
+                oscillator.type = 'sawtooth';
+                oscillator.frequency.setValueAtTime(300, now);
+                oscillator.frequency.exponentialRampToValueAtTime(100, now + 0.3);
+
+                gainNode.gain.setValueAtTime(0.3, now);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+
+                oscillator.start(now);
+                oscillator.stop(now + 0.3);
+                break;
+
+            case 'notification':
+                // Pleasant notification chime
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(600, now);
+                oscillator.frequency.exponentialRampToValueAtTime(800, now + 0.15);
+
+                gainNode.gain.setValueAtTime(0.15, now);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
+
+                oscillator.start(now);
+                oscillator.stop(now + 0.2);
                 break;
         }
 

@@ -5,11 +5,13 @@ import { PortfolioValueBox } from '@/components/features/PortfolioValueBox';
 import { AssetAllocation } from '@/components/features/AssetAllocation';
 import { WatchlistTable } from '@/components/features/WatchlistTable';
 import { TransactionHistory } from '@/components/features/TransactionHistory';
+import { ConceptMetaBar } from '@/components/features/ConceptMetaBar';
 
 export default function PortfolioPage() {
     return (
         <div className="px-3 sm:px-6">
             <div className="max-w-7xl mx-auto py-12 px-6 space-y-8 min-h-screen">
+                <ConceptMetaBar />
                 {/* Div 1: Portfolio Value Box */}
                 <PortfolioValueBox />
 

@@ -3,11 +3,12 @@
 import React from 'react';
 import { TradeRiskAnalyzer } from '@/components/features/TradeRiskAnalyzer';
 import { PortfolioFragilityCard } from '@/components/features/PortfolioFragilityCard';
-import { BehavioralConsistencyChart } from '@/components/features/BehavioralConsistencyChart';
+import { ConceptMetaBar } from '@/components/features/ConceptMetaBar';
 
 export default function RiskIntelligencePage() {
     return (
         <div className="max-w-7xl mx-auto py-4 space-y-8 pb-32 px-6">
+            <ConceptMetaBar />
             <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div>
                     <h1 className="text-3xl font-bold text-white mb-2 uppercase tracking-tighter text-heading-32">Risk Intelligence</h1>
@@ -28,13 +29,8 @@ export default function RiskIntelligencePage() {
             {/* Primary Analysis Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 {/* Tactical Risk Analyzer (TRS) */}
-                <div className="lg:col-span-12">
-                    <TradeRiskAnalyzer />
-                </div>
-
-                {/* Behavioral Consistency (RCS) */}
                 <div className="lg:col-span-8">
-                    <BehavioralConsistencyChart />
+                    <TradeRiskAnalyzer />
                 </div>
 
                 {/* Portfolio Fragility (PRS) */}

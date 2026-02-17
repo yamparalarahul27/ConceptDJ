@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Activity,
@@ -25,8 +26,21 @@ import { PnLHeatmap } from '@/components/features/PnLHeatmap';
 import { RiskAnalyser } from '@/components/features/RiskAnalyser';
 import { ExecutionQualityChart } from '@/components/features/ExecutionQualityChart';
 import { AssetBenchmarkChart } from '@/components/features/AssetBenchmarkChart';
-import { LiquidityHeatmap } from '@/components/features/LiquidityHeatmap';
 import { OrderbookWidget } from '@/components/features/OrderbookWidget';
+import { ConceptMetaBar } from '@/components/features/ConceptMetaBar';
+
+// --- CLIENT-ONLY COMPONENTS ---
+const LiquidityHeatmap = dynamic(() => import('@/components/features/LiquidityHeatmap').then(mod => mod.LiquidityHeatmap), { ssr: false });
+
+// --- NEW COMPONENTS FOR WIDGETS ---
+import TimeBasedPerformanceCard from '@/components/features/TimeBasedPerformanceCard';
+import { DirectionalBias } from '@/components/features/DirectionalBias';
+import { MarketVolatilityCard } from '@/components/features/MarketVolatilityCard';
+import { FundingHeatmap } from '@/components/features/FundingHeatmap';
+import { BehavioralConsistencyChart } from '@/components/features/BehavioralConsistencyChart';
+import { TradingViewChart } from '@/components/features/TradingViewChart';
+import { PortfolioFragilityCard } from '@/components/features/PortfolioFragilityCard';
+import { PortfolioValueBox } from '@/components/features/PortfolioValueBox';
 
 // --- METADATA DEFINITION ---
 interface WidgetMetadata {
@@ -189,6 +203,111 @@ const WIDGET_LIBRARY: WidgetMetadata[] = [
                 { price: 108.48, amount: 12.0, total: 55.7 }
             ]
         }
+    },
+    {
+        id: 'equity-curve-analysis',
+        name: 'Equity Curve Analysis',
+        category: 'Performance',
+        description: 'Visual representation of portfolio value changes over time.',
+        calculation: 'Cumulative portfolio value indexed to initial capital.',
+        utility: 'Tracks overall performance trajectory and drawdown periods.',
+        origin: 'Deep Performance',
+        icon: TrendingUp,
+        component: TimeBasedPerformanceCard,
+        mockData: {
+            trades: [{
+                closedAt: new Date(),
+                pnl: 100,
+                isWin: true,
+                openedAt: new Date()
+            }],
+            minHeight: "h-[400px]",
+            chartHeightClass: "h-[300px]"
+        }
+    },
+    {
+        id: 'portfolio-performance',
+        name: 'Portfolio Performance',
+        category: 'Performance',
+        description: 'Summary of current portfolio value and key metrics.',
+        calculation: 'Total portfolio value, daily/weekly/monthly returns.',
+        utility: 'Provides quick overview of portfolio health.',
+        origin: 'Portfolio Dashboard',
+        icon: BarChart2,
+        component: PortfolioValueBox,
+        mockData: {}
+    },
+    {
+        id: 'direction-bias',
+        name: 'Direction Bias',
+        category: 'Performance',
+        description: 'Analysis of trading direction preferences and accuracy.',
+        calculation: 'Ratio of long vs short positions and win rates.',
+        utility: 'Identifies directional strengths and weaknesses.',
+        origin: 'Deep Performance',
+        icon: Compass,
+        component: DirectionalBias,
+        mockData: {}
+    },
+    {
+        id: 'market-volatility',
+        name: 'Market Volatility',
+        category: 'Market Depth',
+        description: 'Real-time volatility metrics for tracked assets.',
+        calculation: 'ATR (Average True Range) and volatility bands.',
+        utility: 'Helps assess market conditions for trading decisions.',
+        origin: 'Deep Performance',
+        icon: Zap,
+        component: MarketVolatilityCard,
+        mockData: {}
+    },
+    {
+        id: 'funding-rate-heatmap',
+        name: 'Funding Rate Heatmap',
+        category: 'Performance',
+        description: 'Calendar view of funding rates over time.',
+        calculation: 'Daily funding rate aggregation and color coding.',
+        utility: 'Identifies optimal times for long/short positions in perpetuals.',
+        origin: 'Deep Performance',
+        icon: BarChart2,
+        component: FundingHeatmap,
+        mockData: {}
+    },
+    {
+        id: 'behavioral-log-card',
+        name: 'Behavioral Log Card',
+        category: 'Psychology',
+        description: 'Tracking of behavioral consistency in trading decisions.',
+        calculation: 'Consistency score based on trade patterns.',
+        utility: 'Monitors psychological discipline over time.',
+        origin: 'Deep Performance',
+        icon: Brain,
+        component: BehavioralConsistencyChart,
+        mockData: {}
+    },
+    {
+        id: 'trading-view-chart',
+        name: 'Trading View Chart',
+        category: 'Utilities',
+        description: 'Advanced interactive charting with technical indicators.',
+        calculation: 'Real-time price data with customizable overlays.',
+        utility: 'Comprehensive technical analysis tool.',
+        origin: 'TradingView Integration',
+        icon: Activity,
+        component: TradingViewChart,
+        mockData: {}
+    },
+    {
+        id: 'portfolio-fragility',
+        name: 'Portfolio Fragility',
+        category: 'Performance',
+        description: 'Assessment of portfolio stability and risk exposure.',
+        calculation: 'Fragility index based on diversification and correlations.',
+        utility: 'Evaluates overall portfolio resilience.',
+        origin: 'Deep Performance',
+        icon: ShieldAlert,
+        component: PortfolioFragilityCard,
+        mockData: {}
     }
 ];
 
@@ -295,10 +414,6 @@ export default function WidgetsLibraryPage() {
 
                         {/* Preview Column */}
                         <div className="lg:col-span-8 bg-black/40 border border-white/10 p-6 flex flex-col justify-center min-h-[300px] relative overflow-hidden">
-                            <div className="absolute top-4 right-4 flex items-center gap-2">
-                                <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
-                                <span className="text-[8px] font-mono text-white/20 uppercase tracking-widest">Live Preview</span>
-                            </div>
 
                             {/* Render the component with its mock data */}
                             <div className="w-full">

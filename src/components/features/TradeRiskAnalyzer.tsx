@@ -39,14 +39,14 @@ export const TradeRiskAnalyzer: React.FC = () => {
                         score={trs}
                         label={label}
                         labelColor={color}
-                        subLabel="Trade Risk Score"
-                        size={240}
+                        subLabel="Risk Score"
+                        size={280}
                     />
                 </div>
 
-                <div className="flex-1 w-full space-y-6">
+                <div className="flex-1 h-full w-full space-y-6">
                     <div>
-                        <div className="flex items-center mb-4">
+                        <div className="flex items-center mb-8">
                             <h4 className="text-[12px] font-mono text-white/40 uppercase tracking-[0.2em]">Risk Breakdown</h4>
                             <InfoTooltip infoKey="trs" />
                         </div>
@@ -61,6 +61,23 @@ export const TradeRiskAnalyzer: React.FC = () => {
                         <p className="text-[12px] font-mono text-white/30 uppercase leading-relaxed font-bold">
                             Measurement: Tactical risk of current individual open position adjusted for volatility and stop distance.
                         </p>
+                        <div className="mt-4 space-y-2">
+                            <div className="flex justify-between text-[10px] font-mono uppercase tracking-widest">
+                                <span className="text-white/40">Optimal Range</span>
+                                <span className="text-green-400 font-bold">30-60</span>
+                            </div>
+                            <div className="flex justify-between text-[10px] font-mono uppercase tracking-widest">
+                                <span className="text-white/40">Portfolio Threshold</span>
+                                <span className="text-amber-400 font-bold">{'>'}70 Critical</span>
+                            </div>
+                            <div className="flex justify-between text-[10px] font-mono uppercase tracking-widest">
+                                <span className="text-white/40">Risk Threshold</span>
+                                <span className="text-red-400 font-bold">{'>'}85 Extreme</span>
+                            </div>
+                            <p className="text-[10px] font-mono text-white/20 uppercase leading-relaxed font-bold mt-3">
+                                Recommendation: Monitor position size relative to volatility. Adjust stop-loss based on ATR levels for optimal risk management.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
