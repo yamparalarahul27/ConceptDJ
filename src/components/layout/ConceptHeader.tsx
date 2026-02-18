@@ -25,6 +25,7 @@ const CORE_CONCEPTS = [
 const EXPERIMENTS = [
     { name: 'UI Skills Research', path: '/experiments/ui-skills' },
     { name: 'Sound Lab (Web Audio)', path: '/experiments/sound-lab' },
+    { name: 'Liveline (Realtime Chart)', path: '/experiments/liveline' },
 ];
 
 export default function ConceptHeader() {

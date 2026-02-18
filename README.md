@@ -8,6 +8,11 @@
 ## Overview
 Concept Deriverse is a UI only trading analytics and journal experience for Solana Dex Traders.
 
+## Credits
+- Designed & Engineered by **Yamparala Rahul**
+- Telegram / X: **@yamparalarahul1**
+- Made for Superteam Earn bounty: [Design trading analytics dashboard with journal and portfolio analysis](https://superteam.fun/earn/listing/design-trading-analytics-dashboard-with-journal-and-portfolio-analysis)
+
 ## Features
 - 20+ analytical cards/widgets across performance, psychology, market depth, and utilities: Paper Hands Tracker, AI Tilt Meter, PnL & Funding Heatmaps, Risk Radar, Execution Quality, Asset Benchmark, Liquidity Heatmap, Orderbook Depth, Portfolio Performance & Fragility, Direction Bias, Market Volatility, Behavioral Log, TradingView Chart, and more premium UI components (CardWithCornerShine, GlassmorphismNavbar, LivePulseIndicator)
 - Experiments with sound and design
@@ -37,7 +42,3 @@ npm run dev
 - `Documents/database.md` — Supabase schemas and caching
 - `Documents/process.md` — workflow and agent skills
 
-## Credits
-- Designed & Engineered by **Yamparala Rahul**
-- Telegram / X: **@yamparalarahul1**
-- Made for Superteam Earn bounty: [Design trading analytics dashboard with journal and portfolio analysis](https://superteam.fun/earn/listing/design-trading-analytics-dashboard-with-journal-and-portfolio-analysis)
