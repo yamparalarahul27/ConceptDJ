@@ -6,6 +6,19 @@ import { ArrowUpRight, BarChart2, BookOpen, Activity, Settings, Zap, Compass, Tr
 import { PixelHeading } from '@/components/ui/pixel-heading-character';
 import Footer from '@/components/layout/Footer';
 
+const todayLabel = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+const EXPERIMENTS = [
+    {
+        name: 'Liveline (Realtime Chart)',
+        description: 'Live SVG micro-chart with streaming data and interactive controls.',
+        path: '/experiments/liveline',
+        status: 'NEW',
+        date: todayLabel,
+        color: 'bg-green-500/10 text-green-300 border-green-500/30'
+    },
+];
+
 const CONCEPTS = [
     {
         name: 'Pro PnL Tracker',
@@ -87,6 +100,14 @@ const CONCEPTS = [
         status: 'INFO',
         color: 'bg-white/5 text-white/60 border-white/10'
     },
+    {
+        name: 'Sileo Toasts',
+        description: 'Physics-based toast demo powered by the Sileo library.',
+        path: '/playground/toast',
+        icon: Zap,
+        status: 'NEW',
+        color: 'bg-green-500/10 text-green-300 border-green-500/30'
+    },
 ];
 
 export default function PlaygroundDashboard() {
@@ -119,6 +140,39 @@ export default function PlaygroundDashboard() {
                     Powered by <span className="text-white"><Link href="https://deriverse.io" target="_blank">Deriverse</Link></span> The next-gen, fully on-chain, and decentralized Solana trading ecosystem
                 </p>
             </header>
+
+            {/* Experiments Spotlight */}
+            <section className="mb-12">
+                <div className="flex items-center gap-3 mb-4">
+                    <div className="w-2 h-2 bg-green-400 animate-pulse"></div>
+                    <span className="text-[10px] font-mono text-white/50 uppercase tracking-[0.3em]">Experiments</span>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {EXPERIMENTS.map(exp => (
+                        <Link key={exp.path} href={exp.path} className="group">
+                            <div className="border border-white/10 bg-white/[0.03] p-5 hover:bg-white/5 hover:border-white/20 transition-all duration-500 relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <div className="flex items-start justify-between mb-6 relative z-10">
+                                    <div>
+                                        <span className="text-[9px] font-mono uppercase tracking-[0.3em] text-white/40">New</span>
+                                        <div className="text-lg font-bold text-white group-hover:text-green-200 transition-colors">{exp.name}</div>
+                                        <div className="text-[11px] text-white/50">{exp.description}</div>
+                                    </div>
+                                    <span className={`text-[9px] font-mono font-bold px-2 py-1 uppercase tracking-widest border ${exp.color}`}>
+                                        {exp.status}
+                                    </span>
+                                </div>
+                                <div className="flex items-center justify-between text-[10px] font-mono text-white/40 relative z-10">
+                                    <span>{exp.date}</span>
+                                    <span className="flex items-center gap-1 text-white/60 group-hover:text-white">
+                                        Open <ArrowUpRight size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                                    </span>
+                                </div>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+            </section>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {CONCEPTS.map((concept) => (

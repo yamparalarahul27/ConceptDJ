@@ -20,6 +20,7 @@ const CORE_CONCEPTS = [
     { name: 'Cards & Widgets', path: '/playground/widgets' },
      { name: 'Liquidity Analyser', path: '/playground/liquidity' },
      { name: 'Pixel Typography', path: '/playground/pixel-demo' },
+    { name: 'Sileo Toasts', path: '/playground/toast' },
 ];
 
 const EXPERIMENTS = [
