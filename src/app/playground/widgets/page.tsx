@@ -31,6 +31,8 @@ import { AssetBenchmarkChart } from '@/components/features/AssetBenchmarkChart';
 import { OrderbookWidget } from '@/components/features/OrderbookWidget';
 import { ConceptMetaBar } from '@/components/features/ConceptMetaBar';
 import { TraderGrade } from '@/components/features/TraderGrade';
+import { TradeInsights } from '@/components/features/TradeInsights';
+import { RollingMetrics } from '@/components/features/RollingMetrics';
 
 // --- CLIENT-ONLY COMPONENTS ---
 const LiquidityHeatmap = dynamic(() => import('@/components/features/LiquidityHeatmap').then(mod => mod.LiquidityHeatmap), { ssr: false });
@@ -80,6 +82,30 @@ const WIDGET_LIBRARY: WidgetMetadata[] = [
                 { label: 'Discipline', value: 85, icon: Activity, color: 'text-amber-400' }
             ]
         }
+    },
+    {
+        id: 'trade-insights',
+        name: 'Automated Trade Insights',
+        category: 'Psychology',
+        description: 'Context-aware AI analysis highlighting strengths, warnings, and hidden patterns in your trading.',
+        calculation: 'Continuous evaluation of historical trade data, session timing, and risk metrics.',
+        utility: 'Provides actionable, bite-sized recommendations to correct bad habits and reinforce winning behaviors.',
+        origin: 'Trader Audit v2',
+        icon: Brain,
+        component: TradeInsights,
+        mockData: {} // Uses default mock data defined in the component
+    },
+    {
+        id: 'rolling-metrics',
+        name: 'Rolling Performance',
+        category: 'Performance',
+        description: '7-day vs 30-day moving averages for key trading metrics.',
+        calculation: 'Calculates rolling averages for Sharpe Ratio, Win Rate, and PnL to highlight short-term momentum vs long-term stability.',
+        utility: 'Instantly identifies if a trader is improving or degrading over time compared to their baseline.',
+        origin: 'Trader Audit v2',
+        icon: Activity,
+        component: RollingMetrics,
+        mockData: {} // Uses embedded mock data wrapper
     },
     {
         id: 'paper-hands',
