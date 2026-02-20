@@ -15,7 +15,9 @@ import {
     Info,
     ChevronRight,
     Search,
-    Filter
+    Filter,
+    Target,
+    Shield
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -28,6 +30,7 @@ import { ExecutionQualityChart } from '@/components/features/ExecutionQualityCha
 import { AssetBenchmarkChart } from '@/components/features/AssetBenchmarkChart';
 import { OrderbookWidget } from '@/components/features/OrderbookWidget';
 import { ConceptMetaBar } from '@/components/features/ConceptMetaBar';
+import { TraderGrade } from '@/components/features/TraderGrade';
 
 // --- CLIENT-ONLY COMPONENTS ---
 const LiquidityHeatmap = dynamic(() => import('@/components/features/LiquidityHeatmap').then(mod => mod.LiquidityHeatmap), { ssr: false });
@@ -57,6 +60,27 @@ interface WidgetMetadata {
 }
 
 const WIDGET_LIBRARY: WidgetMetadata[] = [
+    {
+        id: 'trader-grade',
+        name: 'Trader Alpha Grade',
+        category: 'Performance',
+        description: 'Comprehensive performance audit using advanced behavioral analytics.',
+        calculation: 'Composite scoring of Risk Consistency, Execution Quality, and Profit Factor.',
+        utility: 'Identifies institutional-grade trading patterns and highlights areas for refinement.',
+        origin: 'Trader Audit v2',
+        icon: Target,
+        component: TraderGrade,
+        mockData: {
+            grade: 'A-',
+            totalScore: 88,
+            subScores: [
+                { label: 'Consistency', value: 94, icon: Shield, color: 'text-purple-400' },
+                { label: 'Risk Mgmt', value: 82, icon: Target, color: 'text-blue-400' },
+                { label: 'Execution', value: 91, icon: Zap, color: 'text-green-400' },
+                { label: 'Discipline', value: 85, icon: Activity, color: 'text-amber-400' }
+            ]
+        }
+    },
     {
         id: 'paper-hands',
         name: 'Paper Hands Tracker',
