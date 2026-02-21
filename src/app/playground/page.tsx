@@ -17,6 +17,14 @@ const EXPERIMENTS = [
         date: todayLabel,
         color: 'bg-green-500/10 text-green-300 border-green-500/30'
     },
+    {
+        name: 'Penflow Animation',
+        description: 'Interactive and animated SVG signature text drawing component.',
+        path: '/experiments/penflow',
+        status: 'NEW',
+        date: todayLabel,
+        color: 'bg-purple-500/10 text-purple-300 border-purple-500/30'
+    },
 ];
 
 const CONCEPTS = [
