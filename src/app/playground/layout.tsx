@@ -6,6 +6,7 @@ import SystemStatusStrip from '@/components/layout/SystemStatusStrip';
 import { SettingsProvider } from '@/components/features/SettingsProvider';
 import { ProTour } from '@/components/features/ProTour';
 import { MarketTicker } from '@/components/features/MarketTicker';
+import MobileRestrictedView from '@/components/layout/MobileRestrictedView';
 
 /**
  * PlaygroundLayout
@@ -21,7 +22,14 @@ export default function PlaygroundLayout({
     return (
         <SettingsProvider>
             <ProTour />
-            <div className="flex flex-col min-h-screen">
+
+            {/* Mobile Block Screen */}
+            <div className="sm:hidden min-h-screen">
+                <MobileRestrictedView />
+            </div>
+
+            {/* Desktop Application */}
+            <div className="hidden sm:flex flex-col min-h-screen">
                 <ConceptHeader />
                 <MarketTicker />
                 <main className="flex-1 flex flex-col pt-[104px] sm:pt-[20px] relative">

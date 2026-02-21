@@ -16,10 +16,11 @@ const CORE_CONCEPTS = [
     { name: 'Deep Performance', path: '/playground/performance' },
     { name: 'Trading Journal', path: '/playground/journal' },
     { name: 'Advanced Charts', path: '/playground/tradingview-integration' },
+    { name: 'Asset Details', path: '/playground/assets' },
     { name: 'Risk Intelligence', path: '/playground/risk-intelligence' },
     { name: 'Cards & Widgets', path: '/playground/widgets' },
-     { name: 'Liquidity Analyser', path: '/playground/liquidity' },
-     { name: 'Pixel Typography', path: '/playground/pixel-demo' },
+    { name: 'Liquidity Analyser', path: '/playground/liquidity' },
+    { name: 'Pixel Typography', path: '/playground/pixel-demo' },
     { name: 'Sileo Toasts', path: '/playground/toast' },
 ];
 
