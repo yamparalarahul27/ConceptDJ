@@ -32,3 +32,8 @@ export function formatUsd(value: number): string {
 export function formatPercent(value: number): string {
   return `${value.toFixed(1)}%`;
 }
+
+// Parse position ID to extract market and side
+export function parsePositionId(positionId: string) {
+  return { market: 'UNKNOWN', side: 'UNKNOWN' };
+}

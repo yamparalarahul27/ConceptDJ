@@ -25,6 +25,14 @@ const EXPERIMENTS = [
         date: todayLabel,
         color: 'bg-purple-500/10 text-purple-300 border-purple-500/30'
     },
+    {
+        name: 'Trade Detail Sidebar',
+        description: 'Slide-out sidebar with trade journaling and mock AI analysis.',
+        path: '/playground/trade-detail',
+        status: 'NEW',
+        date: todayLabel,
+        color: 'bg-blue-500/10 text-blue-300 border-blue-500/30'
+    },
 ];
 
 const CONCEPTS = [
