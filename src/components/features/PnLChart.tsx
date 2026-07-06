@@ -2,6 +2,7 @@
 import React, { useMemo } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine, Line } from 'recharts';
 import type { DrawdownPoint } from '../../lib/drawdownCalculations';
+import ChartTooltipShell from '../ui/ChartTooltipShell';
 
 interface PnLChartProps {
     data: any[];
@@ -17,7 +18,7 @@ const CustomTooltip = ({ active, payload, label, showDrawdown }: any) => {
         const ratioInfo = showDrawdown && payload.find((p: any) => p.name === 'pnlToDrawdownRatio');
 
         return (
-            <div className="bg-black/90 border border-white/10 p-3 rounded shadow-xl backdrop-blur-md">
+            <ChartTooltipShell className="rounded">
                 <p className="text-white/60 text-xs mb-1">Time: {label}</p>
                 {pnlInfo && (
                     <p style={{ color: pnlInfo.color }} className="text-sm font-mono font-bold mb-1">
@@ -34,7 +35,7 @@ const CustomTooltip = ({ active, payload, label, showDrawdown }: any) => {
                         PnL/DD: {ratioInfo.value.toFixed(2)}x
                     </p>
                 )}
-            </div>
+            </ChartTooltipShell>
         );
     }
     return null;

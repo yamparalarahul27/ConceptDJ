@@ -62,7 +62,6 @@ export default function TradeDetailExperimentPage() {
                 trade={mockTrade}
                 isOpen={isOpen}
                 onClose={() => setIsOpen(false)}
-                onUpdated={(res) => console.log('Journal updated:', res)}
             />
         </div>
     )

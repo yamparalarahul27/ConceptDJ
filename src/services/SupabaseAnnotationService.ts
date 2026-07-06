@@ -1,4 +1,4 @@
-import { supabase } from '../lib/supabaseClient';
+import { supabase, isSupabaseConfigured } from '../lib/supabaseClient';
 import { TradeAnnotation } from '../lib/types';
 
 export class SupabaseAnnotationService {
@@ -6,6 +6,8 @@ export class SupabaseAnnotationService {
      * Fetch annotation for a specific trade
      */
     async getAnnotation(tradeId: string): Promise<TradeAnnotation | null> {
+        if (!isSupabaseConfigured()) return null;
+
         const { data, error } = await supabase
             .from('trade_annotations')
             .select('*')
@@ -25,6 +27,8 @@ export class SupabaseAnnotationService {
      * Save/Update annotation for a trade
      */
     async saveAnnotation(annotation: TradeAnnotation, walletAddress?: string): Promise<TradeAnnotation> {
+        if (!isSupabaseConfigured()) return annotation;
+
         const dbData = this.mapAnnotationToDb(annotation, walletAddress);
 
         const { data, error } = await supabase
@@ -45,6 +49,8 @@ export class SupabaseAnnotationService {
      * Get all annotations for a wallet's trades
      */
     async getAnnotationsForWallet(walletAddress: string): Promise<Record<string, TradeAnnotation>> {
+        if (!isSupabaseConfigured()) return {};
+
         // We query by wallet_address directly if available for better reliability
         const { data, error } = await supabase
             .from('trade_annotations')

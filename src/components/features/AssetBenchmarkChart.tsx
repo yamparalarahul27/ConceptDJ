@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import ChartTooltipShell from '../ui/ChartTooltipShell';
 
 interface AssetBenchmarkChartProps {
     data: any[];
@@ -10,7 +11,7 @@ interface AssetBenchmarkChartProps {
 const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
         return (
-            <div className="bg-black/90 border border-white/10 p-3 rounded-none shadow-xl backdrop-blur-md">
+            <ChartTooltipShell>
                 <p className="text-white/40 text-[10px] font-mono mb-2 uppercase tracking-wider">Time: {label}</p>
                 {payload.map((p: any) => (
                     <div key={p.name} className="flex items-center justify-between gap-6 mb-1">
@@ -30,7 +31,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
                         </p>
                     </div>
                 )}
-            </div>
+            </ChartTooltipShell>
         );
     }
     return null;

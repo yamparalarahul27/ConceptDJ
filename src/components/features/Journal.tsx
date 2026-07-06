@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
     Download,
     ChevronLeft,
@@ -54,7 +54,7 @@ export default function Journal({ network = 'mock', analyzingWallet, onNavigateT
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [availableTags, setAvailableTags] = useState<string[]>([]);
 
-    const annotationService = new SupabaseAnnotationService();
+    const annotationService = useMemo(() => new SupabaseAnnotationService(), []);
 
     useEffect(() => {
         async function loadInitialData() {

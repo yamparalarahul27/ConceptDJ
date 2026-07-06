@@ -1,6 +1,7 @@
 
 import React, { useMemo } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
+import ChartTooltipShell from '../ui/ChartTooltipShell';
 
 interface PaperHandsChartProps {
     data: any[];
@@ -10,7 +11,7 @@ interface PaperHandsChartProps {
 const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
         return (
-            <div className="bg-black/90 border border-white/10 p-3 rounded-none shadow-xl backdrop-blur-md">
+            <ChartTooltipShell>
                 <p className="text-white/40 text-[10px] font-mono mb-2 uppercase tracking-wider">Time: {label}</p>
                 {payload.map((p: any) => (
                     <div key={p.name} className="flex items-center justify-between gap-4 mb-1">
@@ -20,7 +21,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
                         </span>
                     </div>
                 ))}
-            </div>
+            </ChartTooltipShell>
         );
     }
     return null;

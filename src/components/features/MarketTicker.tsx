@@ -89,7 +89,6 @@ export const MarketTicker: React.FC = () => {
         };
 
         ws.onclose = () => {
-            console.log("Binance WebSocket closed.");
             // Optionally, try to reconnect here
         };
 

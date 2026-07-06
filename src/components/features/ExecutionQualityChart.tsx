@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ZAxis } from 'recharts';
+import ChartTooltipShell from '../ui/ChartTooltipShell';
 import { Info } from 'lucide-react';
 
 interface ExecutionQualityChartProps {
@@ -12,7 +13,7 @@ const CustomTooltip = ({ active, payload }: any) => {
     if (active && payload && payload.length) {
         const item = payload[0].payload;
         return (
-            <div className="bg-black/90 border border-white/10 p-3 rounded-none shadow-xl backdrop-blur-md">
+            <ChartTooltipShell>
                 <p className="text-white/40 text-[12px] font-mono mb-2 uppercase tracking-wider font-bold">{item.pair}</p>
                 <div className="space-y-1">
                     <p className="flex justify-between gap-4">
@@ -30,7 +31,7 @@ const CustomTooltip = ({ active, payload }: any) => {
                         </span>
                     </p>
                 </div>
-            </div>
+            </ChartTooltipShell>
         );
     }
     return null;

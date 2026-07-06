@@ -2,6 +2,7 @@
 
 import React, { useMemo, useState } from 'react';
 import CardWithCornerShine from '../ui/CardWithCornerShine';
+import ChartTooltipShell from '../ui/ChartTooltipShell';
 import InfoTooltip from '../ui/InfoTooltip';
 import type { Trade } from '../../lib/types';
 import { calculateSessionPerformance, calculateTimeOfDayPerformance } from '../../lib/mockData';
@@ -72,12 +73,12 @@ export default function TimeBasedPerformanceCard({
     if (!active || !payload?.length) return null;
     const value = payload[0]?.value ?? 0;
     return (
-      <div className="bg-black/90 border border-white/10 p-3 rounded-none shadow-xl backdrop-blur-md">
+      <ChartTooltipShell>
         <p className="text-white/60 text-xs mb-1 font-mono">{viewMode === 'session' ? 'Session' : 'Hour'}: {label}</p>
         <p className="text-sm font-mono font-bold" style={{ color: value >= 0 ? '#4ade80' : '#f87171' }}>
           PnL: {formatPnL(value)}
         </p>
-      </div>
+      </ChartTooltipShell>
     );
   };
 
