@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import ConceptHeader from '@/components/layout/ConceptHeader';
 import SystemStatusStrip from '@/components/layout/SystemStatusStrip';
 import { SettingsProvider } from '@/components/features/SettingsProvider';
 import { ProTour } from '@/components/features/ProTour';
@@ -30,7 +29,6 @@ export default function PlaygroundLayout({
 
             {/* Desktop Application */}
             <div className="hidden sm:flex flex-col min-h-screen">
-                <ConceptHeader />
                 <MarketTicker />
                 <main className="flex-1 flex flex-col pt-[104px] sm:pt-[20px] relative">
                     {children}

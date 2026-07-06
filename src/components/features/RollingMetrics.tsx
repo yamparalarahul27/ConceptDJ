@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import ChartTooltipShell from '../ui/ChartTooltipShell';
 import { cn } from '@/lib/utils';
 import { TrendingUp, Activity, BarChart2, DollarSign } from 'lucide-react';
 
@@ -64,7 +65,7 @@ import { Target } from 'lucide-react';
 const CustomTooltip = ({ active, payload, label, config }: any) => {
     if (active && payload && payload.length) {
         return (
-            <div className="bg-black/90 border border-white/10 p-3 rounded-none shadow-xl backdrop-blur-md min-w-[150px]">
+            <ChartTooltipShell className="min-w-[150px]">
                 <p className="text-white/40 text-[10px] font-mono mb-2 uppercase tracking-wider font-bold">{label}</p>
                 <div className="space-y-1.5 border-t border-white/5 pt-2">
                     {payload.map((entry: any, index: number) => (
@@ -82,7 +83,7 @@ const CustomTooltip = ({ active, payload, label, config }: any) => {
                         </div>
                     ))}
                 </div>
-            </div>
+            </ChartTooltipShell>
         );
     }
     return null;

@@ -144,8 +144,6 @@ export async function migrateToSupabase(walletAddress: string, service: any): Pr
 
     if (tradeIds.length === 0) return 0;
 
-    console.log(`[Migration] Found ${tradeIds.length} local annotations for wallet: ${walletAddress}`);
-
     let migratedCount = 0;
     for (const tradeId of tradeIds) {
         // Skip mock trades - they only live in localStorage

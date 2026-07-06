@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip } from 'recharts';
+import ChartTooltipShell from '../ui/ChartTooltipShell';
 
 interface PsychologicalBiasTrackerProps {
     data: any[];
@@ -9,13 +10,13 @@ interface PsychologicalBiasTrackerProps {
 const CustomTooltip = ({ active, payload }: any) => {
     if (active && payload && payload.length) {
         return (
-            <div className="bg-black/90 border border-white/10 p-3 rounded-none backdrop-blur-md shadow-2xl">
+            <ChartTooltipShell className="shadow-2xl">
                 <p className="text-white font-mono text-[10px] uppercase font-bold mb-1">{payload[0].payload.subject}</p>
                 <p className="text-purple-400 font-pixel text-lg">{payload[0].value}%</p>
                 <div className="mt-2 text-[9px] text-white/40 font-mono uppercase leading-tight">
                     Detected via behavioral <br /> execution patterns.
                 </div>
-            </div>
+            </ChartTooltipShell>
         );
     }
     return null;

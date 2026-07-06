@@ -105,7 +105,6 @@ export default function TradeHistory({ onSwitchToRealData }: TradeHistoryProps =
     setSavingTrades(true);
     try {
       const result = await tradeService.saveTrades(currentWalletAddress, deriverseTrades);
-      console.log(`[Supabase] Saved ${result.saved} trades`);
 
       // Update state and show modal
       setSavedTradeCount(result.saved);
