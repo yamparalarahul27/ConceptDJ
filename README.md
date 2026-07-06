@@ -20,8 +20,14 @@ Concept Deriverse is a UI only trading analytics and journal experience for Sola
 ## Tech Stack
 - Next.js 16 (App Router), React 19, TypeScript
 - Tailwind CSS v4, shadcn styles
-- Supabase (PostgreSQL, auth) for persistence
-- Solana Web3 + Helius/@deriverse/kit (planned/optional)
+- Charts: Recharts, visx, and lightweight-charts
+- Animation: Motion (Framer Motion)
+
+> **Note:** This is a UI-only concept. There is no live backend today — the
+> Supabase, Helius, and Deriverse services under `src/services/` are mocks that
+> return static/empty data, and annotations persist to browser `localStorage`.
+> Solana Web3, Helius, and Supabase persistence are planned integrations, not
+> yet wired up.
 
 ## Getting Started
 ```bash
@@ -36,9 +42,10 @@ npm run dev
 - `npm run lint` — lint codebase
 
 ## Documentation
-- `Documents/document-index.md` — index of all project docs
 - `Documents/architecture.md` — system overview
-- `Documents/design-uiux.md` / `frontend-uiux.md` — UI patterns and tokens
-- `Documents/database.md` — Supabase schemas and caching
-- `Documents/process.md` — workflow and agent skills
+- `Documents/design_uiux.md` — UI patterns and tokens
+- `Documents/Database.md` — planned Supabase schemas and caching
+- `Documents/Process.md` — workflow and agent skills
+- `Documents/Testing.md` — testing strategy
+- `Documents/Deployment.md` — deployment notes
 
