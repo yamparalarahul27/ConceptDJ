@@ -254,6 +254,14 @@ body {
   font-family: var(--font-geist-mono), monospace;
 }
 
+/*
+ * Keep the app hidden in the server-rendered first frame so it cannot flash
+ * through while the welcome screen is mounting and fading in.
+ */
+body.app-loading [data-app-content] {
+  visibility: hidden;
+}
+
 /* ============================================
    Geist Typography Scale Utilities
    ============================================ */

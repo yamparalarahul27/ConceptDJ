@@ -37,14 +37,16 @@ export default function RootLayout({
           ${GeistPixelCircle.variable} 
           ${GeistPixelTriangle.variable} 
           ${GeistPixelLine.variable} 
-          antialiased
+          antialiased app-loading
           bg-[#0D0D21] text-white selection:bg-purple-500/30 flex flex-col min-h-screen
         `}
       >
-        <ConceptHeader />
-        <main className="flex-1 relative overflow-auto pt-36">
-          {children}
-        </main>
+        <div data-app-content className="contents">
+          <ConceptHeader />
+          <main className="flex-1 relative overflow-auto pt-36">
+            {children}
+          </main>
+        </div>
 
         <LoadingScreen />
         <Toaster
